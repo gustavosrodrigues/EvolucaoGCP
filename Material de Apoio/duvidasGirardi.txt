@@ -1,7 +1,30 @@
 duvidas:
 
 Necessidade e utilização do "Ponto"
+
 Necessidade de alteração da pontuação dos itens de Formacao Academica, Produção
 Cientifica e Atividades de Pesquisa, Ensino, Extensão e Profissional
+
 Necessidade de separar a "Abertura" do "Concurso"
 
+
+Principal melhoria para o sistema
+Principal problema existente hoje
+Quais atores que operam o sistema atualmente
+Se quer a implementação de mais um tipo de ator
+
+porque esta desabilitada a definiçao de pesos pra abertura
+o que seriam as classes? classes vs pesos
+
+parametrizado os tipos de prova
+
+
+
+------------------------------------------------------------------------------------
+
+fazer um arquivo de configuração do concurso, e o sistema se adaptasse a isso
+controle dos usuários (adm, examinador, 
+
+tema do concurso (POO, algoritmos...)
+
+abertura é única para cada concurso, é uma configuração inicial...
