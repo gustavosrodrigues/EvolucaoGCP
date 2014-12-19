@@ -1,0 +1,6 @@
+- Refatorar Interface
+- Transmissão dos documentos
+- Módulo de Definição de Regras, provas, pesos...
+- Plataforma Java Desktop
+- Facilitar Edição dos Documentos (Template)
+- Estudar a Possibilidade de Ass. Digital
