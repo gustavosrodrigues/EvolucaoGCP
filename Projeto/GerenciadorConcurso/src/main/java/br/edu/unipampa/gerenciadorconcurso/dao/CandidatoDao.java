@@ -4,7 +4,9 @@
 package br.edu.unipampa.gerenciadorconcurso.dao;
 
 import br.edu.unipampa.gerenciadorconcurso.model.Candidato;
+import br.edu.unipampa.gerenciadorconcurso.model.Concurso;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * @author Douglas
@@ -20,6 +22,7 @@ public class CandidatoDao {
 
 //<editor-fold defaultstate="collapsed" desc="Salvar">
     public boolean salvar(Candidato candidato) {
+        DAO.salvar(candidato.getPessoa());
         return DAO.salvar(candidato);
     }
 //</editor-fold>
@@ -27,6 +30,12 @@ public class CandidatoDao {
 //<editor-fold defaultstate="collapsed" desc="Buscar">
     public ArrayList<Candidato> buscar() {
         return (ArrayList<Candidato>) DAO.buscarObjetos(Candidato.class);
+    }
+
+    public ArrayList<Candidato> buscar(Concurso concurso) {
+        HashMap<String, Object> filtros = new HashMap<>();
+        filtros.put("concurso.codigo", concurso.getCodigo());
+        return (ArrayList<Candidato>) DAO.buscarObjetos(filtros,Candidato.class);
     }
 
     public Candidato buscar(int codigo) {

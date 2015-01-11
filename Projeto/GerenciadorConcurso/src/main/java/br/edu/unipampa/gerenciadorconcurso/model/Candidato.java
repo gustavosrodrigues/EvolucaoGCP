@@ -42,7 +42,7 @@ public class Candidato implements Serializable {
     @Basic(optional = false)
     @Column(name = "codigo")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer codigo;
+    private int codigo;
     @Column(name = "dataNacimento")
     @Temporal(TemporalType.DATE)
     private Date dataNacimento;
@@ -62,7 +62,7 @@ public class Candidato implements Serializable {
     @JoinColumn(name = "memorial", referencedColumnName = "codigo")
     @ManyToOne(optional = true)
     private Memorial memorial;
-    @JoinColumn(name = "pessoa", referencedColumnName = "codigo")
+    @JoinColumn(name = "pessoa", referencedColumnName = "codigo", insertable = true, updatable = true)
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
     private Pessoa pessoa;
     @JoinColumn(name = "titulo", referencedColumnName = "codigo")
@@ -80,7 +80,7 @@ public class Candidato implements Serializable {
         return codigo;
     }
 
-    public void setCodigo(Integer codigo) {
+    public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 
@@ -154,26 +154,6 @@ public class Candidato implements Serializable {
 
     public void setTitulo(Titulo titulo) {
         this.titulo = titulo;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (codigo != null ? codigo.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Candidato)) {
-            return false;
-        }
-        Candidato other = (Candidato) object;
-        if ((this.codigo == null && other.codigo != null) || (this.codigo != null && !this.codigo.equals(other.codigo))) {
-            return false;
-        }
-        return true;
     }
 
     @Override

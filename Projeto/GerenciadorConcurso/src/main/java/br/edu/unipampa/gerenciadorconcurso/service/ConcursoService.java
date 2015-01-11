@@ -44,7 +44,7 @@ public class ConcursoService {
     
     public static void listaConcursos(ArrayList<Concurso> concursos, DefaultTableModel modelo) {
         Tabela.limparTabela(modelo);
-        String infoConcurso[] = new String[3];
+        String infoConcurso[] = new String[5];
         for (int i = 0; i < concursos.size(); i++) {
             infoConcurso[0] = concursos.get(i).getCodigo() + "";
             infoConcurso[1] = concursos.get(i).getUniversidade()+"";

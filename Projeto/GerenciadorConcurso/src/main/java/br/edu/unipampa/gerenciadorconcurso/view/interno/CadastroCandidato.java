@@ -15,6 +15,8 @@ import br.edu.unipampa.gerenciadorconcurso.validator.Data;
 import br.edu.unipampa.gerenciadorconcurso.validator.FieldFormat;
 import br.edu.unipampa.gerenciadorconcurso.validator.FormattedFieldFormat;
 import br.edu.unipampa.gerenciadorconcurso.validator.StatusCadastros;
+import br.edu.unipampa.gerenciadorconcurso.view.AreaTrabalho;
+import br.edu.unipampa.gerenciadorconcurso.view.pesq.PesqCandidato;
 import javax.swing.JFormattedTextField;
 
 /**
@@ -199,7 +201,8 @@ public class CadastroCandidato extends javax.swing.JInternalFrame {
                     .addComponent(txtAlertNascimento)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(textNascimento)
-                        .addComponent(campoNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(campoNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         txtAlertNome.setVisible(false);
@@ -220,16 +223,14 @@ public class CadastroCandidato extends javax.swing.JInternalFrame {
                 pessoa.setSexo(true);
             }
             
-            Concurso concurso = new Concurso();
-            concurso.setCodigo(1);
-            
             candidato = new Candidato();
             candidato.setPessoa(pessoa);
             candidato.setDataNacimento(Data.converteData(campoNascimento.getText()));
+            candidato.setConcurso(Concurso.getInstance());
             candidato.setCodigo(Integer.parseInt(campoCodigo.getText()));
-            candidato.setConcurso(concurso);
             if(candidatoService.salvar(candidato)){
                 status.estadoSalvo();
+                campoCodigo.setText(candidato.getCodigo()+"");
                 campoMensagem.setText("Candidato salvo com sucesso!");
             } else {
                 campoMensagem.setText("Ocorreu um erro ao salvar o candidato!");
@@ -242,7 +243,7 @@ public class CadastroCandidato extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btDeletarActionPerformed
 
     private void btBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarActionPerformed
-        status.estadoSalvo();
+        new PesqCandidato(null, true, campoCodigo).setVisible(true);
     }//GEN-LAST:event_btBuscarActionPerformed
 
     private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
