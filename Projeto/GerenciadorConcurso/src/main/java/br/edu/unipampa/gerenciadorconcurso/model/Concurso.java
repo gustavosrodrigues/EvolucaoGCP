@@ -68,15 +68,23 @@ public class Concurso implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "concurso")
     private Collection<Candidato> candidatoCollection;
     @JoinColumn(name = "banca", referencedColumnName = "codigo")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = true)
     private Banca banca;
 
-    public Concurso() {
+    private static Concurso INSTANCE = null;
+    
+    public static Concurso getInstance(){
+        if(INSTANCE == null){
+            return new Concurso();
+        } else {
+            return INSTANCE;
+        }
     }
-
-    public Concurso(Integer codigo) {
-        this.codigo = codigo;
+    
+    public static void setInstance(Concurso concurso){
+        INSTANCE = concurso;
     }
+    
 
     public Integer getCodigo() {
         return codigo;

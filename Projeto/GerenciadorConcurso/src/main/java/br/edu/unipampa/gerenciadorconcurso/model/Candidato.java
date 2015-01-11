@@ -8,14 +8,16 @@ package br.edu.unipampa.gerenciadorconcurso.model;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -30,19 +32,20 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Candidato.findAll", query = "SELECT c FROM Candidato c"),
+    @NamedQuery(name = "Candidato.findByCodigo", query = "SELECT c FROM Candidato c WHERE c.codigo = :codigo"),
     @NamedQuery(name = "Candidato.findByDataNacimento", query = "SELECT c FROM Candidato c WHERE c.dataNacimento = :dataNacimento"),
-    @NamedQuery(name = "Candidato.findByPessoa", query = "SELECT c FROM Candidato c WHERE c.pessoa = :pessoa"),
     @NamedQuery(name = "Candidato.findByAprovado", query = "SELECT c FROM Candidato c WHERE c.aprovado = :aprovado"),
     @NamedQuery(name = "Candidato.findByCompareceuDidatica", query = "SELECT c FROM Candidato c WHERE c.compareceuDidatica = :compareceuDidatica")})
 public class Candidato implements Serializable {
     private static final long serialVersionUID = 1L;
+    @Id
+    @Basic(optional = false)
+    @Column(name = "codigo")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int codigo;
     @Column(name = "dataNacimento")
     @Temporal(TemporalType.DATE)
     private Date dataNacimento;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "pessoa")
-    private Integer pessoa;
     @Column(name = "aprovado")
     private Boolean aprovado;
     @Column(name = "compareceuDidatica")
@@ -51,26 +54,34 @@ public class Candidato implements Serializable {
     @ManyToOne(optional = false)
     private Concurso concurso;
     @JoinColumn(name = "provaDidatica", referencedColumnName = "codigo")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = true)
     private Didatica provaDidatica;
     @JoinColumn(name = "provaEscrita", referencedColumnName = "codigo")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = true)
     private Escrita provaEscrita;
     @JoinColumn(name = "memorial", referencedColumnName = "codigo")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = true)
     private Memorial memorial;
-    @JoinColumn(name = "pessoa", referencedColumnName = "codigo", insertable = false, updatable = false)
-    @OneToOne(optional = false)
-    private Pessoa pessoa1;
+    @JoinColumn(name = "pessoa", referencedColumnName = "codigo", insertable = true, updatable = true)
+    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    private Pessoa pessoa;
     @JoinColumn(name = "titulo", referencedColumnName = "codigo")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = true)
     private Titulo titulo;
 
     public Candidato() {
     }
 
-    public Candidato(Integer pessoa) {
-        this.pessoa = pessoa;
+    public Candidato(Integer codigo) {
+        this.codigo = codigo;
+    }
+
+    public Integer getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public Date getDataNacimento() {
@@ -79,14 +90,6 @@ public class Candidato implements Serializable {
 
     public void setDataNacimento(Date dataNacimento) {
         this.dataNacimento = dataNacimento;
-    }
-
-    public Integer getPessoa() {
-        return pessoa;
-    }
-
-    public void setPessoa(Integer pessoa) {
-        this.pessoa = pessoa;
     }
 
     public Boolean getAprovado() {
@@ -137,12 +140,12 @@ public class Candidato implements Serializable {
         this.memorial = memorial;
     }
 
-    public Pessoa getPessoa1() {
-        return pessoa1;
+    public Pessoa getPessoa() {
+        return pessoa;
     }
 
-    public void setPessoa1(Pessoa pessoa1) {
-        this.pessoa1 = pessoa1;
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
     }
 
     public Titulo getTitulo() {
@@ -154,28 +157,8 @@ public class Candidato implements Serializable {
     }
 
     @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (pessoa != null ? pessoa.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Candidato)) {
-            return false;
-        }
-        Candidato other = (Candidato) object;
-        if ((this.pessoa == null && other.pessoa != null) || (this.pessoa != null && !this.pessoa.equals(other.pessoa))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
     public String toString() {
-        return "br.edu.unipampa.gerenciadorconcurso.Candidato[ pessoa=" + pessoa + " ]";
+        return "br.edu.unipampa.gerenciadorconcurso.model.Candidato[ codigo=" + codigo + " ]";
     }
     
 }

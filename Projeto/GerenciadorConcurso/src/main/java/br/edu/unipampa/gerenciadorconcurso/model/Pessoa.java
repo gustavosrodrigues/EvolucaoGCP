@@ -6,16 +6,22 @@
 package br.edu.unipampa.gerenciadorconcurso.model;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import org.hibernate.annotations.Generated;
 
 /**
  *
@@ -30,18 +36,22 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Pessoa.findByNome", query = "SELECT p FROM Pessoa p WHERE p.nome = :nome"),
     @NamedQuery(name = "Pessoa.findBySexo", query = "SELECT p FROM Pessoa p WHERE p.sexo = :sexo")})
 public class Pessoa implements Serializable {
-    private static final long serialVersionUID = 1L;
+
     @Id
     @Basic(optional = false)
     @Column(name = "codigo")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer codigo;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoa")
+    private Collection<Candidato> candidatoCollection;
+    private static final long serialVersionUID = 1L;
     @Column(name = "nome")
     private String nome;
     @Column(name = "sexo")
     private Boolean sexo;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "pessoa1")
     private Examinador examinador;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "pessoa1")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "pessoa")
     private Candidato candidato;
 
     public Pessoa() {
@@ -115,5 +125,14 @@ public class Pessoa implements Serializable {
     public String toString() {
         return "br.edu.unipampa.gerenciadorconcurso.Pessoa[ codigo=" + codigo + " ]";
     }
-    
+
+    @XmlTransient
+    public Collection<Candidato> getCandidatoCollection() {
+        return candidatoCollection;
+    }
+
+    public void setCandidatoCollection(Collection<Candidato> candidatoCollection) {
+        this.candidatoCollection = candidatoCollection;
+    }
+
 }
