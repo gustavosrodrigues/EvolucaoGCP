@@ -7,5 +7,21 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bancoConcursoUnipampa</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">root</property>
+    <mapping class="br.edu.unipampa.gerenciadorconcurso.model.Candidato"></mapping>
+    <mapping class="br.edu.unipampa.gerenciadorconcurso.model.Abertura"></mapping>
+    <mapping class="br.edu.unipampa.gerenciadorconcurso.model.Banca"></mapping>
+    <mapping class="br.edu.unipampa.gerenciadorconcurso.model.Concurso"/>
+    <mapping class="br.edu.unipampa.gerenciadorconcurso.model.Configuracaoavaliacaoprova"></mapping>
+    <mapping class="br.edu.unipampa.gerenciadorconcurso.model.Didatica"></mapping>
+    <mapping class="br.edu.unipampa.gerenciadorconcurso.model.Escrita"></mapping>
+    <mapping class="br.edu.unipampa.gerenciadorconcurso.model.Examinador"></mapping>
+    <mapping class="br.edu.unipampa.gerenciadorconcurso.model.Formacaoacademica"></mapping>
+    <mapping class="br.edu.unipampa.gerenciadorconcurso.model.Memorial"></mapping>
+    <mapping class="br.edu.unipampa.gerenciadorconcurso.model.Pesquisaensinoextensao"></mapping>
+    <mapping class="br.edu.unipampa.gerenciadorconcurso.model.Pessoa"></mapping>
+    <mapping class="br.edu.unipampa.gerenciadorconcurso.model.Producaoartistica"></mapping>
+    <mapping class="br.edu.unipampa.gerenciadorconcurso.model.Registrocronograma"></mapping>
+    <mapping class="br.edu.unipampa.gerenciadorconcurso.model.Tema"></mapping>
+    <mapping class="br.edu.unipampa.gerenciadorconcurso.model.Titulo"></mapping>
   </session-factory>
 </hibernate-configuration>

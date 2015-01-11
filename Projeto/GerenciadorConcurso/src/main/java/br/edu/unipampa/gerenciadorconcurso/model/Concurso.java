@@ -71,12 +71,10 @@ public class Concurso implements Serializable {
     @ManyToOne(optional = false)
     private Banca banca;
 
-    public Concurso() {
+    public Concurso(){
+        
     }
-
-    public Concurso(Integer codigo) {
-        this.codigo = codigo;
-    }
+    
 
     public Integer getCodigo() {
         return codigo;
