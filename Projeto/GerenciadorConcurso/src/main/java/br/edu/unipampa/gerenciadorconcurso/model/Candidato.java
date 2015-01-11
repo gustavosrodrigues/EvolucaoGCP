@@ -11,6 +11,8 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -39,6 +41,7 @@ public class Candidato implements Serializable {
     @Id
     @Basic(optional = false)
     @Column(name = "codigo")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer codigo;
     @Column(name = "dataNacimento")
     @Temporal(TemporalType.DATE)
@@ -51,19 +54,19 @@ public class Candidato implements Serializable {
     @ManyToOne(optional = false)
     private Concurso concurso;
     @JoinColumn(name = "provaDidatica", referencedColumnName = "codigo")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = true)
     private Didatica provaDidatica;
     @JoinColumn(name = "provaEscrita", referencedColumnName = "codigo")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = true)
     private Escrita provaEscrita;
     @JoinColumn(name = "memorial", referencedColumnName = "codigo")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = true)
     private Memorial memorial;
     @JoinColumn(name = "pessoa", referencedColumnName = "codigo")
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
     private Pessoa pessoa;
     @JoinColumn(name = "titulo", referencedColumnName = "codigo")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = true)
     private Titulo titulo;
 
     public Candidato() {

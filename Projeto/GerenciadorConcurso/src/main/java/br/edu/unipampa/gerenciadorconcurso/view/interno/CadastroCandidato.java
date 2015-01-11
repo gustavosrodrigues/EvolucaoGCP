@@ -167,11 +167,10 @@ public class CadastroCandidato extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtAlertNome))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(boxSexo, javax.swing.GroupLayout.Alignment.LEADING, 0, 120, Short.MAX_VALUE)
-                            .addComponent(campoNascimento, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addComponent(campoNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAlertNascimento)))
+                        .addComponent(txtAlertNascimento))
+                    .addComponent(boxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(90, Short.MAX_VALUE))
             .addComponent(campoMensagem)
         );
@@ -191,16 +190,16 @@ public class CadastroCandidato extends javax.swing.JInternalFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(textNome)
                         .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(10, 10, 10)
+                .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(boxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textSexo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtAlertNascimento)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(campoNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtAlertNascimento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(textNascimento)))
+                        .addComponent(textNascimento)
+                        .addComponent(campoNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         txtAlertNome.setVisible(false);
@@ -215,16 +214,19 @@ public class CadastroCandidato extends javax.swing.JInternalFrame {
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
         if(tratamentoCampos.validaObrigatorios()){
-            candidato = new Candidato();
             Pessoa pessoa = new Pessoa();
             pessoa.setNome(campoNome.getText());
             if(boxSexo.getSelectedIndex() == 0){
                 pessoa.setSexo(true);
             }
-            candidato.setDataNacimento(Data.converteData(campoNascimento.getText()));
-            candidato.setCodigo(Integer.parseInt(campoCodigo.getText()));
+            
             Concurso concurso = new Concurso();
             concurso.setCodigo(1);
+            
+            candidato = new Candidato();
+            candidato.setPessoa(pessoa);
+            candidato.setDataNacimento(Data.converteData(campoNascimento.getText()));
+            candidato.setCodigo(Integer.parseInt(campoCodigo.getText()));
             candidato.setConcurso(concurso);
             if(candidatoService.salvar(candidato)){
                 status.estadoSalvo();
