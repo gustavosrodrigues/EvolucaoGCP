@@ -42,6 +42,8 @@ public class PesqCandidato extends javax.swing.JDialog {
      */
     public PesqCandidato(java.awt.Frame parent, boolean modal, JTextField campoCodigo) {
         super(parent, modal);
+        candidatoService = new CandidatoService();
+        candidatos = candidatoService.buscar(Concurso.getInstance());
         initComponents();
         this.campoCodigo = campoCodigo;
     }
@@ -78,7 +80,7 @@ public class PesqCandidato extends javax.swing.JDialog {
                 java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, true, true
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -119,8 +121,8 @@ public class PesqCandidato extends javax.swing.JDialog {
     private void tabelaCandidatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaCandidatosMouseClicked
         if (evt.getClickCount() > 1) {
             int codigoLinha = tabelaCandidatos.getSelectedRow();
-            int codigo = Integer.parseInt(tabelaCandidatos.getValueAt(codigoLinha, 0)+"");
-            Concurso.setInstance(new ConcursoService().buscar(codigo));
+            int codigo = Integer.parseInt(tabelaCandidatos.getValueAt(codigoLinha, 0) + "");
+            campoCodigo.setText(codigo+"");
             dispose();
         }
     }//GEN-LAST:event_tabelaCandidatosMouseClicked

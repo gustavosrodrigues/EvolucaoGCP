@@ -18,17 +18,19 @@ import br.edu.unipampa.gerenciadorconcurso.validator.StatusCadastros;
 import br.edu.unipampa.gerenciadorconcurso.view.AreaTrabalho;
 import br.edu.unipampa.gerenciadorconcurso.view.pesq.PesqCandidato;
 import javax.swing.JFormattedTextField;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Douglas
  */
 public class CadastroCandidato extends javax.swing.JInternalFrame {
+
     private Campos tratamentoCampos;
     private StatusCadastros status;
     private CandidatoService candidatoService;
     private Candidato candidato;
-    
+
     /**
      * Creates new form CadastroCandidato
      */
@@ -130,6 +132,7 @@ public class CadastroCandidato extends javax.swing.JInternalFrame {
 
         campoCodigo.setEditable(false);
         campoCodigo.setText("0");
+        campoCodigo.setEnabled(false);
 
         textNome.setText("Nome");
 
@@ -138,6 +141,13 @@ public class CadastroCandidato extends javax.swing.JInternalFrame {
         textSexo.setText("Sexo");
 
         textNascimento.setText("Nascimento");
+
+        campoNascimento.setRequestFocusEnabled(false);
+        campoNascimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoNascimentoActionPerformed(evt);
+            }
+        });
 
         txtAlertNome.setBackground(new java.awt.Color(102, 0, 0));
         txtAlertNome.setText("!!!!");
@@ -216,21 +226,21 @@ public class CadastroCandidato extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btNovoActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-        if(tratamentoCampos.validaObrigatorios()){
+        if (tratamentoCampos.validaObrigatorios()) {
             Pessoa pessoa = new Pessoa();
             pessoa.setNome(campoNome.getText());
-            if(boxSexo.getSelectedIndex() == 0){
+            if (boxSexo.getSelectedIndex() == 0) {
                 pessoa.setSexo(true);
             }
-            
+
             candidato = new Candidato();
             candidato.setPessoa(pessoa);
             candidato.setDataNacimento(Data.converteData(campoNascimento.getText()));
             candidato.setConcurso(Concurso.getInstance());
             candidato.setCodigo(Integer.parseInt(campoCodigo.getText()));
-            if(candidatoService.salvar(candidato)){
+            if (candidatoService.salvar(candidato)) {
                 status.estadoSalvo();
-                campoCodigo.setText(candidato.getCodigo()+"");
+                campoCodigo.setText(candidato.getCodigo() + "");
                 campoMensagem.setText("Candidato salvo com sucesso!");
             } else {
                 campoMensagem.setText("Ocorreu um erro ao salvar o candidato!");
@@ -239,16 +249,42 @@ public class CadastroCandidato extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void btDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDeletarActionPerformed
-        status.estadoNovo();
+        if (JOptionPane.showConfirmDialog(null, "Você deseja realmente deletar o registro?") == JOptionPane.OK_OPTION) {
+            if (candidatoService.deletar(Campos.converteNumero(campoCodigo.getText()))) {
+                campoMensagem.setText("O registro foi deletado com sucesso!");
+                status.estadoNovo();
+            } else {
+                campoMensagem.setText("Ocorreu um problema ao deletar o registro!");
+            }
+        }
     }//GEN-LAST:event_btDeletarActionPerformed
 
     private void btBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarActionPerformed
-        new PesqCandidato(null, true, campoCodigo).setVisible(true);
+        PesqCandidato pesqCandidato = new PesqCandidato(null, true, campoCodigo);
+        pesqCandidato.setVisible(true);
+        if (!campoCodigo.getText().equalsIgnoreCase("0")) {
+            int codigo = Campos.converteNumero(campoCodigo.getText());
+            candidato = candidatoService.buscar(codigo);
+
+            campoNome.setText(candidato.getPessoa().getNome());
+            campoNascimento.setText(Data.formatDate(candidato.getDataNacimento()));
+            if (candidato.getPessoa().getSexo()) {
+                boxSexo.setSelectedIndex(0);
+            } else {
+                boxSexo.setSelectedIndex(1);
+            }
+            status.estadoSalvo();
+        }
+
     }//GEN-LAST:event_btBuscarActionPerformed
 
     private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
         status.estadoAlterando();
     }//GEN-LAST:event_btEditarActionPerformed
+
+    private void campoNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNascimentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoNascimentoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -271,11 +307,11 @@ public class CadastroCandidato extends javax.swing.JInternalFrame {
     private javax.swing.JLabel txtAlertNome;
     // End of variables declaration//GEN-END:variables
 
-    private void repassarCampos(){
+    private void repassarCampos() {
         tratamentoCampos.setCampo(new FormattedFieldFormat(campoNascimento, txtAlertNascimento, true));
         tratamentoCampos.setCampo(new ComboBoxFormat(boxSexo));
         tratamentoCampos.setCampo(new FieldFormat(campoNome, txtAlertNome, true));
-        
+
         status = new StatusCadastros(btNovo, btDeletar, btSalvar, btSalvar, campoCodigo, campoMensagem, tratamentoCampos);
     }
 }
