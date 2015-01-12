@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="br.edu.unipampa_GerenciadorConcurso_jar_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>br.edu.unipampa.gerenciadorconcurso.Abertura_1</class>
+    <class>br.edu.unipampa.gerenciadorconcurso.Banca_1</class>
+    <class>br.edu.unipampa.gerenciadorconcurso.Configuracaoavaliacaoprova_1</class>
+    <class>br.edu.unipampa.gerenciadorconcurso.model.Pesquisaensinoextensao</class>
+    <class>br.edu.unipampa.gerenciadorconcurso.model.Titulo</class>
+    <class>br.edu.unipampa.gerenciadorconcurso.model.Registrocronograma</class>
+    <class>br.edu.unipampa.gerenciadorconcurso.model.Concurso</class>
+    <class>br.edu.unipampa.gerenciadorconcurso.model.Pessoa</class>
+    <class>br.edu.unipampa.gerenciadorconcurso.model.Candidato</class>
+    <class>br.edu.unipampa.gerenciadorconcurso.model.Configuracaoavaliacaoprova</class>
+    <class>br.edu.unipampa.gerenciadorconcurso.model.Formacaoacademica</class>
+    <class>br.edu.unipampa.gerenciadorconcurso.model.Memorial</class>
+    <class>br.edu.unipampa.gerenciadorconcurso.model.Banca</class>
+    <class>br.edu.unipampa.gerenciadorconcurso.model.Examinador</class>
+    <class>br.edu.unipampa.gerenciadorconcurso.model.Producaoartistica</class>
+    <class>br.edu.unipampa.gerenciadorconcurso.model.Tema</class>
+    <class>br.edu.unipampa.gerenciadorconcurso.model.Escrita</class>
+    <class>br.edu.unipampa.gerenciadorconcurso.model.Abertura</class>
+    <class>br.edu.unipampa.gerenciadorconcurso.model.Didatica</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bancoConcursoUnipampa?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="root"/>
+    </properties>
+  </persistence-unit>
+</persistence>
