@@ -5,11 +5,11 @@ package br.edu.unipampa.gerenciadorconcurso.view;
 
 import br.edu.unipampa.gerenciadorconcurso.dao.HibernateUtil;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.CadastroCandidato;
+import br.edu.unipampa.gerenciadorconcurso.view.interno.DefinirPesoProvasConcurso;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.SelecaoConcurso;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
@@ -45,6 +45,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
         menuAbrirConcurso = new javax.swing.JMenu();
         itemMenuCadastro = new javax.swing.JMenu();
         itemMenuCandidato = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -86,6 +87,14 @@ public class AreaTrabalho extends javax.swing.JFrame {
         });
         itemMenuCadastro.add(itemMenuCandidato);
 
+        jMenuItem1.setText("Definir Pesos");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        itemMenuCadastro.add(jMenuItem1);
+
         menuAbrirConcurso.add(itemMenuCadastro);
 
         jMenuBar1.add(menuAbrirConcurso);
@@ -122,6 +131,10 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private void itemMenuCandidatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuCandidatoActionPerformed
         criarCadastroCandidato();
     }//GEN-LAST:event_itemMenuCandidatoActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        criarDefinirPesos();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Inicio">
@@ -174,6 +187,11 @@ public class AreaTrabalho extends javax.swing.JFrame {
         CadastroCandidato cadastroCandidato = new CadastroCandidato();
         adicionarJanela(cadastroCandidato);
     }
+
+    private void criarDefinirPesos() {
+        DefinirPesoProvasConcurso efinirPesoProvasConcurso = new DefinirPesoProvasConcurso();
+        adicionarJanela(efinirPesoProvasConcurso);
+    }
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Variaveis">
@@ -184,6 +202,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private javax.swing.JMenuItem itemMenuCandidato;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JMenu menuAbrirConcurso;
     // End of variables declaration//GEN-END:variables

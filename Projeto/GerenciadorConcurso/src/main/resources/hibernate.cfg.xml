@@ -26,5 +26,6 @@
     <mapping class="br.edu.unipampa.gerenciadorconcurso.model.Registrocronograma"></mapping>
     <mapping class="br.edu.unipampa.gerenciadorconcurso.model.Tema"></mapping>
     <mapping class="br.edu.unipampa.gerenciadorconcurso.model.Titulo"></mapping>
+    <mapping class="br.edu.unipampa.gerenciadorconcurso.model.Pesoprovas"></mapping>
   </session-factory>
 </hibernate-configuration>
