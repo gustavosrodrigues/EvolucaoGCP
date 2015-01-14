@@ -21,6 +21,7 @@
     <class>br.edu.unipampa.gerenciadorconcurso.model.Escrita</class>
     <class>br.edu.unipampa.gerenciadorconcurso.model.Abertura</class>
     <class>br.edu.unipampa.gerenciadorconcurso.model.Didatica</class>
+    <class>br.edu.unipampa.gerenciadorconcurso.model.Pesoprovas</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bancoConcursoUnipampa?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

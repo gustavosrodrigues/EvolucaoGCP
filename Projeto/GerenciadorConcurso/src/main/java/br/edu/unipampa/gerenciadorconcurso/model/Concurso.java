@@ -40,6 +40,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Concurso.findByRegras", query = "SELECT c FROM Concurso c WHERE c.regras = :regras"),
     @NamedQuery(name = "Concurso.findByDataInicio", query = "SELECT c FROM Concurso c WHERE c.dataInicio = :dataInicio")})
 public class Concurso implements Serializable {
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "concurso")
+    private Collection<Pesoprovas> pesoprovasCollection;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -216,6 +218,18 @@ public class Concurso implements Serializable {
     @Override
     public String toString() {
         return "br.edu.unipampa.gerenciadorconcurso.Concurso[ codigo=" + codigo + " ]";
+    }
+
+    public Concurso() {
+    }
+
+    @XmlTransient
+    public Collection<Pesoprovas> getPesoprovasCollection() {
+        return pesoprovasCollection;
+    }
+
+    public void setPesoprovasCollection(Collection<Pesoprovas> pesoprovasCollection) {
+        this.pesoprovasCollection = pesoprovasCollection;
     }
     
 }
