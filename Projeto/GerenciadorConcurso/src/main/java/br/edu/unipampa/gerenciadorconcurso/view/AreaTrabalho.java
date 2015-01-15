@@ -6,6 +6,7 @@ package br.edu.unipampa.gerenciadorconcurso.view;
 import br.edu.unipampa.gerenciadorconcurso.dao.HibernateUtil;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.CadastroCandidato;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.DefinirPesoProvasConcurso;
+import br.edu.unipampa.gerenciadorconcurso.view.interno.ReciboDocumentacaoPorCandidato;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.SelecaoConcurso;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
@@ -46,6 +47,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
         itemMenuCadastro = new javax.swing.JMenu();
         itemMenuCandidato = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -97,6 +99,14 @@ public class AreaTrabalho extends javax.swing.JFrame {
 
         menuAbrirConcurso.add(itemMenuCadastro);
 
+        jMenuItem2.setText("Recibo de documentação - por candidato");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        menuAbrirConcurso.add(jMenuItem2);
+
         jMenuBar1.add(menuAbrirConcurso);
 
         jMenu2.setText("Sobre");
@@ -135,6 +145,10 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         criarDefinirPesos();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        criarReciboDocCandidatos();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Inicio">
@@ -189,8 +203,13 @@ public class AreaTrabalho extends javax.swing.JFrame {
     }
 
     private void criarDefinirPesos() {
-        DefinirPesoProvasConcurso efinirPesoProvasConcurso = new DefinirPesoProvasConcurso();
-        adicionarJanela(efinirPesoProvasConcurso);
+        DefinirPesoProvasConcurso definirPesoProvasConcurso = new DefinirPesoProvasConcurso();
+        adicionarJanela(definirPesoProvasConcurso);
+    }
+
+    private void criarReciboDocCandidatos() {
+        ReciboDocumentacaoPorCandidato reciboDocumentacaoPorCandidato = new ReciboDocumentacaoPorCandidato();
+        adicionarJanela(reciboDocumentacaoPorCandidato);
     }
 //</editor-fold>
 
@@ -203,6 +222,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JMenu menuAbrirConcurso;
     // End of variables declaration//GEN-END:variables
