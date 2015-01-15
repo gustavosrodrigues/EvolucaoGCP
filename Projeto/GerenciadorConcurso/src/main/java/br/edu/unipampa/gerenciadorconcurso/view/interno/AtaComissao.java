@@ -5,29 +5,20 @@
  */
 package br.edu.unipampa.gerenciadorconcurso.view.interno;
 
-import br.edu.unipampa.gerenciadorconcurso.validator.CampoNumericoDocument;
-import br.edu.unipampa.gerenciadorconcurso.validator.Campos;
 import br.edu.unipampa.gerenciadorconcurso.view.reports.GeradorRelatorios;
 import br.edu.unipampa.gerenciadorconcurso.view.reports.Parametro;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 /**
  *
  * @author Miguel
  */
-public class AtaInstalacaoComissaoExaminadora extends javax.swing.JFrame {
+public class AtaComissao extends javax.swing.JFrame {
 
-    
-     private Campos tratamentoCampos;
-     private CampoNumericoDocument trataNumeros;
     /**
-     * Creates new form AtaInstalacaoComissaoExaminadora
+     * Creates new form AtaComissao
      */
-    public AtaInstalacaoComissaoExaminadora() {
+    public AtaComissao() {
         initComponents();
     }
 
@@ -48,12 +39,13 @@ public class AtaInstalacaoComissaoExaminadora extends javax.swing.JFrame {
         local = new javax.swing.JTextField();
         emissor = new javax.swing.JTextField();
         portaria = new javax.swing.JTextField();
-        botaoGerar = new javax.swing.JButton();
+        gerar2 = new javax.swing.JButton();
         hora = new javax.swing.JFormattedTextField();
         textHora = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,10 +79,10 @@ public class AtaInstalacaoComissaoExaminadora extends javax.swing.JFrame {
             }
         });
 
-        botaoGerar.setText("Criar ata de instalação da comissão examinadora");
-        botaoGerar.addActionListener(new java.awt.event.ActionListener() {
+        gerar2.setText("Criar ata de instalação da comissão examinadora");
+        gerar2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoGerarActionPerformed(evt);
+                gerar2ActionPerformed(evt);
             }
         });
 
@@ -128,7 +120,7 @@ public class AtaInstalacaoComissaoExaminadora extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3))
                     .addComponent(textHora)
-                    .addComponent(botaoGerar, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(gerar2, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(textNome)
                         .addGap(18, 18, 18)
@@ -140,7 +132,7 @@ public class AtaInstalacaoComissaoExaminadora extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(portaria, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)
                         .addComponent(local, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,9 +159,16 @@ public class AtaInstalacaoComissaoExaminadora extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(emissor, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                .addComponent(botaoGerar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(gerar2))
         );
+
+        jButton1.setText("Criar Ata");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
         jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
@@ -179,79 +178,70 @@ public class AtaInstalacaoComissaoExaminadora extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18))
+            .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jInternalFrame1Layout.setVerticalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jInternalFrame1Layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(114, 114, 114))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addGap(73, 73, 73))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jInternalFrame1)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jInternalFrame1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void horaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horaActionPerformed
-        // TODO add your handling code here:    
-    }//GEN-LAST:event_horaActionPerformed
-
-    private void botaoGerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoGerarActionPerformed
-//        if (!hora.getText().equalsIgnoreCase("")) {
-//            InputStream inputStreamDaImagem = null;
-//            
-//            try {
-//               
-//                try {
-//                    file = new File(caminhoImagem);
-//
-//                    if (file.exists()) {
-//                        inputStreamDaImagem = new FileInputStream(file);
-//                    }
-//                } catch (FileNotFoundException e) {
-//                    campoMensagem.setText("Erro ao gerar o relatório. ERRO: " + e.getMessage());
-//                }
-
-                ArrayList<Parametro> parametros = new ArrayList<Parametro>();
-                parametros.add(new Parametro("hora", "" + hora.getText().toString()));
-                parametros.add(new Parametro("dataRelatorio", local.getText().toString()));
-                parametros.add(new Parametro("portaria", portaria.getText().toString()));
-                parametros.add(new Parametro("emissor", emissor.getText().toString()));
-
-                GeradorRelatorios.gerar(System.getProperty("user.dir") + "\\src\\relatorios\\RelAtaComissao.jasper", parametros);
-                //campoMensagem.setText("Relatório gerado com sucesso.");
-//            } catch (Exception e) {
-//                campoMensagem.setText("Erro ao gerar o relatório. ERRO: " + e.getMessage());
-//            }
-//
-//        } else {
-//            campoMensagem.setText("Informe a data para gerar o relatório.");
-//        }
-            
-    }//GEN-LAST:event_botaoGerarActionPerformed
-
-    private void portariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_portariaActionPerformed
+    private void localActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_localActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_portariaActionPerformed
+    }//GEN-LAST:event_localActionPerformed
 
     private void emissorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emissorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_emissorActionPerformed
 
-    private void localActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_localActionPerformed
+    private void portariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_portariaActionPerformed
         // TODO add your handling code here:
+    }//GEN-LAST:event_portariaActionPerformed
 
-    }//GEN-LAST:event_localActionPerformed
+    private void gerar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerar2ActionPerformed
+
+    }//GEN-LAST:event_gerar2ActionPerformed
+
+    private void horaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_horaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        ArrayList<Parametro> parametros = new ArrayList<Parametro>();
+        //parametros.add(new Parametro("hora", "" + ));
+        parametros.add(new Parametro("hora", hora.getText().toString()));
+        parametros.add(new Parametro("local", local.getText().toString()));
+        parametros.add(new Parametro("portaria", portaria.getText().toString()));
+        parametros.add(new Parametro("emissor", emissor.getText().toString()));
+
+        GeradorRelatorios.gerar(System.getProperty("user.dir") + "\\src\\relatorios\\RelAtaComissao.jasper", parametros);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -270,33 +260,29 @@ public class AtaInstalacaoComissaoExaminadora extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AtaInstalacaoComissaoExaminadora.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AtaComissao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AtaInstalacaoComissaoExaminadora.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AtaComissao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AtaInstalacaoComissaoExaminadora.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AtaComissao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AtaInstalacaoComissaoExaminadora.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AtaComissao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AtaInstalacaoComissaoExaminadora().setVisible(true);
+                new AtaComissao().setVisible(true);
             }
         });
-        
-        
     }
 
-    
-     private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {                                       
-       
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botaoGerar;
     private javax.swing.JTextField emissor;
+    private javax.swing.JButton gerar2;
     private javax.swing.JFormattedTextField hora;
+    private javax.swing.JButton jButton1;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
