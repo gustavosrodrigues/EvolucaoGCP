@@ -56,21 +56,27 @@ public class CadastroConcurso extends javax.swing.JInternalFrame {
         textCodigo = new javax.swing.JLabel();
         campoCodigo = new javax.swing.JTextField();
         textNome = new javax.swing.JLabel();
-        campoNome = new javax.swing.JTextField();
-        boxSexo = new javax.swing.JComboBox();
+        campoMinisterio = new javax.swing.JTextField();
+        boxClasse = new javax.swing.JComboBox();
         textSexo = new javax.swing.JLabel();
         textNascimento = new javax.swing.JLabel();
-        campoNascimento = new JFormattedTextField(Campos.createFormatter("##-##-####"));
+        campoDataInicio = new JFormattedTextField(Campos.createFormatter("##-##-####"));
         ;
         campoMensagem = new javax.swing.JTextField();
         textNome1 = new javax.swing.JLabel();
-        campoNome1 = new javax.swing.JTextField();
+        campoUniversidade = new javax.swing.JTextField();
         textNome2 = new javax.swing.JLabel();
-        campoNome2 = new javax.swing.JTextField();
+        campoCampus = new javax.swing.JTextField();
         textNome3 = new javax.swing.JLabel();
-        campoNome3 = new javax.swing.JTextField();
+        campoArea = new javax.swing.JTextField();
         textNome4 = new javax.swing.JLabel();
-        campoNome4 = new javax.swing.JTextField();
+        campoEdital = new javax.swing.JTextField();
+        txtAlertUniversidade = new javax.swing.JLabel();
+        txtAlertMinisterio = new javax.swing.JLabel();
+        txtAlertCampus = new javax.swing.JLabel();
+        txtAlertArea = new javax.swing.JLabel();
+        txtAlertEdital = new javax.swing.JLabel();
+        txtAlertDataInicio = new javax.swing.JLabel();
 
         setTitle("Cadastro Candidato");
 
@@ -144,22 +150,22 @@ public class CadastroConcurso extends javax.swing.JInternalFrame {
 
         textNome.setText("Ministério");
 
-        campoNome.addActionListener(new java.awt.event.ActionListener() {
+        campoMinisterio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoNomeActionPerformed(evt);
+                campoMinisterioActionPerformed(evt);
             }
         });
 
-        boxSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Adjunto", "Assistente", "Magistério", "Auxiliar", "Substituto", "Temporário" }));
+        boxClasse.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Adjunto", "Assistente", "Magistério", "Auxiliar", "Substituto", "Temporário" }));
 
         textSexo.setText("Classe do Concurso");
 
         textNascimento.setText("Data de Início");
 
-        campoNascimento.setRequestFocusEnabled(false);
-        campoNascimento.addActionListener(new java.awt.event.ActionListener() {
+        campoDataInicio.setRequestFocusEnabled(false);
+        campoDataInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoNascimentoActionPerformed(evt);
+                campoDataInicioActionPerformed(evt);
             }
         });
 
@@ -167,11 +173,41 @@ public class CadastroConcurso extends javax.swing.JInternalFrame {
 
         textNome1.setText("Universidade");
 
+        campoUniversidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoUniversidadeActionPerformed(evt);
+            }
+        });
+
         textNome2.setText("Campus");
 
         textNome3.setText("Area");
 
         textNome4.setText("Edital");
+
+        txtAlertUniversidade.setBackground(new java.awt.Color(102, 0, 0));
+        txtAlertUniversidade.setText("!!!!");
+        txtAlertUniversidade.setToolTipText("Campo nome é obrigatorio.");
+
+        txtAlertMinisterio.setBackground(new java.awt.Color(102, 0, 0));
+        txtAlertMinisterio.setText("!!!!");
+        txtAlertMinisterio.setToolTipText("Campo nome é obrigatorio.");
+
+        txtAlertCampus.setBackground(new java.awt.Color(102, 0, 0));
+        txtAlertCampus.setText("!!!!");
+        txtAlertCampus.setToolTipText("Campo nome é obrigatorio.");
+
+        txtAlertArea.setBackground(new java.awt.Color(102, 0, 0));
+        txtAlertArea.setText("!!!!");
+        txtAlertArea.setToolTipText("Campo nome é obrigatorio.");
+
+        txtAlertEdital.setBackground(new java.awt.Color(102, 0, 0));
+        txtAlertEdital.setText("!!!!");
+        txtAlertEdital.setToolTipText("Campo nome é obrigatorio.");
+
+        txtAlertDataInicio.setBackground(new java.awt.Color(102, 0, 0));
+        txtAlertDataInicio.setText("!!!!");
+        txtAlertDataInicio.setToolTipText("Campo nome é obrigatorio.");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -192,10 +228,22 @@ public class CadastroConcurso extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(87, 87, 87)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(campoNome2, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(campoNome3, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(campoNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(campoCampus, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtAlertCampus))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(campoArea, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtAlertArea))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(campoUniversidade, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtAlertUniversidade))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(campoMinisterio, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtAlertMinisterio))
                             .addComponent(campoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -206,16 +254,20 @@ public class CadastroConcurso extends javax.swing.JInternalFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(11, 11, 11)
-                                        .addComponent(campoNome4, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(campoEdital, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(campoNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addComponent(campoDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtAlertDataInicio)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtAlertEdital))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(textSexo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(boxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(99, Short.MAX_VALUE))
+                        .addComponent(boxClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,33 +282,46 @@ public class CadastroConcurso extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textNome)
-                    .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoMinisterio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAlertMinisterio))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textNome1)
-                    .addComponent(campoNome1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoUniversidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAlertUniversidade))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textNome2)
-                    .addComponent(campoNome2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoCampus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAlertCampus))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textNome3)
-                    .addComponent(campoNome3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAlertArea))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textNome4)
-                    .addComponent(campoNome4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoEdital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAlertEdital))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textNascimento))
+                    .addComponent(campoDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textNascimento)
+                    .addComponent(txtAlertDataInicio))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textSexo)
-                    .addComponent(boxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(40, Short.MAX_VALUE))
+                    .addComponent(boxClasse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
+
+        txtAlertMinisterio.setVisible(false);
+        txtAlertMinisterio.setVisible(false);
+        txtAlertMinisterio.setVisible(false);
+        txtAlertMinisterio.setVisible(false);
+        txtAlertMinisterio.setVisible(false);
+        txtAlertMinisterio.setVisible(false);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -266,55 +331,55 @@ public class CadastroConcurso extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btNovoActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-        if (tratamentoCampos.validaObrigatorios()) {
-            Pessoa pessoa = new Pessoa();
-            pessoa.setNome(campoNome.getText());
-            if (boxSexo.getSelectedIndex() == 0) {
-                pessoa.setSexo(true);
-            }
-
-            candidato = new Candidato();
-            candidato.setPessoa(pessoa);
-            candidato.setDataNacimento(Data.converteData(campoNascimento.getText()));
-            candidato.setConcurso(Concurso.getInstance());
-            candidato.setCodigo(Integer.parseInt(campoCodigo.getText()));
-            if (candidatoService.salvar(candidato)) {
-                status.estadoSalvo();
-                campoCodigo.setText(candidato.getCodigo() + "");
-                campoMensagem.setText("Candidato salvo com sucesso!");
-            } else {
-                campoMensagem.setText("Ocorreu um erro ao salvar o candidato!");
-            }
-        }
+//        if (tratamentoCampos.validaObrigatorios()) {
+//            Pessoa pessoa = new Pessoa();
+//            pessoa.setNome(campoMinisterio.getText());
+//            if (boxClasse.getSelectedIndex() == 0) {
+//                pessoa.setSexo(true);
+//            }
+//
+//            candidato = new Candidato();
+//            candidato.setPessoa(pessoa);
+//            candidato.setDataNacimento(Data.converteData(campoDataInicio.getText()));
+//            candidato.setConcurso(Concurso.getInstance());
+//            candidato.setCodigo(Integer.parseInt(campoCodigo.getText()));
+//            if (candidatoService.salvar(candidato)) {
+//                status.estadoSalvo();
+//                campoCodigo.setText(candidato.getCodigo() + "");
+//                campoMensagem.setText("Candidato salvo com sucesso!");
+//            } else {
+//                campoMensagem.setText("Ocorreu um erro ao salvar o candidato!");
+//            }
+//        }
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void btDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDeletarActionPerformed
-        if (JOptionPane.showConfirmDialog(null, "Você deseja realmente deletar o registro?") == JOptionPane.OK_OPTION) {
-            if (candidatoService.deletar(Campos.converteNumero(campoCodigo.getText()))) {
-                campoMensagem.setText("O registro foi deletado com sucesso!");
-                status.estadoNovo();
-            } else {
-                campoMensagem.setText("Ocorreu um problema ao deletar o registro!");
-            }
-        }
+//        if (JOptionPane.showConfirmDialog(null, "Você deseja realmente deletar o registro?") == JOptionPane.OK_OPTION) {
+//            if (candidatoService.deletar(Campos.converteNumero(campoCodigo.getText()))) {
+//                campoMensagem.setText("O registro foi deletado com sucesso!");
+//                status.estadoNovo();
+//            } else {
+//                campoMensagem.setText("Ocorreu um problema ao deletar o registro!");
+//            }
+//        }
     }//GEN-LAST:event_btDeletarActionPerformed
 
     private void btBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarActionPerformed
-        PesqCandidato pesqCandidato = new PesqCandidato(null, true, campoCodigo);
-        pesqCandidato.setVisible(true);
-        if (!campoCodigo.getText().equalsIgnoreCase("0")) {
-            int codigo = Campos.converteNumero(campoCodigo.getText());
-            candidato = candidatoService.buscar(codigo);
-
-            campoNome.setText(candidato.getPessoa().getNome());
-            campoNascimento.setText(Data.formatDate(candidato.getDataNacimento()));
-            if (candidato.getPessoa().getSexo()) {
-                boxSexo.setSelectedIndex(0);
-            } else {
-                boxSexo.setSelectedIndex(1);
-            }
-            status.estadoSalvo();
-        }
+//        PesqCandidato pesqCandidato = new PesqCandidato(null, true, campoCodigo);
+//        pesqCandidato.setVisible(true);
+//        if (!campoCodigo.getText().equalsIgnoreCase("0")) {
+//            int codigo = Campos.converteNumero(campoCodigo.getText());
+//            candidato = candidatoService.buscar(codigo);
+//
+//            campoMinisterio.setText(candidato.getPessoa().getNome());
+//            campoDataInicio.setText(Data.formatDate(candidato.getDataNacimento()));
+//            if (candidato.getPessoa().getSexo()) {
+//                boxClasse.setSelectedIndex(0);
+//            } else {
+//                boxClasse.setSelectedIndex(1);
+//            }
+//            status.estadoSalvo();
+//        }
 
     }//GEN-LAST:event_btBuscarActionPerformed
 
@@ -322,34 +387,38 @@ public class CadastroConcurso extends javax.swing.JInternalFrame {
         status.estadoAlterando();
     }//GEN-LAST:event_btEditarActionPerformed
 
-    private void campoNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNascimentoActionPerformed
+    private void campoDataInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoDataInicioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoNascimentoActionPerformed
+    }//GEN-LAST:event_campoDataInicioActionPerformed
 
     private void campoCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCodigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoCodigoActionPerformed
 
-    private void campoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNomeActionPerformed
+    private void campoMinisterioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoMinisterioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoNomeActionPerformed
+    }//GEN-LAST:event_campoMinisterioActionPerformed
+
+    private void campoUniversidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoUniversidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoUniversidadeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox boxSexo;
+    private javax.swing.JComboBox boxClasse;
     private javax.swing.JButton btBuscar;
     private javax.swing.JButton btDeletar;
     private javax.swing.JButton btEditar;
     private javax.swing.JButton btNovo;
     private javax.swing.JButton btSalvar;
+    private javax.swing.JTextField campoArea;
+    private javax.swing.JTextField campoCampus;
     private javax.swing.JTextField campoCodigo;
+    private javax.swing.JFormattedTextField campoDataInicio;
+    private javax.swing.JTextField campoEdital;
     private javax.swing.JTextField campoMensagem;
-    private javax.swing.JFormattedTextField campoNascimento;
-    private javax.swing.JTextField campoNome;
-    private javax.swing.JTextField campoNome1;
-    private javax.swing.JTextField campoNome2;
-    private javax.swing.JTextField campoNome3;
-    private javax.swing.JTextField campoNome4;
+    private javax.swing.JTextField campoMinisterio;
+    private javax.swing.JTextField campoUniversidade;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel textCodigo;
     private javax.swing.JLabel textNascimento;
@@ -359,12 +428,22 @@ public class CadastroConcurso extends javax.swing.JInternalFrame {
     private javax.swing.JLabel textNome3;
     private javax.swing.JLabel textNome4;
     private javax.swing.JLabel textSexo;
+    private javax.swing.JLabel txtAlertArea;
+    private javax.swing.JLabel txtAlertCampus;
+    private javax.swing.JLabel txtAlertDataInicio;
+    private javax.swing.JLabel txtAlertEdital;
+    private javax.swing.JLabel txtAlertMinisterio;
+    private javax.swing.JLabel txtAlertUniversidade;
     // End of variables declaration//GEN-END:variables
 
     private void repassarCampos() {
-        tratamentoCampos.setCampo(new FormattedFieldFormat(campoNascimento, txtAlertNascimento, true));
-        tratamentoCampos.setCampo(new ComboBoxFormat(boxSexo));
-        tratamentoCampos.setCampo(new FieldFormat(campoNome, txtAlertNome, true));
+        tratamentoCampos.setCampo(new FieldFormat(campoMinisterio, txtAlertMinisterio, true));
+        tratamentoCampos.setCampo(new FieldFormat(campoUniversidade, txtAlertUniversidade, true));
+        tratamentoCampos.setCampo(new FieldFormat(campoCampus, txtAlertCampus, true));
+        tratamentoCampos.setCampo(new FieldFormat(campoArea, txtAlertArea, true));
+        tratamentoCampos.setCampo(new FieldFormat(campoEdital, txtAlertEdital, true));
+        tratamentoCampos.setCampo(new FormattedFieldFormat(campoDataInicio, txtAlertDataInicio, true));
+        tratamentoCampos.setCampo(new ComboBoxFormat(boxClasse));
 
         status = new StatusCadastros(btNovo, btDeletar, btSalvar, btSalvar, campoCodigo, campoMensagem, tratamentoCampos);
     }
