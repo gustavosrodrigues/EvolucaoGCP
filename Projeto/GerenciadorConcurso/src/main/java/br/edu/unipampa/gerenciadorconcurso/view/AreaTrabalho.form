@@ -16,10 +16,18 @@
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="itemMenuCandidato">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Candidato"/>
+                    <Property name="text" type="java.lang.String" value="Candidatos"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemMenuCandidatoActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="itemMenuExaminadores">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Examinadores"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemMenuExaminadoresActionPerformed"/>
                   </Events>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
