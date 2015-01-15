@@ -7,6 +7,13 @@ package br.edu.unipampa.gerenciadorconcurso.view.interno;
 
 import br.edu.unipampa.gerenciadorconcurso.validator.CampoNumericoDocument;
 import br.edu.unipampa.gerenciadorconcurso.validator.Campos;
+import br.edu.unipampa.gerenciadorconcurso.view.reports.GeradorRelatorios;
+import br.edu.unipampa.gerenciadorconcurso.view.reports.Parametro;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.ArrayList;
 
 /**
  *
@@ -38,11 +45,11 @@ public class AtaInstalacaoComissaoExaminadora extends javax.swing.JFrame {
         textNome = new javax.swing.JLabel();
         textNome1 = new javax.swing.JLabel();
         textNome2 = new javax.swing.JLabel();
-        localSessao = new javax.swing.JTextField();
-        emissorPortaria = new javax.swing.JTextField();
-        numeroPortaria = new javax.swing.JTextField();
+        local = new javax.swing.JTextField();
+        emissor = new javax.swing.JTextField();
+        portaria = new javax.swing.JTextField();
         botaoGerar = new javax.swing.JButton();
-        horario = new javax.swing.JFormattedTextField();
+        hora = new javax.swing.JFormattedTextField();
         textHora = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -62,21 +69,21 @@ public class AtaInstalacaoComissaoExaminadora extends javax.swing.JFrame {
         textNome2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         textNome2.setText("Emissor da portaria de nomeação da banca:");
 
-        localSessao.addActionListener(new java.awt.event.ActionListener() {
+        local.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                localSessaoActionPerformed(evt);
+                localActionPerformed(evt);
             }
         });
 
-        emissorPortaria.addActionListener(new java.awt.event.ActionListener() {
+        emissor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emissorPortariaActionPerformed(evt);
+                emissorActionPerformed(evt);
             }
         });
 
-        numeroPortaria.addActionListener(new java.awt.event.ActionListener() {
+        portaria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                numeroPortariaActionPerformed(evt);
+                portariaActionPerformed(evt);
             }
         });
 
@@ -88,13 +95,13 @@ public class AtaInstalacaoComissaoExaminadora extends javax.swing.JFrame {
         });
 
         try {
-            horario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-##")));
+            hora.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        horario.addActionListener(new java.awt.event.ActionListener() {
+        hora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                horarioActionPerformed(evt);
+                horaActionPerformed(evt);
             }
         });
 
@@ -114,8 +121,8 @@ public class AtaInstalacaoComissaoExaminadora extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(emissorPortaria, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(horario, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(emissor, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(hora, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(textNome2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -131,8 +138,8 @@ public class AtaInstalacaoComissaoExaminadora extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel2))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(numeroPortaria, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)
-                        .addComponent(localSessao, javax.swing.GroupLayout.Alignment.LEADING)))
+                        .addComponent(portaria, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)
+                        .addComponent(local, javax.swing.GroupLayout.Alignment.LEADING)))
                 .addContainerGap(139, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -141,25 +148,25 @@ public class AtaInstalacaoComissaoExaminadora extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addComponent(textHora)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(horario, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(hora, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textNome)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(localSessao, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(local, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textNome1)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(numeroPortaria, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(portaria, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textNome2)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(emissorPortaria, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(emissor, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addComponent(botaoGerar))
         );
@@ -195,30 +202,56 @@ public class AtaInstalacaoComissaoExaminadora extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void horarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horarioActionPerformed
-        // TODO add your handling code here:
-       tratamentoCampos.validaObrigatorios();
-    }//GEN-LAST:event_horarioActionPerformed
+    private void horaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horaActionPerformed
+        // TODO add your handling code here:    
+    }//GEN-LAST:event_horaActionPerformed
 
     private void botaoGerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoGerarActionPerformed
-        // TODO add your handling code here:
-        
+//        if (!hora.getText().equalsIgnoreCase("")) {
+//            InputStream inputStreamDaImagem = null;
+//            
+//            try {
+//               
+//                try {
+//                    file = new File(caminhoImagem);
+//
+//                    if (file.exists()) {
+//                        inputStreamDaImagem = new FileInputStream(file);
+//                    }
+//                } catch (FileNotFoundException e) {
+//                    campoMensagem.setText("Erro ao gerar o relatório. ERRO: " + e.getMessage());
+//                }
+
+                ArrayList<Parametro> parametros = new ArrayList<Parametro>();
+                parametros.add(new Parametro("hora", "" + hora.getText().toString()));
+                parametros.add(new Parametro("dataRelatorio", local.getText().toString()));
+                parametros.add(new Parametro("portaria", portaria.getText().toString()));
+                parametros.add(new Parametro("emissor", emissor.getText().toString()));
+
+                GeradorRelatorios.gerar(System.getProperty("user.dir") + "\\src\\relatorios\\RelAtaComissao.jasper", parametros);
+                //campoMensagem.setText("Relatório gerado com sucesso.");
+//            } catch (Exception e) {
+//                campoMensagem.setText("Erro ao gerar o relatório. ERRO: " + e.getMessage());
+//            }
+//
+//        } else {
+//            campoMensagem.setText("Informe a data para gerar o relatório.");
+//        }
+            
     }//GEN-LAST:event_botaoGerarActionPerformed
 
-    private void numeroPortariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroPortariaActionPerformed
+    private void portariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_portariaActionPerformed
         // TODO add your handling code here:
-        tratamentoCampos.validaObrigatorios();
-    }//GEN-LAST:event_numeroPortariaActionPerformed
+    }//GEN-LAST:event_portariaActionPerformed
 
-    private void emissorPortariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emissorPortariaActionPerformed
+    private void emissorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emissorActionPerformed
         // TODO add your handling code here:
-        tratamentoCampos.validaObrigatorios();
-    }//GEN-LAST:event_emissorPortariaActionPerformed
+    }//GEN-LAST:event_emissorActionPerformed
 
-    private void localSessaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_localSessaoActionPerformed
+    private void localActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_localActionPerformed
         // TODO add your handling code here:
-        tratamentoCampos.validaObrigatorios();
-    }//GEN-LAST:event_localSessaoActionPerformed
+
+    }//GEN-LAST:event_localActionPerformed
 
     /**
      * @param args the command line arguments
@@ -253,19 +286,24 @@ public class AtaInstalacaoComissaoExaminadora extends javax.swing.JFrame {
                 new AtaInstalacaoComissaoExaminadora().setVisible(true);
             }
         });
+        
+        
     }
 
+    
+     private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {                                       
+       
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoGerar;
-    private javax.swing.JTextField emissorPortaria;
-    private javax.swing.JFormattedTextField horario;
+    private javax.swing.JTextField emissor;
+    private javax.swing.JFormattedTextField hora;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField localSessao;
-    private javax.swing.JTextField numeroPortaria;
+    private javax.swing.JTextField local;
+    private javax.swing.JTextField portaria;
     private javax.swing.JLabel textHora;
     private javax.swing.JLabel textNome;
     private javax.swing.JLabel textNome1;

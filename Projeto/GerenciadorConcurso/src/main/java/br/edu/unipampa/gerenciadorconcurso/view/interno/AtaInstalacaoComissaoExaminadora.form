@@ -68,8 +68,8 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="emissorPortaria" min="-2" pref="342" max="-2" attributes="0"/>
-                          <Component id="horario" min="-2" pref="69" max="-2" attributes="0"/>
+                          <Component id="emissor" min="-2" pref="342" max="-2" attributes="0"/>
+                          <Component id="hora" min="-2" pref="69" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="textNome2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -88,8 +88,8 @@
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="numeroPortaria" alignment="0" pref="342" max="32767" attributes="0"/>
-                              <Component id="localSessao" alignment="0" max="32767" attributes="0"/>
+                              <Component id="portaria" alignment="0" pref="342" max="32767" attributes="0"/>
+                              <Component id="local" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="139" max="32767" attributes="0"/>
@@ -102,28 +102,28 @@
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Component id="textHora" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="horario" min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="hora" min="-2" pref="29" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="textNome" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="localSessao" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="local" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="textNome1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="numeroPortaria" min="-2" pref="24" max="-2" attributes="0"/>
+                      <Component id="portaria" min="-2" pref="24" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="textNome2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="emissorPortaria" min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="emissor" min="-2" pref="33" max="-2" attributes="0"/>
                       <EmptySpace pref="15" max="32767" attributes="0"/>
                       <Component id="botaoGerar" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -155,19 +155,19 @@
                 <Property name="text" type="java.lang.String" value="Emissor da portaria de nomea&#xe7;&#xe3;o da banca:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="localSessao">
+            <Component class="javax.swing.JTextField" name="local">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="localSessaoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="localActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="emissorPortaria">
+            <Component class="javax.swing.JTextField" name="emissor">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="emissorPortariaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="emissorActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="numeroPortaria">
+            <Component class="javax.swing.JTextField" name="portaria">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="numeroPortariaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="portariaActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="botaoGerar">
@@ -178,14 +178,14 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoGerarActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="horario">
+            <Component class="javax.swing.JFormattedTextField" name="hora">
               <Properties>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
                   <Format format="##-##" subtype="-1" type="5"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="horarioActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="horaActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="textHora">
