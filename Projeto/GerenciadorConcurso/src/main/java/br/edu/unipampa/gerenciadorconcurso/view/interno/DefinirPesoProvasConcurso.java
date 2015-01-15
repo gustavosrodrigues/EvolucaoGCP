@@ -325,11 +325,12 @@ public class DefinirPesoProvasConcurso extends javax.swing.JInternalFrame {
 
     private void buscarPesoCadastrado() {
         Pesoprovas pesoprovas = pesoProvasConcursoService.buscarPesoProvasConcurso(Concurso.getInstance());
-        campoCodigo.setText(pesoprovas.getCodigo().toString());
-        campoPesoProvaEscrita.setText("" + pesoprovas.getPesoProvaEscrita());
-        campoPesoProvaDidatica.setText("" + pesoprovas.getPesoProvaDidatica());
-        campoPesoProvaMemorial.setText("" + pesoprovas.getPesoProvaMemorial());
-        campoPesoProvaTitulo.setText("" + pesoprovas.getPesoProvaTitulo());
-        status.estadoSalvo();
+        if (pesoprovas != null) {
+            campoCodigo.setText(pesoprovas.getCodigo().toString());
+            campoPesoProvaEscrita.setText("" + pesoprovas.getPesoProvaEscrita());
+            campoPesoProvaDidatica.setText("" + pesoprovas.getPesoProvaDidatica());
+            campoPesoProvaMemorial.setText("" + pesoprovas.getPesoProvaMemorial());
+            campoPesoProvaTitulo.setText("" + pesoprovas.getPesoProvaTitulo());
+        }
     }
 }

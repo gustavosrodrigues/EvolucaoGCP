@@ -6,6 +6,8 @@
 package br.edu.unipampa.gerenciadorconcurso.view.interno;
 
 import br.edu.unipampa.gerenciadorconcurso.model.Concurso;
+import br.edu.unipampa.gerenciadorconcurso.validator.Campos;
+import br.edu.unipampa.gerenciadorconcurso.validator.FormattedFieldFormat;
 import br.edu.unipampa.gerenciadorconcurso.view.reports.GeradorRelatorios;
 import br.edu.unipampa.gerenciadorconcurso.view.reports.Parametro;
 import java.io.File;
@@ -13,6 +15,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import javax.swing.JFormattedTextField;
 
 /**
  *
@@ -20,11 +23,15 @@ import java.util.ArrayList;
  */
 public class ReciboDocumentacaoPorCandidato extends javax.swing.JInternalFrame {
 
+    private Campos tratamentoCampos;
+    
     /**
      * Creates new form CadastroCandidato
      */
     public ReciboDocumentacaoPorCandidato() {
         initComponents();
+        tratamentoCampos = new Campos();
+        tratamentoCampos.setCampo(new FormattedFieldFormat(campoData, txtAlertData, true));
     }
 
     /**
@@ -40,7 +47,9 @@ public class ReciboDocumentacaoPorCandidato extends javax.swing.JInternalFrame {
         btNovo = new javax.swing.JButton();
         textNascimento = new javax.swing.JLabel();
         campoMensagem = new javax.swing.JTextField();
-        campoData = new javax.swing.JTextField();
+        txtAlertData = new javax.swing.JLabel();
+        campoData = new JFormattedTextField(Campos.createFormatter("##-##-####"));
+        ;
 
         setTitle("Recibos de documentação - por candidato");
 
@@ -61,6 +70,12 @@ public class ReciboDocumentacaoPorCandidato extends javax.swing.JInternalFrame {
 
         campoMensagem.setEditable(false);
 
+        txtAlertData.setBackground(new java.awt.Color(102, 0, 0));
+        txtAlertData.setText("!!!!");
+        txtAlertData.setToolTipText("Campo nome é obrigatorio.");
+
+        campoData.setToolTipText("");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -71,7 +86,9 @@ public class ReciboDocumentacaoPorCandidato extends javax.swing.JInternalFrame {
                 .addGap(20, 20, 20)
                 .addComponent(textNascimento)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(campoData, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(campoData, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtAlertData)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -83,15 +100,18 @@ public class ReciboDocumentacaoPorCandidato extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textNascimento)
+                    .addComponent(txtAlertData)
                     .addComponent(campoData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addContainerGap(160, Short.MAX_VALUE))
         );
+
+        txtAlertData.setVisible(false);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
-        if (!campoData.getText().equalsIgnoreCase("")) {
+        if (tratamentoCampos.validaObrigatorios()) {
             InputStream inputStreamDaImagem = null;
             try {
                 String caminhoImagem = System.getProperty("user.dir") + "\\img\\logo_unipampa.png";
@@ -125,10 +145,11 @@ public class ReciboDocumentacaoPorCandidato extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btNovo;
-    private javax.swing.JTextField campoData;
+    private javax.swing.JFormattedTextField campoData;
     private javax.swing.JTextField campoMensagem;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel textNascimento;
+    private javax.swing.JLabel txtAlertData;
     // End of variables declaration//GEN-END:variables
 
 }
