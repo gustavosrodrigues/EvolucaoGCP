@@ -6,6 +6,7 @@ package br.edu.unipampa.gerenciadorconcurso.view;
 import br.edu.unipampa.gerenciadorconcurso.dao.HibernateUtil;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.CadastroCandidato;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.DefinirCronograma;
+import br.edu.unipampa.gerenciadorconcurso.view.interno.CadastroExaminador;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.DefinirPesoProvasConcurso;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.SelecaoConcurso;
 import java.beans.PropertyVetoException;
@@ -13,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
+import javax.swing.UIManager;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import org.hibernate.Session;
 
@@ -46,6 +48,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
         menuAbrirConcurso = new javax.swing.JMenu();
         itemMenuCadastro = new javax.swing.JMenu();
         itemMenuCandidato = new javax.swing.JMenuItem();
+        itemMenuExaminadores = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
@@ -81,13 +84,21 @@ public class AreaTrabalho extends javax.swing.JFrame {
 
         itemMenuCadastro.setText("Cadastro");
 
-        itemMenuCandidato.setText("Candidato");
+        itemMenuCandidato.setText("Candidatos");
         itemMenuCandidato.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itemMenuCandidatoActionPerformed(evt);
             }
         });
         itemMenuCadastro.add(itemMenuCandidato);
+
+        itemMenuExaminadores.setText("Examinadores");
+        itemMenuExaminadores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemMenuExaminadoresActionPerformed(evt);
+            }
+        });
+        itemMenuCadastro.add(itemMenuExaminadores);
 
         jMenuItem1.setText("Definir Pesos");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -149,6 +160,11 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         criarDefinirConograma();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void itemMenuExaminadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuExaminadoresActionPerformed
+        criarCadastroExaminador();
+    }//GEN-LAST:event_itemMenuExaminadoresActionPerformed
+
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Inicio">
@@ -163,7 +179,8 @@ public class AreaTrabalho extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            javax.swing.UIManager.setLookAndFeel(new NimbusLookAndFeel());
+            UIManager.setLookAndFeel(new NimbusLookAndFeel());
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(AreaTrabalho.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
@@ -210,6 +227,10 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private void criarDefinirConograma() {
         DefinirCronograma definirConograma = new DefinirCronograma();
         adicionarJanela(definirConograma);
+    }    
+    private void criarCadastroExaminador() {
+        CadastroExaminador cadastroExaminadores = new CadastroExaminador();
+        adicionarJanela(cadastroExaminadores);
     }
 //</editor-fold>
 
@@ -219,6 +240,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private javax.swing.JButton atalhoCandidato;
     private javax.swing.JMenu itemMenuCadastro;
     private javax.swing.JMenuItem itemMenuCandidato;
+    private javax.swing.JMenuItem itemMenuExaminadores;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;

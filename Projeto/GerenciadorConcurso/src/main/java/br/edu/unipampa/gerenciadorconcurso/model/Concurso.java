@@ -40,6 +40,10 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Concurso.findByRegras", query = "SELECT c FROM Concurso c WHERE c.regras = :regras"),
     @NamedQuery(name = "Concurso.findByDataInicio", query = "SELECT c FROM Concurso c WHERE c.dataInicio = :dataInicio")})
 public class Concurso implements Serializable {
+    @Column(name = "banca")
+    private Integer banca;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "concurso")
+    private Collection<Examinador> examinadorCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "concurso")
     private Collection<Pesoprovas> pesoprovasCollection;
     private static final long serialVersionUID = 1L;
@@ -69,9 +73,6 @@ public class Concurso implements Serializable {
     private Collection<Abertura> aberturaCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "concurso")
     private Collection<Candidato> candidatoCollection;
-    @JoinColumn(name = "banca", referencedColumnName = "codigo")
-    @ManyToOne(optional = true)
-    private Banca banca;
 
     private static Concurso INSTANCE = null;
     
@@ -187,13 +188,6 @@ public class Concurso implements Serializable {
         this.candidatoCollection = candidatoCollection;
     }
 
-    public Banca getBanca() {
-        return banca;
-    }
-
-    public void setBanca(Banca banca) {
-        this.banca = banca;
-    }
 
     @Override
     public int hashCode() {
@@ -230,6 +224,23 @@ public class Concurso implements Serializable {
 
     public void setPesoprovasCollection(Collection<Pesoprovas> pesoprovasCollection) {
         this.pesoprovasCollection = pesoprovasCollection;
+    }
+
+    public Integer getBanca() {
+        return banca;
+    }
+
+    public void setBanca(Integer banca) {
+        this.banca = banca;
+    }
+
+    @XmlTransient
+    public Collection<Examinador> getExaminadorCollection() {
+        return examinadorCollection;
+    }
+
+    public void setExaminadorCollection(Collection<Examinador> examinadorCollection) {
+        this.examinadorCollection = examinadorCollection;
     }
     
 }
