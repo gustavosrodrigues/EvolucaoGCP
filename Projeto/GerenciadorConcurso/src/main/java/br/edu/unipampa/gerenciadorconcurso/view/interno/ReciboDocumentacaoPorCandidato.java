@@ -6,12 +6,13 @@
 package br.edu.unipampa.gerenciadorconcurso.view.interno;
 
 import br.edu.unipampa.gerenciadorconcurso.model.Concurso;
-import br.edu.unipampa.gerenciadorconcurso.validator.Campos;
-import br.edu.unipampa.gerenciadorconcurso.validator.Data;
 import br.edu.unipampa.gerenciadorconcurso.view.reports.GeradorRelatorios;
 import br.edu.unipampa.gerenciadorconcurso.view.reports.Parametro;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
-import javax.swing.JFormattedTextField;
 
 /**
  *
@@ -90,15 +91,30 @@ public class ReciboDocumentacaoPorCandidato extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
-        if (!campoData.equals("")) {
+        if (!campoData.getText().equalsIgnoreCase("")) {
+            InputStream inputStreamDaImagem = null;
             try {
+                String caminhoImagem = System.getProperty("user.dir") + "\\img\\logo_unipampa.png";
+                File file = null;
+                try {
+                    file = new File(caminhoImagem);
+
+                    if (file.exists()) {
+                        inputStreamDaImagem = new FileInputStream(file);
+                    }
+                } catch (FileNotFoundException e) {
+                    campoMensagem.setText("Erro ao gerar o relatório. ERRO: " + e.getMessage());
+                }
+
                 ArrayList<Parametro> parametros = new ArrayList<Parametro>();
                 parametros.add(new Parametro("codigoConcurso", "" + Concurso.getInstance().getCodigo()));
                 parametros.add(new Parametro("dataRelatorio", campoData.getText().toString()));
-                GeradorRelatorios.gerar("\\src\\relatorios\\ReciboDocCandidatos.jasper", parametros);
+                parametros.add(new Parametro("logo", file.getAbsolutePath()));
+
+                GeradorRelatorios.gerar(System.getProperty("user.dir") + "\\src\\relatorios\\ReciboDocCandidatos.jasper", parametros);
                 campoMensagem.setText("Relatório gerado com sucesso.");
             } catch (Exception e) {
-                campoMensagem.setText("Erro ao gerar o relatório.");
+                campoMensagem.setText("Erro ao gerar o relatório. ERRO: " + e.getMessage());
             }
 
         } else {

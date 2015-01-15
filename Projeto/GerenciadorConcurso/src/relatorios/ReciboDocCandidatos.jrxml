@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReciboDocCandidatos" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ff09d756-e546-4157-8d3e-0dbad0b8e9c9">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReciboDocCandidatos" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ff09d756-e546-4157-8d3e-0dbad0b8e9c9">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
-	<parameter name="codigoConcurso" class="java.lang.Integer">
+	<property name="ireport.y" value="1"/>
+	<parameter name="codigoConcurso" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<parameter name="dataRelatorio" class="java.lang.String"/>
+	<parameter name="logo" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT
      candidato.`codigo` AS candidato_codigo,
@@ -36,15 +37,14 @@ order by pessoa.`nome`]]>
 				<text><![CDATA[RECIBO DE DOCUMENTAÇÃO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="186" y="59" width="351" height="85" uuid="1fb4c53f-ae67-4197-8ba3-9939b9694312"/>
+				<reportElement x="196" y="61" width="351" height="85" uuid="1fb4c53f-ae67-4197-8ba3-9939b9694312"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[MINISTÉRIO DA EDUCAÇÃO
 FUNDAÇÃO UNIVERSIDADE FEDERAL DO PAMPA
-CAMPUS:
-CONCURSO PÚBLICO PARA PROFESSOR DO MAGISTÉRIO
-SUPERIOR
+CAMPUS: ALEGRETE
+CONCURSO PÚBLICO PARA PROFESSOR DO MAGISTÉRIO SUPERIOR
 ÁREA:
 ]]></text>
 			</staticText>
@@ -58,6 +58,10 @@ Rubrica: ________
 Uso exclusivo Divisão de Concursos
 ]]></text>
 			</staticText>
+			<image>
+				<reportElement stretchType="RelativeToTallestObject" x="27" y="49" width="149" height="100" uuid="f30d7f57-f37a-401f-a669-a509027d2a8b"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
 		</band>
 	</pageHeader>
 	<detail>
