@@ -5,10 +5,12 @@
  */
 package br.edu.unipampa.gerenciadorconcurso.view.interno;
 
+import br.edu.unipampa.gerenciadorconcurso.model.Abertura;
 import br.edu.unipampa.gerenciadorconcurso.model.Concurso;
 import br.edu.unipampa.gerenciadorconcurso.model.Registrocronograma;
 import br.edu.unipampa.gerenciadorconcurso.service.ConogramaService;
 import br.edu.unipampa.gerenciadorconcurso.validator.Campos;
+import br.edu.unipampa.gerenciadorconcurso.validator.Data;
 import br.edu.unipampa.gerenciadorconcurso.validator.StatusCadastros;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +28,9 @@ public class DefinirCronograma extends javax.swing.JInternalFrame {
     private static final int POSICAO_DATA = 1;
     private static final int POSICAO_HORARIO = 2;
     private static final int POSICAO_LOCAL = 3;
+    private static final int PREENCHIDO = 1;
+    private static final int NAO_PREENCHIDO = 0;
+    private static final int VAZIO = 2;
 
     private Campos tratamentoCampos;
     private StatusCadastros status;
@@ -34,6 +39,7 @@ public class DefinirCronograma extends javax.swing.JInternalFrame {
     private ArrayList<String[]> listaInicial;
     private ArrayList<String[]> listaFinal;
     private boolean salvou;
+    private Abertura abertura;
 
     public DefinirCronograma() {
         modelo = new DefaultTableModel();
@@ -172,7 +178,7 @@ public class DefinirCronograma extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_BotaoConfirmarActionPerformed
 
     private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
-        if (verificaCompletudeLinha()) {
+        if (verificaCompletudeLinha() != NAO_PREENCHIDO) {
             if (salvou) {
                 modelo.addRow(new Object[4]);
                 salvou = false;
@@ -186,8 +192,12 @@ public class DefinirCronograma extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btNovoActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-        if (tratamentoCampos.validaObrigatorios()) {
 
+        if(verificaCompletudeLinha() == PREENCHIDO){
+            conogramaService.salvar(criarRegistroCronograma());
+        }else{
+           JOptionPane.showMessageDialog(null, "Preencha todos os dados do"
+                    + " registro de conograma atual, antes de salvar!"); 
         }
     }//GEN-LAST:event_btSalvarActionPerformed
 
@@ -220,6 +230,7 @@ public class DefinirCronograma extends javax.swing.JInternalFrame {
             vetorConograma[POSICAO_HORARIO] = "" + registrocronograma.getHorario();
             vetorConograma[POSICAO_LOCAL] = registrocronograma.getLocal();
             modelo.addRow(vetorConograma);
+            abertura = registrocronograma.getAbertura();
         }
     }
 
@@ -228,24 +239,48 @@ public class DefinirCronograma extends javax.swing.JInternalFrame {
      *
      * @return true se todos os dados estiverem preenchidos
      */
-    public boolean verificaCompletudeLinha() {
+    public int verificaCompletudeLinha() {
         int numeroLinhas = modelo.getRowCount();
         Vector vetorLinhas;
         vetorLinhas = modelo.getDataVector();
         Object valorCampo;
-        //Se a tabela estiver vazia
+        //Se a tabela não estiver vazia
         if (numeroLinhas != 0) {
             //Percorre uma a última linha, verificando se todos os campos foram preenchidos
             for (int i = 0; i < modelo.getColumnCount(); i++) {
                 valorCampo = ((Vector) vetorLinhas.elementAt(numeroLinhas - 1)).elementAt(i);
                 if (valorCampo == null) {
-                    return false;
+                    return NAO_PREENCHIDO;
                 }
             }
         } else {
-            return true;
+            return VAZIO;
         }
-        return true;
+        return PREENCHIDO;
+    }
+    
+    /**
+     * Monta um registro do conograma utilizando a última linha criada da tabela
+     * @return O registro criado.
+     */
+    public Registrocronograma criarRegistroCronograma(){
+        int numeroLinhas = modelo.getRowCount();
+        Vector vetorLinhas;
+        vetorLinhas = modelo.getDataVector();
+        Registrocronograma registroCronograma =  new Registrocronograma();
+        
+        String atividade = (String) ((Vector) vetorLinhas.elementAt(numeroLinhas - 1)).elementAt(POSICAO_ATIVIDADE);
+        String data = (String) ((Vector) vetorLinhas.elementAt(numeroLinhas - 1)).elementAt(POSICAO_DATA);
+        String horario = (String) ((Vector) vetorLinhas.elementAt(numeroLinhas - 1)).elementAt(POSICAO_HORARIO);
+        String local = (String) ((Vector) vetorLinhas.elementAt(numeroLinhas - 1)).elementAt(POSICAO_LOCAL);
+        
+        registroCronograma.setAtividade(atividade);
+        registroCronograma.setData(Data.converteData(data));
+        registroCronograma.setHorario(Data.conveteHora(local));
+        registroCronograma.setLocal(local);
+        registroCronograma.setAbertura(abertura);
+        
+        return registroCronograma;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

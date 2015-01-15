@@ -46,6 +46,22 @@ public class Data {
             return null;
         }
     }
+    
+    /**
+     * Converte uma hora String para date
+     * @param hora
+     * @return Date formada
+     */
+    public static Date conveteHora(String hora){
+        SimpleDateFormat df = new SimpleDateFormat("HH:mm");
+        df.setLenient(false);
+        try {
+            return df.parse(hora);
+        } catch (ParseException ex) {
+            //return null;
+            return new Date();//Temp
+        }
+    }
 
     /**
      * Formata a data para o formato dd/mm/aaaa
