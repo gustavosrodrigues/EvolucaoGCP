@@ -36,6 +36,8 @@ import org.hibernate.annotations.Generated;
     @NamedQuery(name = "Pessoa.findByNome", query = "SELECT p FROM Pessoa p WHERE p.nome = :nome"),
     @NamedQuery(name = "Pessoa.findBySexo", query = "SELECT p FROM Pessoa p WHERE p.sexo = :sexo")})
 public class Pessoa implements Serializable {
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoa")
+    private Collection<Examinador> examinadorCollection;
 
     @Id
     @Basic(optional = false)
@@ -49,7 +51,7 @@ public class Pessoa implements Serializable {
     private String nome;
     @Column(name = "sexo")
     private Boolean sexo;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "pessoa1")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "pessoa")
     private Examinador examinador;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "pessoa")
     private Candidato candidato;
@@ -133,6 +135,15 @@ public class Pessoa implements Serializable {
 
     public void setCandidatoCollection(Collection<Candidato> candidatoCollection) {
         this.candidatoCollection = candidatoCollection;
+    }
+
+    @XmlTransient
+    public Collection<Examinador> getExaminadorCollection() {
+        return examinadorCollection;
+    }
+
+    public void setExaminadorCollection(Collection<Examinador> examinadorCollection) {
+        this.examinadorCollection = examinadorCollection;
     }
 
 }
