@@ -5,8 +5,11 @@
  */
 package br.edu.unipampa.gerenciadorconcurso.view.interno;
 
-import br.edu.unipampa.gerenciadorconcurso.view.reports.GeradorRelatorios;
-import br.edu.unipampa.gerenciadorconcurso.view.reports.Parametro;
+import br.edu.unipampa.gerenciadorconcurso.view.reports.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 /**
@@ -233,14 +236,31 @@ public class AtaComissao extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        ArrayList<Parametro> parametros = new ArrayList<Parametro>();
-        //parametros.add(new Parametro("hora", "" + ));
-        parametros.add(new Parametro("hora", hora.getText().toString()));
-        parametros.add(new Parametro("local", local.getText().toString()));
-        parametros.add(new Parametro("portaria", portaria.getText().toString()));
-        parametros.add(new Parametro("emissor", emissor.getText().toString()));
+        InputStream inputStreamDaImagem = null;
+        try {
+            String caminhoImagem = System.getProperty("user.dir") + "\\img\\logo_unipampa.png";
+            File file = null;
+            try {
+                file = new File(caminhoImagem);
 
-        GeradorRelatorios.gerar(System.getProperty("user.dir") + "\\src\\relatorios\\RelAtaComissao.jasper", parametros);
+                if (file.exists()) {
+                    inputStreamDaImagem = new FileInputStream(file);
+                }
+            } catch (FileNotFoundException e) {
+                //campoMensagem.setText("Erro ao gerar o relatório. ERRO: " + e.getMessage());
+            }
+            ArrayList<Parametro> parametros = new ArrayList<Parametro>();
+            //parametros.add(new Parametro("hora", "" + ));
+              parametros.add(new Parametro("hora", hora.getText()));
+            parametros.add(new Parametro("local", local.getText()));
+            parametros.add(new Parametro("portaria", portaria.getText()));
+            parametros.add(new Parametro("emissor", emissor.getText()));
+            parametros.add(new Parametro("dataRelatorio", emissor.getText()));
+
+            GeradorRelatorios.gerar(System.getProperty("user.dir") + "\\src\\relatorios\\RelAtaComissao.jasper", parametros);
+        } catch (Exception e) {
+//                campoMensagem.setText("Erro ao gerar o relatório. ERRO: " + e.getMessage());
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -257,16 +277,21 @@ public class AtaComissao extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AtaComissao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AtaComissao.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AtaComissao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AtaComissao.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AtaComissao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AtaComissao.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AtaComissao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AtaComissao.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
