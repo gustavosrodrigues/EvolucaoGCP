@@ -7,6 +7,7 @@ package br.edu.unipampa.gerenciadorconcurso.view.interno;
 
 import br.edu.unipampa.gerenciadorconcurso.model.Concurso;
 import br.edu.unipampa.gerenciadorconcurso.service.ConcursoService;
+import br.edu.unipampa.gerenciadorconcurso.view.AreaTrabalho;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -15,11 +16,11 @@ import javax.swing.table.DefaultTableModel;
  * @author Douglas
  */
 public class SelecaoConcurso extends javax.swing.JDialog {
+
     private DefaultTableModel modelo;
     private ArrayList<Concurso> concursos;
     private ConcursoService concursoService;
-    
-    
+
     /**
      * Creates new form SelecaoConcurso
      */
@@ -53,6 +54,11 @@ public class SelecaoConcurso extends javax.swing.JDialog {
         btNovoConcurso.setFocusable(false);
         btNovoConcurso.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btNovoConcurso.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btNovoConcurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btNovoConcursoActionPerformed(evt);
+            }
+        });
         barraTarefas.add(btNovoConcurso);
 
         tabelaConcursos.setModel(new javax.swing.table.DefaultTableModel(
@@ -111,11 +117,18 @@ public class SelecaoConcurso extends javax.swing.JDialog {
     private void tabelaConcursosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaConcursosMouseClicked
         if (evt.getClickCount() > 1) {
             int codigoLinha = tabelaConcursos.getSelectedRow();
-            int codigo = Integer.parseInt(tabelaConcursos.getValueAt(codigoLinha, 0)+"");
+            int codigo = Integer.parseInt(tabelaConcursos.getValueAt(codigoLinha, 0) + "");
             Concurso.setInstance(new ConcursoService().buscar(codigo));
             dispose();
         }
     }//GEN-LAST:event_tabelaConcursosMouseClicked
+
+    private void btNovoConcursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoConcursoActionPerformed
+
+        CadastroConcurso cadConcurso = new CadastroConcurso(this, true);
+        cadConcurso.setVisible(true);
+        cadConcurso.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btNovoConcursoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

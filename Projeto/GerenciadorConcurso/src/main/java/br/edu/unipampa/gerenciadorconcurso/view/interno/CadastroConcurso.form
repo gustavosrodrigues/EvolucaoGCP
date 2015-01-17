@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
   <Properties>
     <Property name="title" type="java.lang.String" value="Cadastro Candidato"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -30,10 +31,10 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="textCodigo" min="-2" max="-2" attributes="0"/>
-                          <Component id="textNome" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="textNome1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="textNome3" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="textNome2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="textMinisterio" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="textUniversidade" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="textArea" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="textCampus" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -65,9 +66,9 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="textNome4" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="textEdital" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="textNascimento" min="-2" max="-2" attributes="0"/>
+                              <Component id="textDataInicio" min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
@@ -87,7 +88,7 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="textSexo" min="-2" max="-2" attributes="0"/>
+                      <Component id="textClasseConcurso" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="boxClasse" min="-2" pref="120" max="-2" attributes="0"/>
                   </Group>
@@ -109,43 +110,43 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="textNome" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textMinisterio" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="campoMinisterio" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtAlertMinisterio" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="textNome1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textUniversidade" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="campoUniversidade" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtAlertUniversidade" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="textNome2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textCampus" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="campoCampus" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtAlertCampus" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="textNome3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textArea" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="campoArea" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtAlertArea" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="textNome4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textEdital" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="campoEdital" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtAlertEdital" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="campoDataInicio" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="textNascimento" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textDataInicio" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtAlertDataInicio" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="textSexo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textClasseConcurso" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="boxClasse" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="44" max="32767" attributes="0"/>
@@ -171,6 +172,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btNovoActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btNovo.setVisible(false);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="btEditar">
           <Properties>
@@ -182,6 +186,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btEditarActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btEditar.setVisible(false);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="btSalvar">
           <Properties>
@@ -204,17 +211,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btDeletarActionPerformed"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btBuscar">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Buscar"/>
-            <Property name="focusable" type="boolean" value="false"/>
-            <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="verticalTextPosition" type="int" value="3"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btBuscarActionPerformed"/>
-          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btDeletar.setVisible(false);"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
@@ -233,7 +232,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoCodigoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="textNome">
+    <Component class="javax.swing.JLabel" name="textMinisterio">
       <Properties>
         <Property name="text" type="java.lang.String" value="Minist&#xe9;rio"/>
       </Properties>
@@ -256,13 +255,16 @@
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boxClasseActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="textSexo">
+    <Component class="javax.swing.JLabel" name="textClasseConcurso">
       <Properties>
         <Property name="text" type="java.lang.String" value="Classe do Concurso"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="textNascimento">
+    <Component class="javax.swing.JLabel" name="textDataInicio">
       <Properties>
         <Property name="text" type="java.lang.String" value="Data de In&#xed;cio"/>
       </Properties>
@@ -283,7 +285,7 @@
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="textNome1">
+    <Component class="javax.swing.JLabel" name="textUniversidade">
       <Properties>
         <Property name="text" type="java.lang.String" value="Universidade"/>
       </Properties>
@@ -293,21 +295,21 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoUniversidadeActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="textNome2">
+    <Component class="javax.swing.JLabel" name="textCampus">
       <Properties>
         <Property name="text" type="java.lang.String" value="Campus"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="campoCampus">
     </Component>
-    <Component class="javax.swing.JLabel" name="textNome3">
+    <Component class="javax.swing.JLabel" name="textArea">
       <Properties>
         <Property name="text" type="java.lang.String" value="Area"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="campoArea">
     </Component>
-    <Component class="javax.swing.JLabel" name="textNome4">
+    <Component class="javax.swing.JLabel" name="textEdital">
       <Properties>
         <Property name="text" type="java.lang.String" value="Edital"/>
       </Properties>
@@ -323,7 +325,7 @@
         <Property name="toolTipText" type="java.lang.String" value="Campo nome &#xe9; obrigatorio."/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="txtAlertMinisterio.setVisible(false);"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="txtAlertUniversidade.setVisible(false);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="txtAlertMinisterio">
@@ -347,7 +349,7 @@
         <Property name="toolTipText" type="java.lang.String" value="Campo nome &#xe9; obrigatorio."/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="txtAlertMinisterio.setVisible(false);"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="txtAlertCampus.setVisible(false);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="txtAlertArea">
@@ -359,7 +361,7 @@
         <Property name="toolTipText" type="java.lang.String" value="Campo nome &#xe9; obrigatorio."/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="txtAlertMinisterio.setVisible(false);"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="txtAlertArea.setVisible(false);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="txtAlertEdital">
@@ -371,7 +373,7 @@
         <Property name="toolTipText" type="java.lang.String" value="Campo nome &#xe9; obrigatorio."/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="txtAlertMinisterio.setVisible(false);"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="txtAlertEdital.setVisible(false);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="txtAlertDataInicio">
@@ -383,7 +385,7 @@
         <Property name="toolTipText" type="java.lang.String" value="Campo nome &#xe9; obrigatorio."/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="txtAlertMinisterio.setVisible(false);"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="txtAlertDataInicio.setVisible(false);"/>
       </AuxValues>
     </Component>
   </SubComponents>
