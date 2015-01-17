@@ -66,13 +66,9 @@ public class DAO {
             tx.commit();
 
         } catch (Exception e) {
-            if (tx != null) {
-                tx.rollback();
-            }
-            session.close();
+            e.printStackTrace();
+            session.getTransaction().rollback();
             return false;
-        } finally {
-            session.close();
         }
         return true;
     }
