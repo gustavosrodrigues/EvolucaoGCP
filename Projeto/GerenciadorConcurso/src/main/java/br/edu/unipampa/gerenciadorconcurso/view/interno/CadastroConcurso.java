@@ -331,26 +331,27 @@ public class CadastroConcurso extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btNovoActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-//        if (tratamentoCampos.validaObrigatorios()) {
-//            Pessoa pessoa = new Pessoa();
-//            pessoa.setNome(campoMinisterio.getText());
-//            if (boxClasse.getSelectedIndex() == 0) {
-//                pessoa.setSexo(true);
-//            }
-//
-//            candidato = new Candidato();
-//            candidato.setPessoa(pessoa);
-//            candidato.setDataNacimento(Data.converteData(campoDataInicio.getText()));
-//            candidato.setConcurso(Concurso.getInstance());
-//            candidato.setCodigo(Integer.parseInt(campoCodigo.getText()));
-//            if (candidatoService.salvar(candidato)) {
-//                status.estadoSalvo();
-//                campoCodigo.setText(candidato.getCodigo() + "");
-//                campoMensagem.setText("Candidato salvo com sucesso!");
-//            } else {
-//                campoMensagem.setText("Ocorreu um erro ao salvar o candidato!");
-//            }
-//        }
+        if (tratamentoCampos.validaObrigatorios()) {
+            Concurso novoConcurso = new Concurso();
+            novoConcurso.setCodigo(Integer.parseInt(campoCodigo.getText()));
+            novoConcurso.setMisnisterio(campoMinisterio.getText());
+            novoConcurso.setUniversidade(campoUniversidade.getText());
+            novoConcurso.setCampus(campoCampus.getText());
+            novoConcurso.setArea(campoArea.getText());
+            novoConcurso.setEdital(campoEdital.getText());
+            novoConcurso.setDataInicio(Data.converteData(campoDataInicio.getText()));
+            candidato.setPessoa(pessoa);
+            candidato.setDataNacimento(Data.converteData(campoDataInicio.getText()));
+            candidato.setConcurso(Concurso.getInstance());
+            
+            if (concursoService.salvar(candidato)) {
+                status.estadoSalvo();
+                campoCodigo.setText(candidato.getCodigo() + "");
+                campoMensagem.setText("Candidato salvo com sucesso!");
+            } else {
+                campoMensagem.setText("Ocorreu um erro ao salvar o candidato!");
+            }
+        }
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void btDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDeletarActionPerformed
