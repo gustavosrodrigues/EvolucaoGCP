@@ -12,20 +12,20 @@ import java.util.ArrayList;
 import javax.swing.JFormattedTextField;
 
 /**
- * Relatório Prova Escrita Ata Julgamento
+ * Relatório Prova Escrita Ata Sessao Divulgacao Resultado
  *
  * @version v 1.0 19/01/2015
  * @author Alex Becker
  *
  */
-public class RelProvaEscritaAtaJulgamento extends javax.swing.JInternalFrame {
+public class RelPEAtaSessaoDivulgacaoResultado extends javax.swing.JInternalFrame {
 
     private final Campos tratamentoCampos;
     
     /**
      * Creates new form CadastroCandidato
      */
-    public RelProvaEscritaAtaJulgamento() {
+    public RelPEAtaSessaoDivulgacaoResultado() {
         initComponents();
         tratamentoCampos = new Campos();
         tratamentoCampos.setCampo(new FormattedFieldFormat(campoData, txtAlertData, true));
@@ -61,11 +61,11 @@ public class RelProvaEscritaAtaJulgamento extends javax.swing.JInternalFrame {
         txtAlertLocal = new javax.swing.JLabel();
         campoLocal = new javax.swing.JFormattedTextField();
 
-        setTitle("Ata de Julgamento da Prova Escrita");
+        setTitle("Ata de Sessão de Divulgação do Resultado da Prova Escrita");
 
         jToolBar1.setRollover(true);
 
-        btNovo.setText("Gerar Ata de Julgamento");
+        btNovo.setText("Gerar Ata sessão de divulgação do resultado");
         btNovo.setFocusable(false);
         btNovo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btNovo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -210,7 +210,7 @@ public class RelProvaEscritaAtaJulgamento extends javax.swing.JInternalFrame {
                 parametros.add(new Parametro("diaExtenso", campoData.getText().toString()));
                 parametros.add(new Parametro("logo", file.getAbsolutePath()));
 
-                GeradorRelatorios.gerar(System.getProperty("user.dir") + "\\src\\relatorios\\RelAtaJulgamentoProvaEscrita.jasper", parametros);
+                GeradorRelatorios.gerar(System.getProperty("user.dir") + "\\src\\relatorios\\RelAtaSessaoDivulgacaoResultadoProvaEscrita.jasper", parametros);
                 campoMensagem.setText("Relatório gerado com sucesso.");
             } catch (Exception e) {
                 campoMensagem.setText("Erro ao gerar o relatório. ERRO: " + e.getMessage());
