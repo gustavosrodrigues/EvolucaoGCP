@@ -4,15 +4,19 @@
 package br.edu.unipampa.gerenciadorconcurso.view;
 
 import br.edu.unipampa.gerenciadorconcurso.dao.HibernateUtil;
+import br.edu.unipampa.gerenciadorconcurso.view.interno.AtaComissao;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.CadastroCandidato;
+import br.edu.unipampa.gerenciadorconcurso.view.interno.CadastroExaminador;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.DefinirPesoProvasConcurso;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.ReciboDocumentacaoPorCandidato;
+import br.edu.unipampa.gerenciadorconcurso.view.interno.RelProvaEscritaAtaJulgamento;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.SelecaoConcurso;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
+import javax.swing.UIManager;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import org.hibernate.Session;
 
@@ -46,8 +50,16 @@ public class AreaTrabalho extends javax.swing.JFrame {
         menuAbrirConcurso = new javax.swing.JMenu();
         itemMenuCadastro = new javax.swing.JMenu();
         itemMenuCandidato = new javax.swing.JMenuItem();
+        itemMenuExaminadores = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        reciboDocumentacaoPorCandidato = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        itemMenuAtaInstalacaoComissao = new javax.swing.JMenuItem();
+        menuProvaEscrita = new javax.swing.JMenu();
+        menuProvaEscritaRelatorios = new javax.swing.JMenu();
+        menuProvaEscritaRelatoriosAtas = new javax.swing.JMenu();
+        menuProvaEscritaRelatoriosAtasAtaJulgamento = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -81,13 +93,21 @@ public class AreaTrabalho extends javax.swing.JFrame {
 
         itemMenuCadastro.setText("Cadastro");
 
-        itemMenuCandidato.setText("Candidato");
+        itemMenuCandidato.setText("Candidatos");
         itemMenuCandidato.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itemMenuCandidatoActionPerformed(evt);
             }
         });
         itemMenuCadastro.add(itemMenuCandidato);
+
+        itemMenuExaminadores.setText("Examinadores");
+        itemMenuExaminadores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemMenuExaminadoresActionPerformed(evt);
+            }
+        });
+        itemMenuCadastro.add(itemMenuExaminadores);
 
         jMenuItem1.setText("Definir Pesos");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -99,15 +119,51 @@ public class AreaTrabalho extends javax.swing.JFrame {
 
         menuAbrirConcurso.add(itemMenuCadastro);
 
-        jMenuItem2.setText("Recibo de documentação - por candidato");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jMenu1.setText("Relatorio");
+
+        reciboDocumentacaoPorCandidato.setText("Recibo de documentação - por candidato");
+        reciboDocumentacaoPorCandidato.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                reciboDocumentacaoPorCandidatoActionPerformed(evt);
             }
         });
-        menuAbrirConcurso.add(jMenuItem2);
+        jMenu1.add(reciboDocumentacaoPorCandidato);
+
+        jMenu3.setText("Atas");
+
+        itemMenuAtaInstalacaoComissao.setText("Ata de Instalação da Comissão");
+        itemMenuAtaInstalacaoComissao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemMenuAtaInstalacaoComissaoActionPerformed(evt);
+            }
+        });
+        jMenu3.add(itemMenuAtaInstalacaoComissao);
+
+        jMenu1.add(jMenu3);
+
+        menuAbrirConcurso.add(jMenu1);
 
         jMenuBar1.add(menuAbrirConcurso);
+
+        menuProvaEscrita.setText("Prova Escrita");
+
+        menuProvaEscritaRelatorios.setText("Relatórios");
+
+        menuProvaEscritaRelatoriosAtas.setText("Atas");
+
+        menuProvaEscritaRelatoriosAtasAtaJulgamento.setText("Ata Julgamento");
+        menuProvaEscritaRelatoriosAtasAtaJulgamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuProvaEscritaRelatoriosAtasAtaJulgamentoActionPerformed(evt);
+            }
+        });
+        menuProvaEscritaRelatoriosAtas.add(menuProvaEscritaRelatoriosAtasAtaJulgamento);
+
+        menuProvaEscritaRelatorios.add(menuProvaEscritaRelatoriosAtas);
+
+        menuProvaEscrita.add(menuProvaEscritaRelatorios);
+
+        jMenuBar1.add(menuProvaEscrita);
 
         jMenu2.setText("Sobre");
         jMenuBar1.add(jMenu2);
@@ -146,9 +202,21 @@ public class AreaTrabalho extends javax.swing.JFrame {
         criarDefinirPesos();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void itemMenuExaminadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuExaminadoresActionPerformed
+        criarCadastroExaminador();
+    }//GEN-LAST:event_itemMenuExaminadoresActionPerformed
+
+    private void itemMenuAtaInstalacaoComissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuAtaInstalacaoComissaoActionPerformed
+        criarRelatorioAtaInstalacaoComissao();
+    }//GEN-LAST:event_itemMenuAtaInstalacaoComissaoActionPerformed
+
+    private void menuProvaEscritaRelatoriosAtasAtaJulgamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuProvaEscritaRelatoriosAtasAtaJulgamentoActionPerformed
+        criarRelatorioAtaJulgamentoProvaEscrita();
+    }//GEN-LAST:event_menuProvaEscritaRelatoriosAtasAtaJulgamentoActionPerformed
+
+    private void reciboDocumentacaoPorCandidatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reciboDocumentacaoPorCandidatoActionPerformed
         criarReciboDocCandidatos();
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_reciboDocumentacaoPorCandidatoActionPerformed
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Inicio">
@@ -163,7 +231,8 @@ public class AreaTrabalho extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            javax.swing.UIManager.setLookAndFeel(new NimbusLookAndFeel());
+            UIManager.setLookAndFeel(new NimbusLookAndFeel());
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(AreaTrabalho.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
@@ -207,6 +276,21 @@ public class AreaTrabalho extends javax.swing.JFrame {
         adicionarJanela(definirPesoProvasConcurso);
     }
 
+    private void criarCadastroExaminador() {
+        CadastroExaminador cadastroExaminadores = new CadastroExaminador();
+        adicionarJanela(cadastroExaminadores);
+    }
+
+    private void criarRelatorioAtaInstalacaoComissao() {
+        AtaComissao ataComissao = new AtaComissao();
+        ataComissao.setVisible(true);
+    }
+
+    private void criarRelatorioAtaJulgamentoProvaEscrita() {
+        RelProvaEscritaAtaJulgamento relProvaEscritaAtaJulgamento = new RelProvaEscritaAtaJulgamento();
+        adicionarJanela(relProvaEscritaAtaJulgamento);
+    }
+
     private void criarReciboDocCandidatos() {
         ReciboDocumentacaoPorCandidato reciboDocumentacaoPorCandidato = new ReciboDocumentacaoPorCandidato();
         adicionarJanela(reciboDocumentacaoPorCandidato);
@@ -217,14 +301,22 @@ public class AreaTrabalho extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane areaTrabalho;
     private javax.swing.JButton atalhoCandidato;
+    private javax.swing.JMenuItem itemMenuAtaInstalacaoComissao;
     private javax.swing.JMenu itemMenuCadastro;
     private javax.swing.JMenuItem itemMenuCandidato;
+    private javax.swing.JMenuItem itemMenuExaminadores;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JMenu menuAbrirConcurso;
+    private javax.swing.JMenu menuProvaEscrita;
+    private javax.swing.JMenu menuProvaEscritaRelatorios;
+    private javax.swing.JMenu menuProvaEscritaRelatoriosAtas;
+    private javax.swing.JMenuItem menuProvaEscritaRelatoriosAtasAtaJulgamento;
+    private javax.swing.JMenuItem reciboDocumentacaoPorCandidato;
     // End of variables declaration//GEN-END:variables
 //</editor-fold>
 }
