@@ -45,8 +45,6 @@
                 <Property name="text" type="java.lang.String" value="Relatorio"/>
               </Properties>
               <SubComponents>
-<<<<<<< HEAD
-=======
                 <MenuItem class="javax.swing.JMenuItem" name="reciboDocumentacaoPorCandidato">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Recibo de documenta&#xe7;&#xe3;o - por candidato"/>
@@ -55,7 +53,6 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="reciboDocumentacaoPorCandidatoActionPerformed"/>
                   </Events>
                 </MenuItem>
->>>>>>> feature/criar_recibo_doc_candidatos
                 <Menu class="javax.swing.JMenu" name="jMenu3">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Atas"/>
