@@ -95,6 +95,14 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuProvaEscritaRelatoriosAtasAtaJulgamentoActionPerformed"/>
                       </Events>
                     </MenuItem>
+                    <MenuItem class="javax.swing.JMenuItem" name="menuProvaEscritaRelatoriosAtasAtaSessaoDivulgacaoResultado">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Ata da Sess&#xe3;o de Divulga&#xe7;&#xe3;o do Resultado"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuProvaEscritaRelatoriosAtasAtaSessaoDivulgacaoResultadoActionPerformed"/>
+                      </Events>
+                    </MenuItem>
                   </SubComponents>
                 </Menu>
               </SubComponents>
