@@ -8,6 +8,7 @@ import br.edu.unipampa.gerenciadorconcurso.view.interno.AtaComissao;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.CadastroCandidato;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.CadastroExaminador;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.DefinirPesoProvasConcurso;
+import br.edu.unipampa.gerenciadorconcurso.view.interno.RelProvaEscritaAtaJulgamento;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.SelecaoConcurso;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
@@ -53,6 +54,10 @@ public class AreaTrabalho extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         itemMenuAtaInstalacaoComissao = new javax.swing.JMenuItem();
+        menuProvaEscrita = new javax.swing.JMenu();
+        menuProvaEscritaRelatorios = new javax.swing.JMenu();
+        menuProvaEscritaRelatoriosAtas = new javax.swing.JMenu();
+        menuProvaEscritaRelatoriosAtasAtaJulgamento = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -130,6 +135,26 @@ public class AreaTrabalho extends javax.swing.JFrame {
 
         jMenuBar1.add(menuAbrirConcurso);
 
+        menuProvaEscrita.setText("Prova Escrita");
+
+        menuProvaEscritaRelatorios.setText("Relatórios");
+
+        menuProvaEscritaRelatoriosAtas.setText("Atas");
+
+        menuProvaEscritaRelatoriosAtasAtaJulgamento.setText("Ata Julgamento");
+        menuProvaEscritaRelatoriosAtasAtaJulgamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuProvaEscritaRelatoriosAtasAtaJulgamentoActionPerformed(evt);
+            }
+        });
+        menuProvaEscritaRelatoriosAtas.add(menuProvaEscritaRelatoriosAtasAtaJulgamento);
+
+        menuProvaEscritaRelatorios.add(menuProvaEscritaRelatoriosAtas);
+
+        menuProvaEscrita.add(menuProvaEscritaRelatorios);
+
+        jMenuBar1.add(menuProvaEscrita);
+
         jMenu2.setText("Sobre");
         jMenuBar1.add(jMenu2);
 
@@ -174,6 +199,10 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private void itemMenuAtaInstalacaoComissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuAtaInstalacaoComissaoActionPerformed
         criarRelatorioAtaInstalacaoComissao();
     }//GEN-LAST:event_itemMenuAtaInstalacaoComissaoActionPerformed
+
+    private void menuProvaEscritaRelatoriosAtasAtaJulgamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuProvaEscritaRelatoriosAtasAtaJulgamentoActionPerformed
+        criarRelatorioAtaJulgamentoProvaEscrita();
+    }//GEN-LAST:event_menuProvaEscritaRelatoriosAtasAtaJulgamentoActionPerformed
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Inicio">
@@ -229,8 +258,8 @@ public class AreaTrabalho extends javax.swing.JFrame {
     }
 
     private void criarDefinirPesos() {
-        DefinirPesoProvasConcurso efinirPesoProvasConcurso = new DefinirPesoProvasConcurso();
-        adicionarJanela(efinirPesoProvasConcurso);
+        DefinirPesoProvasConcurso definirPesoProvasConcurso = new DefinirPesoProvasConcurso();
+        adicionarJanela(definirPesoProvasConcurso);
     }
     
     private void criarCadastroExaminador() {
@@ -241,6 +270,11 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private void criarRelatorioAtaInstalacaoComissao(){
         AtaComissao ataComissao = new AtaComissao();
         ataComissao.setVisible(true);
+    }
+    
+    private void criarRelatorioAtaJulgamentoProvaEscrita(){
+        RelProvaEscritaAtaJulgamento relProvaEscritaAtaJulgamento = new RelProvaEscritaAtaJulgamento();
+        adicionarJanela(relProvaEscritaAtaJulgamento);
     }
 //</editor-fold>
 
@@ -260,6 +294,10 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JMenu menuAbrirConcurso;
+    private javax.swing.JMenu menuProvaEscrita;
+    private javax.swing.JMenu menuProvaEscritaRelatorios;
+    private javax.swing.JMenu menuProvaEscritaRelatoriosAtas;
+    private javax.swing.JMenuItem menuProvaEscritaRelatoriosAtasAtaJulgamento;
     // End of variables declaration//GEN-END:variables
 //</editor-fold>
 }
