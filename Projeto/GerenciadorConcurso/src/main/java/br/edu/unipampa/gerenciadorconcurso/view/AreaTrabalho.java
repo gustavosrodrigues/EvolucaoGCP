@@ -4,6 +4,7 @@
 package br.edu.unipampa.gerenciadorconcurso.view;
 
 import br.edu.unipampa.gerenciadorconcurso.dao.HibernateUtil;
+import br.edu.unipampa.gerenciadorconcurso.view.interno.AtaComissao;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.CadastroCandidato;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.CadastroExaminador;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.DefinirPesoProvasConcurso;
@@ -49,6 +50,9 @@ public class AreaTrabalho extends javax.swing.JFrame {
         itemMenuCandidato = new javax.swing.JMenuItem();
         itemMenuExaminadores = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        itemMenuAtaInstalacaoComissao = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -108,6 +112,22 @@ public class AreaTrabalho extends javax.swing.JFrame {
 
         menuAbrirConcurso.add(itemMenuCadastro);
 
+        jMenu1.setText("Relatorio");
+
+        jMenu3.setText("Atas");
+
+        itemMenuAtaInstalacaoComissao.setText("Ata de Instalação da Comissão");
+        itemMenuAtaInstalacaoComissao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemMenuAtaInstalacaoComissaoActionPerformed(evt);
+            }
+        });
+        jMenu3.add(itemMenuAtaInstalacaoComissao);
+
+        jMenu1.add(jMenu3);
+
+        menuAbrirConcurso.add(jMenu1);
+
         jMenuBar1.add(menuAbrirConcurso);
 
         jMenu2.setText("Sobre");
@@ -150,6 +170,10 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private void itemMenuExaminadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuExaminadoresActionPerformed
         criarCadastroExaminador();
     }//GEN-LAST:event_itemMenuExaminadoresActionPerformed
+
+    private void itemMenuAtaInstalacaoComissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuAtaInstalacaoComissaoActionPerformed
+        criarRelatorioAtaInstalacaoComissao();
+    }//GEN-LAST:event_itemMenuAtaInstalacaoComissaoActionPerformed
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Inicio">
@@ -213,16 +237,25 @@ public class AreaTrabalho extends javax.swing.JFrame {
         CadastroExaminador cadastroExaminadores = new CadastroExaminador();
         adicionarJanela(cadastroExaminadores);
     }
+    
+    private void criarRelatorioAtaInstalacaoComissao(){
+        AtaComissao ataComissao = new AtaComissao();
+        ataComissao.setVisible(true);
+    }
 //</editor-fold>
 
+    
     //<editor-fold defaultstate="collapsed" desc="Variaveis">
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane areaTrabalho;
     private javax.swing.JButton atalhoCandidato;
+    private javax.swing.JMenuItem itemMenuAtaInstalacaoComissao;
     private javax.swing.JMenu itemMenuCadastro;
     private javax.swing.JMenuItem itemMenuCandidato;
     private javax.swing.JMenuItem itemMenuExaminadores;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JToolBar jToolBar1;
