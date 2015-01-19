@@ -42,12 +42,14 @@ public class AtaComissao extends javax.swing.JFrame {
         local = new javax.swing.JTextField();
         emissor = new javax.swing.JTextField();
         portaria = new javax.swing.JTextField();
-        gerar2 = new javax.swing.JButton();
         hora = new javax.swing.JFormattedTextField();
         textHora = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        dataRelatorio = new javax.swing.JTextField();
+        textNome3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -82,13 +84,6 @@ public class AtaComissao extends javax.swing.JFrame {
             }
         });
 
-        gerar2.setText("Criar ata de instalação da comissão examinadora");
-        gerar2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gerar2ActionPerformed(evt);
-            }
-        });
-
         try {
             hora.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-##")));
         } catch (java.text.ParseException ex) {
@@ -109,6 +104,24 @@ public class AtaComissao extends javax.swing.JFrame {
 
         jLabel3.setText("Exemplo: \"Reitoria da Universidade Federal do Pampa\"");
 
+        dataRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataRelatorioActionPerformed(evt);
+            }
+        });
+
+        textNome3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        textNome3.setText("Data:");
+
+        jLabel4.setText("Exemplo: \"12 de Janeiro de 2015\"");
+
+        jButton1.setText("Criar Ata de Instalação da Banca Examinadora");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -116,35 +129,41 @@ public class AtaComissao extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(emissor, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(hora, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(emissor, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(textNome2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(textNome3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4))
+                    .addComponent(hora, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textHora)
-                    .addComponent(gerar2, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(textNome)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(textNome1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(portaria, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)
-                        .addComponent(local, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                        .addComponent(dataRelatorio, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(portaria, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(local, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)))
+                .addContainerGap(499, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(49, 49, 49)
                 .addComponent(textHora)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(hora, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textNome)
                     .addComponent(jLabel1))
@@ -155,23 +174,23 @@ public class AtaComissao extends javax.swing.JFrame {
                     .addComponent(textNome1)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(portaria, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(portaria, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textNome2)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabel3)
+                    .addComponent(textNome2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(emissor, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(gerar2))
+                .addComponent(emissor, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(textNome3, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dataRelatorio, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
-
-        jButton1.setText("Criar Ata");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
         jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
@@ -181,19 +200,13 @@ public class AtaComissao extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18))
-            .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jInternalFrame1Layout.setVerticalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jInternalFrame1Layout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addGap(73, 73, 73))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(124, 124, 124))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -226,10 +239,6 @@ public class AtaComissao extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_portariaActionPerformed
 
-    private void gerar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerar2ActionPerformed
-
-    }//GEN-LAST:event_gerar2ActionPerformed
-
     private void horaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_horaActionPerformed
@@ -251,11 +260,12 @@ public class AtaComissao extends javax.swing.JFrame {
             }
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //parametros.add(new Parametro("hora", "" + ));
-              parametros.add(new Parametro("hora", hora.getText()));
+            parametros.add(new Parametro("dataRelatorio", dataRelatorio.getText()));
+            parametros.add(new Parametro("hora", hora.getText()));
             parametros.add(new Parametro("local", local.getText()));
             parametros.add(new Parametro("portaria", portaria.getText()));
             parametros.add(new Parametro("emissor", emissor.getText()));
-            parametros.add(new Parametro("dataRelatorio", emissor.getText()));
+            
 
             GeradorRelatorios.gerar(System.getProperty("user.dir") + "\\src\\relatorios\\RelAtaComissao.jasper", parametros);
         } catch (Exception e) {
@@ -263,16 +273,21 @@ public class AtaComissao extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void dataRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataRelatorioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dataRelatorioActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField dataRelatorio;
     private javax.swing.JTextField emissor;
-    private javax.swing.JButton gerar2;
     private javax.swing.JFormattedTextField hora;
     private javax.swing.JButton jButton1;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField local;
     private javax.swing.JTextField portaria;
@@ -280,5 +295,6 @@ public class AtaComissao extends javax.swing.JFrame {
     private javax.swing.JLabel textNome;
     private javax.swing.JLabel textNome1;
     private javax.swing.JLabel textNome2;
+    private javax.swing.JLabel textNome3;
     // End of variables declaration//GEN-END:variables
 }
