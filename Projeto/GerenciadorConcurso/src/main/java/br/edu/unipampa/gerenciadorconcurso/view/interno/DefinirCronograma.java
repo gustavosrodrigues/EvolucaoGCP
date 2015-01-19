@@ -36,15 +36,17 @@ public class DefinirCronograma extends javax.swing.JInternalFrame {
     private StatusCadastros status;
     private final ConogramaService conogramaService;
     private final DefaultTableModel modelo;
-    private ArrayList<String[]> listaInicial;
-    private ArrayList<String[]> listaFinal;
+    private ArrayList<Registrocronograma> listaRegistroTabela;
     private boolean salvou;
     private Abertura abertura;
+    private ArrayList<Registrocronograma> listaRegistrosBanco;
+    private ArrayList<Registrocronograma> listaRegistrosAlterados;
 
     public DefinirCronograma() {
         modelo = new DefaultTableModel();
         conogramaService = new ConogramaService();
         salvou = true;
+        listaRegistrosAlterados = new ArrayList<>();
         initComponents();
         inicializarTabela();
         buscarConogramaCadastrado();
@@ -59,8 +61,6 @@ public class DefinirCronograma extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        BotaoAdicionarLinha = new javax.swing.JButton();
-        BotaoConfirmar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         TabelaConograma = new javax.swing.JTable();
         jToolBar1 = new javax.swing.JToolBar();
@@ -69,20 +69,6 @@ public class DefinirCronograma extends javax.swing.JInternalFrame {
         btSalvar = new javax.swing.JButton();
         btDeletar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-
-        BotaoAdicionarLinha.setText("Adicionar Linha");
-        BotaoAdicionarLinha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoAdicionarLinhaActionPerformed(evt);
-            }
-        });
-
-        BotaoConfirmar.setText("Confirmar");
-        BotaoConfirmar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoConfirmarActionPerformed(evt);
-            }
-        });
 
         TabelaConograma.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -111,6 +97,11 @@ public class DefinirCronograma extends javax.swing.JInternalFrame {
         Editar.setFocusable(false);
         Editar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Editar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        Editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditarActionPerformed(evt);
+            }
+        });
         jToolBar1.add(Editar);
 
         btSalvar.setText("Salvar");
@@ -145,12 +136,6 @@ public class DefinirCronograma extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BotaoAdicionarLinha)
-                .addGap(18, 18, 18)
-                .addComponent(BotaoConfirmar)
-                .addContainerGap())
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE)
         );
@@ -159,23 +144,11 @@ public class DefinirCronograma extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BotaoConfirmar)
-                    .addComponent(BotaoAdicionarLinha)))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void BotaoAdicionarLinhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAdicionarLinhaActionPerformed
-
-    }//GEN-LAST:event_BotaoAdicionarLinhaActionPerformed
-
-    private void BotaoConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoConfirmarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BotaoConfirmarActionPerformed
 
     private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
         if (verificaCompletudeLinha() != NAO_PREENCHIDO) {
@@ -194,6 +167,7 @@ public class DefinirCronograma extends javax.swing.JInternalFrame {
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
 
         if(verificaCompletudeLinha() == PREENCHIDO){
+            salvarMudancas();
             conogramaService.salvar(criarRegistroCronograma());
         }else{
            JOptionPane.showMessageDialog(null, "Preencha todos os dados do"
@@ -203,9 +177,15 @@ public class DefinirCronograma extends javax.swing.JInternalFrame {
 
     private void btDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDeletarActionPerformed
         if (JOptionPane.showConfirmDialog(null, "Você deseja realmente deletar o registro?") == JOptionPane.OK_OPTION) {
-
+            
         }
     }//GEN-LAST:event_btDeletarActionPerformed
+
+    private void EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarActionPerformed
+        if (JOptionPane.showConfirmDialog(null, "Você deseja realmente Editar o registro?") == JOptionPane.OK_OPTION) {
+            
+        }
+    }//GEN-LAST:event_EditarActionPerformed
 
     /**
      * Monta a estrutura da tabela em que o conograma vai estar.
@@ -220,10 +200,10 @@ public class DefinirCronograma extends javax.swing.JInternalFrame {
 
     private void buscarConogramaCadastrado() {
         String[] vetorConograma;
-        ArrayList<Registrocronograma> listaConograma
-                = conogramaService.buscarConogramaPorConcurso(Concurso.getInstance());
+        listaRegistrosBanco = conogramaService.buscarConogramaPorConcurso(Concurso.getInstance());
+        listaRegistroTabela = new ArrayList<>();
         //Preeche a tabela com os dados já existentes
-        for (Registrocronograma registrocronograma : listaConograma) {
+        for (Registrocronograma registrocronograma : listaRegistrosBanco) {
             vetorConograma = new String[4];
             vetorConograma[POSICAO_ATIVIDADE] = registrocronograma.getAtividade();
             vetorConograma[POSICAO_DATA] = "" + registrocronograma.getData();
@@ -231,6 +211,7 @@ public class DefinirCronograma extends javax.swing.JInternalFrame {
             vetorConograma[POSICAO_LOCAL] = registrocronograma.getLocal();
             modelo.addRow(vetorConograma);
             abertura = registrocronograma.getAbertura();
+            listaRegistroTabela.add(registrocronograma);
         }
     }
 
@@ -282,10 +263,33 @@ public class DefinirCronograma extends javax.swing.JInternalFrame {
         
         return registroCronograma;
     }
+    
+    private void verifacarMundanca(){
+        Registrocronograma registroTabela,registroBanco;
+        for (int i = 0; i < listaRegistrosBanco.size(); i++) {
+            registroBanco = listaRegistrosBanco.get(i);
+            registroTabela = listaRegistroTabela.get(i);
+            if(!registroBanco.getAtividade().equals(registroTabela.getAtividade())){
+                listaRegistrosAlterados.add(registroTabela);
+            }else if(!registroBanco.getData().equals(registroTabela.getData())){
+                listaRegistrosAlterados.add(registroTabela);
+            }else if(!registroBanco.getHorario().equals(registroTabela.getHorario())){
+                listaRegistrosAlterados.add(registroTabela);
+            }else if(!registroBanco.getLocal().equals(registroTabela.getLocal())){
+                listaRegistrosAlterados.add(registroTabela);
+            }
+        }
+    }
+    
+    public void salvarMudancas(){
+        verifacarMundanca();
+        for (Registrocronograma registrocronograma : listaRegistrosAlterados) {
+            conogramaService.salvar(registrocronograma);
+        }
+        listaRegistrosAlterados.clear();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotaoAdicionarLinha;
-    private javax.swing.JButton BotaoConfirmar;
     private javax.swing.JButton Editar;
     private javax.swing.JTable TabelaConograma;
     private javax.swing.JButton btDeletar;
