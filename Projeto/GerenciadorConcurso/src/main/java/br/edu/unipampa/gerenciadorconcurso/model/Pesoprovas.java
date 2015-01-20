@@ -59,6 +59,9 @@ public class Pesoprovas implements Serializable {
     @JoinColumn(name = "concurso", referencedColumnName = "codigo")
     @ManyToOne(optional = false)
     private Concurso concurso;
+    private float peso1;
+    private float peso2;
+    private float peso3;
 
     public Pesoprovas() {
     }
@@ -74,7 +77,7 @@ public class Pesoprovas implements Serializable {
         this.pesoProvaMemorial = pesoProvaMemorial;
         this.pesoProvaTitulo = pesoProvaTitulo;
     }
-
+    
     public Integer getCodigo() {
         return codigo;
     }
@@ -122,6 +125,23 @@ public class Pesoprovas implements Serializable {
     public void setConcurso(Concurso concurso) {
         this.concurso = concurso;
     }
+    
+    public void pesoClassesProvasTitulos(float peso1, float peso2, float peso3){
+        this.peso1 = peso1;
+        this.peso2 = peso2;
+        this.peso3 = peso3;
+        
+        this.verificaPesoClasseProvaTitulo(peso1, peso2, peso3);
+    }
+    
+    public boolean verificaPesoClasseProvaTitulo(float peso1, float peso2, float peso3){
+        if ((peso1 + peso2 + peso3) == 10.0){
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
 
     @Override
     public int hashCode() {
