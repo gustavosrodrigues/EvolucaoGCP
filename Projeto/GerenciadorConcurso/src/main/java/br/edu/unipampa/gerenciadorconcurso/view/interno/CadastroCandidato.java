@@ -38,6 +38,7 @@ public class CadastroCandidato extends javax.swing.JInternalFrame {
         tratamentoCampos = new Campos();
         candidatoService = new CandidatoService();
         repassarCampos();
+        adicionarIcones();
     }
 
     /**
@@ -71,6 +72,7 @@ public class CadastroCandidato extends javax.swing.JInternalFrame {
         setTitle("Cadastro Candidato");
 
         jToolBar1.setRollover(true);
+        jToolBar1.setBorderPainted(false);
 
         btNovo.setText("Novo");
         btNovo.setFocusable(false);
@@ -162,7 +164,7 @@ public class CadastroCandidato extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(campoMensagem)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -188,7 +190,7 @@ public class CadastroCandidato extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textCodigo)
@@ -209,7 +211,7 @@ public class CadastroCandidato extends javax.swing.JInternalFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(textNascimento)
                         .addComponent(campoNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addComponent(campoMensagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -311,5 +313,13 @@ public class CadastroCandidato extends javax.swing.JInternalFrame {
         tratamentoCampos.setCampo(new FieldFormat(campoNome, txtAlertNome, true));
 
         status = new StatusCadastros(btNovo, btDeletar, btSalvar, btSalvar, campoCodigo, campoMensagem, tratamentoCampos);
+    }
+    
+    private void adicionarIcones(){
+        btNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/novo.png")));
+        btDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/deletar.png")));
+        btSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/salvar.png")));
+        btBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pesquisar.png")));
+        btEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar.png")));
     }
 }

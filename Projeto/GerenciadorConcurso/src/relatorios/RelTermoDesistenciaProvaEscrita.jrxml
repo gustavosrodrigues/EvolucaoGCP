@@ -3,13 +3,13 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<parameter name="logo" class="java.lang.Byte">
+	<parameter name="logo" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
-	<parameter name="concurso" class="java.lang.Integer">
+	<parameter name="concurso" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
-	<parameter name="dataRelatorio" class="java.util.Date">
+	<parameter name="dataRelatorio" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
@@ -26,7 +26,7 @@
      concurso.`banca` AS concurso_banca
 FROM
      `concurso` concurso
-WHERE concurso.codigo= $P{concurso}]]>
+WHERE concurso.codigo= $P!{concurso}]]>
 	</queryString>
 	<field name="concurso_codigo" class="java.lang.Integer"/>
 	<field name="concurso_edital" class="java.lang.String"/>
@@ -116,6 +116,7 @@ Uso exclusivo Divisão de Concursos
 				<reportElement x="67" y="213" width="433" height="202" uuid="9519dfe6-0cb1-499d-a8eb-8f34aa59e5a3"/>
 				<textElement textAlignment="Justified" markup="none">
 					<font fontName="Arial"/>
+					<paragraph lineSpacing="1_1_2"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Eu, ___________________________________________________________________, portador da cédula de identidade nº ________________________, expedida pelo  _________________________________________, no presente ato e na melhor forma de direito, declaro DESISTIR de qualquer recurso cabível, conforme Artigo 28 da Resolução " +
 "55/2013 do CONSUNI, relativo à Nota Final da Prova Escrita do Concurso Público para provimento de cargo de " + $F{concurso_classe} +" na área de "+ $F{concurso_area} +" , Edital "+ $F{concurso_edital} +" promovido pela Fundação " + $F{concurso_universidade}+"."]]></textFieldExpression>
