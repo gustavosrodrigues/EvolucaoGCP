@@ -12,6 +12,9 @@ import br.edu.unipampa.gerenciadorconcurso.service.ConogramaService;
 import br.edu.unipampa.gerenciadorconcurso.validator.Campos;
 import br.edu.unipampa.gerenciadorconcurso.validator.Data;
 import br.edu.unipampa.gerenciadorconcurso.validator.StatusCadastros;
+import br.edu.unipampa.gerenciadorconcurso.validator.Tabela;
+import br.edu.unipampa.gerenciadorconcurso.view.edicao.EditarConograma;
+import br.edu.unipampa.gerenciadorconcurso.view.pesq.PesqCandidato;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
@@ -31,9 +34,14 @@ public class DefinirCronograma extends javax.swing.JInternalFrame {
     private static final int PREENCHIDO = 1;
     private static final int NAO_PREENCHIDO = 0;
     private static final int VAZIO = 2;
+    private static final int NOVO = 1;
+    private static final int NAO_NOVO = 0;
+    private static final int NAO_SELECIONADO = -1;
+    private static final int SELECIONADO = 0;
+    private static final int NAO_EDITAVEL = 1;
 
     private Campos tratamentoCampos;
-    private StatusCadastros status;
+    private int status;
     private final ConogramaService conogramaService;
     private final DefaultTableModel modelo;
     private ArrayList<Registrocronograma> listaRegistroTabela;
@@ -68,7 +76,6 @@ public class DefinirCronograma extends javax.swing.JInternalFrame {
         Editar = new javax.swing.JButton();
         btSalvar = new javax.swing.JButton();
         btDeletar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
 
         TabelaConograma.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -126,12 +133,6 @@ public class DefinirCronograma extends javax.swing.JInternalFrame {
         });
         jToolBar1.add(btDeletar);
 
-        jButton1.setText("Buscar");
-        jButton1.setFocusable(false);
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton1);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -155,7 +156,8 @@ public class DefinirCronograma extends javax.swing.JInternalFrame {
             if (salvou) {
                 modelo.addRow(new Object[4]);
                 salvou = false;
-            }else{
+                status = NOVO;
+            } else {
                 JOptionPane.showMessageDialog(null, "Salve a sua alteração Primeiro");
             }
         } else {
@@ -166,24 +168,32 @@ public class DefinirCronograma extends javax.swing.JInternalFrame {
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
 
-        if(verificaCompletudeLinha() == PREENCHIDO){
-            salvarMudancas();
-            conogramaService.salvar(criarRegistroCronograma());
-        }else{
-           JOptionPane.showMessageDialog(null, "Preencha todos os dados do"
-                    + " registro de conograma atual, antes de salvar!"); 
+        if (verificaCompletudeLinha() == PREENCHIDO) {
+            if (status == NOVO) {
+                conogramaService.salvar(criarRegistroCronograma());
+                buscarConogramaCadastrado();
+                status = NAO_NOVO;
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Preencha todos os dados do"
+                    + " registro de conograma atual, antes de salvar!");
         }
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void btDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDeletarActionPerformed
         if (JOptionPane.showConfirmDialog(null, "Você deseja realmente deletar o registro?") == JOptionPane.OK_OPTION) {
-            
+            if(deletarLinha() == NAO_SELECIONADO){
+                JOptionPane.showConfirmDialog(null,"Selecione uma linha primeiro");
+            }
         }
     }//GEN-LAST:event_btDeletarActionPerformed
 
     private void EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarActionPerformed
-        if (JOptionPane.showConfirmDialog(null, "Você deseja realmente Editar o registro?") == JOptionPane.OK_OPTION) {
-            
+        if (verificaCompletudeLinha() == PREENCHIDO) {
+            editarLinha();
+        } else {
+            JOptionPane.showMessageDialog(null, "Preencha todos os dados do"
+                    + " registro de conograma atual, antes de salvar!");
         }
     }//GEN-LAST:event_EditarActionPerformed
 
@@ -202,6 +212,7 @@ public class DefinirCronograma extends javax.swing.JInternalFrame {
         String[] vetorConograma;
         listaRegistrosBanco = conogramaService.buscarConogramaPorConcurso(Concurso.getInstance());
         listaRegistroTabela = new ArrayList<>();
+        Tabela.limparTabela(modelo);
         //Preeche a tabela com os dados já existentes
         for (Registrocronograma registrocronograma : listaRegistrosBanco) {
             vetorConograma = new String[4];
@@ -239,55 +250,74 @@ public class DefinirCronograma extends javax.swing.JInternalFrame {
         }
         return PREENCHIDO;
     }
-    
+
+    private int editarLinha() {
+        Registrocronograma registroParaEditar;
+        int linhaSelecionada = TabelaConograma.getSelectedRow();
+        registroParaEditar = listaRegistrosBanco.get(linhaSelecionada);
+
+        if (linhaSelecionada == NAO_SELECIONADO) {
+            return NAO_SELECIONADO;
+        } else if (registroParaEditar != null) {
+            EditarConograma editarConograma = new EditarConograma(null, true, registroParaEditar, this);
+            editarConograma.setVisible(true);
+            buscarConogramaCadastrado();
+            return SELECIONADO;
+        } else {
+            return NAO_EDITAVEL;
+        }
+    }
+
     /**
      * Monta um registro do conograma utilizando a última linha criada da tabela
+     *
      * @return O registro criado.
      */
-    public Registrocronograma criarRegistroCronograma(){
+    public Registrocronograma criarRegistroCronograma() {
         int numeroLinhas = modelo.getRowCount();
         Vector vetorLinhas;
         vetorLinhas = modelo.getDataVector();
-        Registrocronograma registroCronograma =  new Registrocronograma();
-        
+        Registrocronograma registroCronograma = new Registrocronograma();
+
         String atividade = (String) ((Vector) vetorLinhas.elementAt(numeroLinhas - 1)).elementAt(POSICAO_ATIVIDADE);
         String data = (String) ((Vector) vetorLinhas.elementAt(numeroLinhas - 1)).elementAt(POSICAO_DATA);
         String horario = (String) ((Vector) vetorLinhas.elementAt(numeroLinhas - 1)).elementAt(POSICAO_HORARIO);
         String local = (String) ((Vector) vetorLinhas.elementAt(numeroLinhas - 1)).elementAt(POSICAO_LOCAL);
-        
+
         registroCronograma.setAtividade(atividade);
         registroCronograma.setData(Data.converteData(data));
         registroCronograma.setHorario(Data.conveteHora(local));
         registroCronograma.setLocal(local);
         registroCronograma.setAbertura(abertura);
-        
+
         return registroCronograma;
     }
-    
-    private void verifacarMundanca(){
-        Registrocronograma registroTabela,registroBanco;
-        for (int i = 0; i < listaRegistrosBanco.size(); i++) {
-            registroBanco = listaRegistrosBanco.get(i);
-            registroTabela = listaRegistroTabela.get(i);
-            if(!registroBanco.getAtividade().equals(registroTabela.getAtividade())){
-                listaRegistrosAlterados.add(registroTabela);
-            }else if(!registroBanco.getData().equals(registroTabela.getData())){
-                listaRegistrosAlterados.add(registroTabela);
-            }else if(!registroBanco.getHorario().equals(registroTabela.getHorario())){
-                listaRegistrosAlterados.add(registroTabela);
-            }else if(!registroBanco.getLocal().equals(registroTabela.getLocal())){
-                listaRegistrosAlterados.add(registroTabela);
+
+    private int deletarLinha() {
+        Registrocronograma registroParaEditar;
+        int linhaSelecionada = TabelaConograma.getSelectedRow();
+        
+        try {
+            registroParaEditar = listaRegistrosBanco.get(linhaSelecionada);
+        } catch (Exception e) {
+            registroParaEditar = null;
+        }
+
+        if (linhaSelecionada == NAO_SELECIONADO) {
+            return NAO_SELECIONADO;
+        } else if (registroParaEditar != null) {
+            modelo.removeRow(linhaSelecionada);
+            if (registroParaEditar != null) {
+                conogramaService.deletar(registroParaEditar.getCodigo());
+                buscarConogramaCadastrado();
             }
+            return SELECIONADO;
+        } else {
+            modelo.removeRow(linhaSelecionada);
+            return NAO_EDITAVEL;
         }
     }
-    
-    public void salvarMudancas(){
-        verifacarMundanca();
-        for (Registrocronograma registrocronograma : listaRegistrosAlterados) {
-            conogramaService.salvar(registrocronograma);
-        }
-        listaRegistrosAlterados.clear();
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Editar;
@@ -295,7 +325,6 @@ public class DefinirCronograma extends javax.swing.JInternalFrame {
     private javax.swing.JButton btDeletar;
     private javax.swing.JButton btNovo;
     private javax.swing.JButton btSalvar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
