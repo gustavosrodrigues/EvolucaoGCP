@@ -13,6 +13,8 @@ import br.edu.unipampa.gerenciadorconcurso.validator.Data;
 import br.edu.unipampa.gerenciadorconcurso.validator.FieldFormat;
 import br.edu.unipampa.gerenciadorconcurso.validator.FormattedFieldFormat;
 import br.edu.unipampa.gerenciadorconcurso.validator.StatusCadastros;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 
@@ -25,7 +27,7 @@ public class CadastroConcurso extends javax.swing.JDialog {
     private Campos tratamentoCampos;
     private StatusCadastros status;
     private ConcursoService concursoService;
-    private Concurso concurso;
+    private static Concurso novoConcurso;
 
     public CadastroConcurso(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
@@ -33,6 +35,16 @@ public class CadastroConcurso extends javax.swing.JDialog {
         tratamentoCampos = new Campos();
         concursoService = new ConcursoService();
         repassarCampos();
+        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        this.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent evt) {
+                dispose(); 
+                SelecaoConcurso novo = new SelecaoConcurso(null, true);
+                novo.setVisible(true);
+                novo.setLocationRelativeTo(null);
+            }
+        });
+
     }
 
     /**
@@ -321,9 +333,10 @@ public class CadastroConcurso extends javax.swing.JDialog {
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
         if (tratamentoCampos.validaObrigatorios()) {
-            Concurso novoConcurso = new Concurso();
-            if (status.getStatus().equals("editar")) {
+            if (getStatus().getStatus().equals("editar")) {
                 novoConcurso.setCodigo(Integer.parseInt(campoCodigo.getText()));
+            }else{
+            novoConcurso = new Concurso();
             }
             novoConcurso.setMinisterio(campoMinisterio.getText());
             novoConcurso.setUniversidade(campoUniversidade.getText());
@@ -334,7 +347,7 @@ public class CadastroConcurso extends javax.swing.JDialog {
             novoConcurso.setClasse(boxClasse.getSelectedItem().toString());
 
             if (concursoService.salvar(novoConcurso)) {
-                status.setStatus("salvar");
+                getStatus().setStatus("salvar");
                 campoCodigo.setText(novoConcurso.getCodigo() + "");
                 campoMensagem.setText("Concurso salvo com sucesso!");
                 btNovo.setVisible(true);
@@ -351,7 +364,7 @@ public class CadastroConcurso extends javax.swing.JDialog {
         if (JOptionPane.showConfirmDialog(null, "Você deseja realmente deletar o registro?") == JOptionPane.OK_OPTION) {
             if (concursoService.deletar(Campos.converteNumero(campoCodigo.getText()))) {
                 campoMensagem.setText("O registro foi deletado com sucesso!");
-                status.setStatus("incluir");
+                getStatus().setStatus("incluir");
             } else {
                 campoMensagem.setText("Ocorreu um problema ao deletar o registro!");
             }
@@ -379,11 +392,11 @@ public class CadastroConcurso extends javax.swing.JDialog {
     }//GEN-LAST:event_boxClasseActionPerformed
 
     private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
-        status.setStatus("editar");
+        getStatus().setStatus("editar");
     }//GEN-LAST:event_btEditarActionPerformed
 
     private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
-        status.setStatus("incluir");
+        getStatus().setStatus("incluir");
     }//GEN-LAST:event_btNovoActionPerformed
 
 
@@ -427,6 +440,32 @@ public class CadastroConcurso extends javax.swing.JDialog {
         tratamentoCampos.setCampo(new FormattedFieldFormat(campoDataInicio, txtAlertDataInicio, true));
         tratamentoCampos.setCampo(new ComboBoxFormat(boxClasse));
 
-        status = new StatusCadastros(btNovo, btEditar, btDeletar, btSalvar, campoCodigo, campoMensagem, tratamentoCampos);
+        setStatus(new StatusCadastros(btNovo, btEditar, btDeletar, btSalvar, campoCodigo, campoMensagem, tratamentoCampos));
+    }
+
+    public void editarConcursoSelecionado(Concurso concursoEditavel) {
+        novoConcurso = concursoEditavel;
+        campoCodigo.setText(novoConcurso.getCodigo().toString());
+        campoMinisterio.setText(novoConcurso.getMinisterio());
+        campoUniversidade.setText(novoConcurso.getUniversidade());
+        campoCampus.setText(novoConcurso.getCampus());
+        campoArea.setText(novoConcurso.getArea());
+        campoEdital.setText(novoConcurso.getEdital());
+        campoDataInicio.setText("10102014");
+        boxClasse.setSelectedItem(novoConcurso.getClasse());
+    }
+
+    /**
+     * @return the status
+     */
+    public StatusCadastros getStatus() {
+        return status;
+    }
+
+    /**
+     * @param status the status to set
+     */
+    public void setStatus(StatusCadastros status) {
+        this.status = status;
     }
 }
