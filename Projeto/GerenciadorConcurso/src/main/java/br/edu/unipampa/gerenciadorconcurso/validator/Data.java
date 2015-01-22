@@ -30,7 +30,7 @@ public class Data {
             return false;
         }
     }
-    
+
     /**
      * Converte data string para data tipo date
      *
@@ -44,6 +44,23 @@ public class Data {
             return df.parse(date);
         } catch (ParseException ex) {
             return null;
+        }
+    }
+
+    /**
+     * Converte uma hora String para date
+     *
+     * @param hora
+     * @return Date formada
+     */
+    public static Date conveteHora(String hora) {
+        SimpleDateFormat df = new SimpleDateFormat("HH:mm");
+        df.setLenient(false);
+        try {
+            return df.parse(hora);
+        } catch (ParseException ex) {
+            //return null;
+            return new Date();//Temp
         }
     }
 
@@ -62,7 +79,7 @@ public class Data {
         return dataInicial;
     }
 
-        /**
+    /**
      * Formata a data para o formato dd/mm/aaaa
      *
      * @param date
@@ -76,7 +93,7 @@ public class Data {
         }
         return dataInicial;
     }
-    
+
     /**
      * Formata a data para o formato dd/mm/aaaa
      *
@@ -94,6 +111,7 @@ public class Data {
 
     /**
      * Retorna a data atual do computador.
+     *
      * @return data atual
      */
     public static String dataAtual() {
@@ -101,24 +119,44 @@ public class Data {
         SimpleDateFormat formatador = new SimpleDateFormat("dd-MM-yyyy");
         return formatador.format(data);
     }
-    
-    public static String convertDataIsoSql(Date dataOld){
+
+    public static String convertDataIsoSql(Date dataOld) {
         String data = formatDate(dataOld);
-        String datanew ="";
-                if (!(data.equalsIgnoreCase("null") || data.equalsIgnoreCase(""))) {
-            datanew = data.substring(6, 10)  + data.substring(3, 5)  + data.substring(0, 2);
+        String datanew = "";
+        if (!(data.equalsIgnoreCase("null") || data.equalsIgnoreCase(""))) {
+            datanew = data.substring(6, 10) + data.substring(3, 5) + data.substring(0, 2);
+            data = datanew;
+        }
+        return datanew;
+    }
+
+    public static String convertDataIsoSql(String dataOld) {
+        String data = dataOld;
+        String datanew = "";
+        if (!(data.equalsIgnoreCase("null") || data.equalsIgnoreCase(""))) {
+            datanew = data.substring(6, 10) + data.substring(3, 5) + data.substring(0, 2);
             data = datanew;
         }
         return datanew;
     }
     
-        public static String convertDataIsoSql(String dataOld){
-        String data = dataOld;
-        String datanew ="";
-                if (!(data.equalsIgnoreCase("null") || data.equalsIgnoreCase(""))) {
-            datanew = data.substring(6, 10)  + data.substring(3, 5)  + data.substring(0, 2);
-            data = datanew;
+    /**
+     * Retira os símbolos de uma data.
+     * @param data
+     * @return Data sem símbolos
+     */
+    public static String retirarSimbolosData(String data) {
+        String dataFinal = "";
+        for (int i = 0; i < data.length(); i++) {
+            if (!(data.charAt(i) == '/') && !(data.charAt(i) == '-')) {
+                dataFinal = dataFinal + data.charAt(i);
+            }
         }
-        return datanew;
+        if(dataFinal.equals("")){
+            return null;
+        }else{
+            return dataFinal;
+        }
+
     }
 }

@@ -6,6 +6,7 @@ package br.edu.unipampa.gerenciadorconcurso.view;
 import br.edu.unipampa.gerenciadorconcurso.dao.HibernateUtil;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.AtaComissao;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.CadastroCandidato;
+import br.edu.unipampa.gerenciadorconcurso.view.interno.DefinirCronograma;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.CadastroExaminador;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.DefinirPesoProvasConcurso;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.ReciboDocumentacaoPorCandidato;
@@ -53,6 +54,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
         itemMenuCandidato = new javax.swing.JMenuItem();
         itemMenuExaminadores = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         reciboDocumentacaoPorCandidato = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -82,7 +84,6 @@ public class AreaTrabalho extends javax.swing.JFrame {
 
         jToolBar1.setRollover(true);
 
-        menuAbrirConcurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/abrir.png")));
         menuAbrirConcurso.setText("Abrir Concurso");
 
         itemMenuCadastro.setText("Cadastro");
@@ -110,6 +111,14 @@ public class AreaTrabalho extends javax.swing.JFrame {
             }
         });
         itemMenuCadastro.add(jMenuItem1);
+
+        jMenuItem3.setText("DefinirConograma");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        itemMenuCadastro.add(jMenuItem3);
 
         menuAbrirConcurso.add(itemMenuCadastro);
 
@@ -139,7 +148,6 @@ public class AreaTrabalho extends javax.swing.JFrame {
 
         jMenuBar1.add(menuAbrirConcurso);
 
-        menuProvaEscrita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/report.png")));
         menuProvaEscrita.setText("Prova Escrita");
 
         menuProvaEscritaRelatorios.setText("Relatórios");
@@ -180,7 +188,6 @@ public class AreaTrabalho extends javax.swing.JFrame {
 
         jMenuBar1.add(menuProvaEscrita);
 
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/sobre.png")));
         jMenu2.setText("Sobre");
         jMenuBar1.add(jMenu2);
 
@@ -215,9 +222,16 @@ public class AreaTrabalho extends javax.swing.JFrame {
         criarDefinirPesos();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        criarDefinirConograma();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
     private void itemMenuExaminadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuExaminadoresActionPerformed
         criarCadastroExaminador();
     }//GEN-LAST:event_itemMenuExaminadoresActionPerformed
+
+
+//</editor-fold>
 
     private void itemMenuAtaInstalacaoComissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuAtaInstalacaoComissaoActionPerformed
         criarRelatorioAtaInstalacaoComissao();
@@ -297,7 +311,11 @@ public class AreaTrabalho extends javax.swing.JFrame {
         DefinirPesoProvasConcurso definirPesoProvasConcurso = new DefinirPesoProvasConcurso();
         adicionarJanela(definirPesoProvasConcurso);
     }
-
+    
+    private void criarDefinirConograma() {
+        DefinirCronograma definirConograma = new DefinirCronograma();
+        adicionarJanela(definirConograma);
+    }
     private void criarCadastroExaminador() {
         CadastroExaminador cadastroExaminadores = new CadastroExaminador();
         adicionarJanela(cadastroExaminadores);
@@ -343,6 +361,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JMenu menuAbrirConcurso;
     private javax.swing.JMenu menuProvaEscrita;
