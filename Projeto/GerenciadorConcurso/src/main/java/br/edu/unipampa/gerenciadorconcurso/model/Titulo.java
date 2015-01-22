@@ -72,7 +72,7 @@ public class Titulo implements Serializable {
     public void setCodigo(Integer codigo) {
         this.codigo = codigo;
     }
-
+    
     public String getLocalJulgalmento() {
         return localJulgalmento;
     }

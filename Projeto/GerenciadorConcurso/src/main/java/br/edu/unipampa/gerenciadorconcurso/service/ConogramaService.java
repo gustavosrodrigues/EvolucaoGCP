@@ -33,7 +33,7 @@ public class ConogramaService {
     }
     
     public ArrayList<Registrocronograma> buscarConogramaPorConcurso(Concurso concurso){
-        return conogramaDao.buscarConogramaPorConcurso(concurso.getAberturaCollection());//Temp
+        return conogramaDao.buscarConogramaPorConcurso(concurso);//Temp
     }
 //</editor-fold>
 

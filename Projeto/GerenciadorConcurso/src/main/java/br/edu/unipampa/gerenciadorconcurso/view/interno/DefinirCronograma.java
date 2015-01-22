@@ -8,6 +8,7 @@ package br.edu.unipampa.gerenciadorconcurso.view.interno;
 import br.edu.unipampa.gerenciadorconcurso.model.Abertura;
 import br.edu.unipampa.gerenciadorconcurso.model.Concurso;
 import br.edu.unipampa.gerenciadorconcurso.model.Registrocronograma;
+import br.edu.unipampa.gerenciadorconcurso.service.AberturaService;
 import br.edu.unipampa.gerenciadorconcurso.service.ConogramaService;
 import br.edu.unipampa.gerenciadorconcurso.validator.Campos;
 import br.edu.unipampa.gerenciadorconcurso.validator.Data;
@@ -209,9 +210,9 @@ public class DefinirCronograma extends javax.swing.JInternalFrame {
     }
 
     private void buscarConogramaCadastrado() {
+        AberturaService aberturaService = new AberturaService();
         String[] vetorConograma;
         listaRegistrosBanco = conogramaService.buscarConogramaPorConcurso(Concurso.getInstance());
-        listaRegistroTabela = new ArrayList<>();
         Tabela.limparTabela(modelo);
         //Preeche a tabela com os dados já existentes
         for (Registrocronograma registrocronograma : listaRegistrosBanco) {
@@ -221,9 +222,8 @@ public class DefinirCronograma extends javax.swing.JInternalFrame {
             vetorConograma[POSICAO_HORARIO] = "" + registrocronograma.getHorario();
             vetorConograma[POSICAO_LOCAL] = registrocronograma.getLocal();
             modelo.addRow(vetorConograma);
-            abertura = registrocronograma.getAbertura();
-            listaRegistroTabela.add(registrocronograma);
         }
+        abertura = aberturaService.buscarAberturaPorConcurso(Concurso.getInstance());
     }
 
     /**
@@ -286,7 +286,7 @@ public class DefinirCronograma extends javax.swing.JInternalFrame {
 
         registroCronograma.setAtividade(atividade);
         registroCronograma.setData(Data.converteData(data));
-        registroCronograma.setHorario(Data.conveteHora(local));
+        registroCronograma.setHorario(Data.conveteHora(horario));
         registroCronograma.setLocal(local);
         registroCronograma.setAbertura(abertura);
 

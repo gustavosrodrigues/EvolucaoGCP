@@ -30,7 +30,9 @@ public class ConogramaDao {
     public ArrayList<Registrocronograma> buscar() {
         return (ArrayList<Registrocronograma>) DAO.buscarObjetos(Registrocronograma.class);
     }
-    public ArrayList<Registrocronograma> buscarConogramaPorConcurso(Collection<Abertura> aberturas){
+    public ArrayList<Registrocronograma> buscarConogramaPorConcurso(Concurso concurso){
+        AberturaDao aberturaDao = new AberturaDao();
+        ArrayList<Abertura> aberturas = aberturaDao.buscar(concurso);
         HashMap<String, Object> filtro = new HashMap<>();
         for (Abertura abertura : aberturas) {//Temp
             filtro.put("abertura.codigo", abertura.getCodigo());
