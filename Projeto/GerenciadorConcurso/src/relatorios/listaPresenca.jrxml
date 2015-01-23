@@ -2,12 +2,22 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelAtaComissao" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ff09d756-e546-4157-8d3e-0dbad0b8e9c9">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="192"/>
+	<property name="ireport.y" value="135"/>
 	<parameter name="dataRelatorio" class="java.lang.String"/>
 	<parameter name="logo" class="java.lang.String"/>
-	<parameter name="candidatos" class="java.lang.String"/>
+	<parameter name="codigoConcurso" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
-		<![CDATA[]]>
+		<![CDATA[SELECT
+     candidato.`codigo` AS candidato_codigo,
+     candidato.`concurso` AS candidato_concurso,
+     pessoa.`nome` AS pessoa_nome,
+     candidato.`pessoa` AS candidato_pessoa
+FROM
+     `pessoa` pessoa INNER JOIN `candidato` candidato ON pessoa.`codigo` = candidato.`pessoa`
+where candidato.`concurso` = $P{codigoConcurso}
+order by pessoa.`nome`]]>
 	</queryString>
 	<field name="candidato_codigo" class="java.lang.Integer"/>
 	<field name="candidato_concurso" class="java.lang.Integer"/>
@@ -55,7 +65,7 @@ Uso exclusivo Divisão de Concursos
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="202">
+		<band height="42">
 			<staticText>
 				<reportElement x="96" y="15" width="208" height="20" uuid="b3156dc1-625a-47eb-9b1f-f4301aea5be4"/>
 				<textElement>
@@ -70,20 +80,13 @@ Uso exclusivo Divisão de Concursos
 				</textElement>
 				<text><![CDATA[Assinatura:]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="96" y="35" width="208" height="134" uuid="245a5190-b9cd-4c1c-9878-75c70f13d596"/>
-				<textFieldExpression><![CDATA[$P{candidatos}]]></textFieldExpression>
-			</textField>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="141">
+		<band height="36">
 			<textField>
-				<reportElement x="277" y="103" width="241" height="20" uuid="acb48f0f-68b8-42b1-b50a-56a81bc2c979"/>
-				<textElement textAlignment="Right">
-					<font fontName="Arial" size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Alegrete," + $P{dataRelatorio}]]></textFieldExpression>
+				<reportElement x="96" y="6" width="208" height="30" uuid="245a5190-b9cd-4c1c-9878-75c70f13d596"/>
+				<textFieldExpression><![CDATA[$F{pessoa_nome}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
@@ -131,6 +134,13 @@ Uso exclusivo Divisão de Concursos
 				</textElement>
 				<text><![CDATA[Prof. Dr. ]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="314" y="18" width="241" height="20" uuid="acb48f0f-68b8-42b1-b50a-56a81bc2c979"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Alegrete," + $P{dataRelatorio}]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageFooter>
 </jasperReport>

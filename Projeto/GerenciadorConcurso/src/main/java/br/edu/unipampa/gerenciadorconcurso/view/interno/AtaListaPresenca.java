@@ -6,6 +6,8 @@
 package br.edu.unipampa.gerenciadorconcurso.view.interno;
 
 import br.edu.unipampa.gerenciadorconcurso.model.Candidato;
+import br.edu.unipampa.gerenciadorconcurso.model.Concurso;
+import static br.edu.unipampa.gerenciadorconcurso.model.Pessoa_.candidato;
 import br.edu.unipampa.gerenciadorconcurso.service.CandidatoService;
 import static br.edu.unipampa.gerenciadorconcurso.service.CandidatoService.listaCandidatos;
 import br.edu.unipampa.gerenciadorconcurso.view.reports.GeradorRelatorios;
@@ -139,11 +141,11 @@ public class AtaListaPresenca extends javax.swing.JFrame {
                 //campoMensagem.setText("Erro ao gerar o relatório. ERRO: " + e.getMessage());
             }
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
-            //parametros.add(new Parametro("hora", "" + ));
-            
+            parametros.add(new Parametro("codigoConcurso", "" + Concurso.getInstance().getCodigo()));
             parametros.add(new Parametro("dataRelatorio", dataRelatorio.getText()));
-
-            
+            parametros.add(new Parametro("logo", file.getAbsolutePath()));
+  
+           
             GeradorRelatorios.gerar(System.getProperty("user.dir") + "\\src\\relatorios\\listaPresenca.jasper", parametros);
         } catch (Exception e) {
             //                campoMensagem.setText("Erro ao gerar o relatório. ERRO: " + e.getMessage());
