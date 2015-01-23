@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelDeclaracaoNaoImpedimentoMembrosBanca" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="53c2aebe-3f43-4090-beb4-252aea1c905e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="48"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     concurso.`area` AS concurso_area,
+     concurso.`universidade` AS concurso_universidade,
+     concurso.`edital` AS concurso_edital,
+     concurso.`classe` AS concurso_classe,
+     concurso.`campus` AS concurso_campus,
+     concurso.`ministerio` AS concurso_ministerio,
+     examinador.`pessoa` AS examinador_pessoa,
+     examinador.`concurso` AS examinador_concurso,
+     pessoa.`codigo` AS pessoa_codigo,
+     pessoa.`nome` AS pessoa_nome
+FROM
+     `concurso` concurso INNER JOIN `examinador` examinador ON concurso.`codigo` = examinador.`concurso`
+     INNER JOIN `pessoa` pessoa ON examinador.`pessoa` = pessoa.`codigo`]]>
+	</queryString>
+	<field name="concurso_area" class="java.lang.String"/>
+	<field name="concurso_universidade" class="java.lang.String"/>
+	<field name="concurso_edital" class="java.lang.String"/>
+	<field name="concurso_classe" class="java.lang.String"/>
+	<field name="concurso_campus" class="java.lang.String"/>
+	<field name="concurso_ministerio" class="java.lang.String"/>
+	<field name="pessoa_nome" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="186" splitType="Stretch">
+			<staticText>
+				<reportElement x="421" y="0" width="134" height="38" uuid="8264a68c-dcbf-40a9-bf86-a82f81b38798"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Folha nº: ________
+Rubrica: ________
+Uso exclusivo Divisão de Concursos
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="204" y="54" width="351" height="85" uuid="b50b6c97-912d-4ca7-8a5a-b9e06630d3bb"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[
+FUNDAÇÃO
+CAMPUS:
+CONCURSO PÚBLICO PARA PROFESSOR
+ÁREA:
+]]></text>
+			</staticText>
+			<image>
+				<reportElement stretchType="RelativeToTallestObject" x="26" y="39" width="149" height="100" uuid="2ea70980-56f4-4bb6-963e-22f9f8e34732"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="204" y="54" width="100" height="20" uuid="7a87780b-db01-4d44-81b7-f5c58dbf4591"/>
+				<textFieldExpression><![CDATA[$F{concurso_ministerio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="271" y="64" width="100" height="21" uuid="64cc715e-3ca4-49a0-b085-2ca432ac5f67"/>
+				<textFieldExpression><![CDATA[$F{concurso_universidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="271" y="74" width="100" height="13" uuid="a8c2602a-a3c8-4571-be75-aec9e3a8c8b8"/>
+				<textFieldExpression><![CDATA[$F{concurso_campus}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="421" y="87" width="100" height="20" uuid="af4b5f41-4bb7-48fa-a059-2d0c294fd225"/>
+				<textFieldExpression><![CDATA[$F{concurso_classe}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="241" y="107" width="100" height="20" uuid="ee0549ba-d6db-4873-859e-57924339cf15"/>
+				<textFieldExpression><![CDATA[$F{concurso_area}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="178" y="26" width="193" height="20" uuid="d88a88b4-8698-47c4-9d79-6b7d5dd9caa1"/>
+				<text><![CDATA[DECLARAÇÃO DE NÃO IMPEDIMENTO ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="2" width="100" height="20" uuid="95bee859-dfaf-48b4-b4b4-73624b6bf3e1"/>
+				<text><![CDATA[pessoa_nome]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="173" splitType="Stretch">
+			<staticText>
+				<reportElement x="26" y="15" width="529" height="140" uuid="e6a77311-907d-4d03-bfcd-3eeb4901303a"/>
+				<text><![CDATA[Eu,                                            , portador da cédula de identidade nº ________________________, expedida pelo _________________________________________, convidado para participar da Comissão Examinadora do Concurso Público na área de Eng. de Software, Edital 050/2014 da Fundação Universidade Federal do Pampa, declaro para os devidos fins não existir situação impeditiva por ser cônjuge de candidato, embora separado judicialmente, divorciado ou companheiro; por ter grau de parentesco ascendente ou descendente com os candidatos até segundo grau; por ser sócio de candidato em atividade profissional; ou por ser ou ter sido orientador ou co-orientador acadêmico de candidato (incluindo iniciação científica, mestrado, doutorado e pós-doutorado).
+
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="55" y="15" width="100" height="20" uuid="9bf09f8c-55f2-459c-9edf-a3ef668c9877"/>
+				<textFieldExpression><![CDATA[$F{pessoa_nome}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
