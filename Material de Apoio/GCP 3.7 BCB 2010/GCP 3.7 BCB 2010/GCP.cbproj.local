@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2014/02/15 17:35:22.028.cpp,E:\GCP 4 BCB 2010\GCP 4 BCB 2010\DefesaProjeto.cpp=E:\GCP 4 BCB 2010\GCP 4 BCB 2010\Entrevista.cpp</Transaction>
+    <Transaction>2014/02/15 17:35:22.068.h,E:\GCP 4 BCB 2010\GCP 4 BCB 2010\DefesaProjeto.h=E:\GCP 4 BCB 2010\GCP 4 BCB 2010\Entrevista.h</Transaction>
+    <Transaction>2014/02/15 17:35:22.068.dfm,E:\GCP 4 BCB 2010\GCP 4 BCB 2010\DefesaProjeto.dfm=E:\GCP 4 BCB 2010\GCP 4 BCB 2010\Entrevista.dfm</Transaction>
+    <Transaction>2014/02/15 18:00:58.884.cpp,E:\GCP 4 BCB 2010\GCP 4 BCB 2010\DefesaProjeto_candidatos.cpp=E:\GCP 4 BCB 2010\GCP 4 BCB 2010\Entrevista_candidatos.cpp</Transaction>
+    <Transaction>2014/02/15 18:00:58.894.h,E:\GCP 4 BCB 2010\GCP 4 BCB 2010\DefesaProjeto_candidatos.h=E:\GCP 4 BCB 2010\GCP 4 BCB 2010\Entrevista_candidatos.h</Transaction>
+    <Transaction>2014/02/15 18:00:58.894.dfm,E:\GCP 4 BCB 2010\GCP 4 BCB 2010\DefesaProjeto_candidatos.dfm=E:\GCP 4 BCB 2010\GCP 4 BCB 2010\Entrevista_candidatos.dfm</Transaction>
+    <Transaction>2014/02/15 21:43:02.208.cpp,E:\GCP 4 BCB 2010\GCP 4 BCB 2010\Unit1.cpp=E:\GCP 4 BCB 2010\GCP 4 BCB 2010\Atualizar.cpp</Transaction>
+    <Transaction>2014/02/15 21:43:02.238.h,E:\GCP 4 BCB 2010\GCP 4 BCB 2010\Unit1.h=E:\GCP 4 BCB 2010\GCP 4 BCB 2010\Atualizar.h</Transaction>
+    <Transaction>2014/02/15 21:52:34.894.cpp,E:\GCP 4 BCB 2010\GCP 4 BCB 2010\Atualizar.cpp=</Transaction>
+    <Transaction>2014/02/15 21:52:45.720.cpp,E:\GCP 4 BCB 2010\GCP 4 BCB 2010\Unit2.cpp=E:\GCP 4 BCB 2010\GCP 4 BCB 2010\Atualizar.cpp</Transaction>
+    <Transaction>2014/02/15 21:52:45.720.h,E:\GCP 4 BCB 2010\GCP 4 BCB 2010\Unit2.h=E:\GCP 4 BCB 2010\GCP 4 BCB 2010\Atualizar.h</Transaction>
+    <Transaction>2014/02/15 21:52:45.720.dfm,E:\GCP 4 BCB 2010\GCP 4 BCB 2010\Unit2.dfm=E:\GCP 4 BCB 2010\GCP 4 BCB 2010\Atualizar.dfm</Transaction>
+    <Transaction>2014/02/17 11:56:09.296.cpp,E:\GCP 4 BCB 2010\GCP 4 BCB 2010\Unit2.cpp=E:\GCP 4 BCB 2010\GCP 4 BCB 2010\Log.cpp</Transaction>
+    <Transaction>2014/02/17 11:56:09.306.h,E:\GCP 4 BCB 2010\GCP 4 BCB 2010\Unit2.h=E:\GCP 4 BCB 2010\GCP 4 BCB 2010\Log.h</Transaction>
+    <Transaction>2014/02/17 11:56:09.306.dfm,E:\GCP 4 BCB 2010\GCP 4 BCB 2010\Unit2.dfm=E:\GCP 4 BCB 2010\GCP 4 BCB 2010\Log.dfm</Transaction>
+  </Transactions>
+</BorlandProject>
