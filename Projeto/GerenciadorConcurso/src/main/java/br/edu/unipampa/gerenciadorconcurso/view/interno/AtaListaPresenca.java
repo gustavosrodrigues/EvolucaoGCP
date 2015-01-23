@@ -16,6 +16,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 /**
@@ -45,7 +47,7 @@ public class AtaListaPresenca extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        dataRelatorio = new javax.swing.JTextField();
+        campoData = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -73,9 +75,9 @@ public class AtaListaPresenca extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setText("Data:");
 
-        dataRelatorio.addActionListener(new java.awt.event.ActionListener() {
+        campoData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dataRelatorioActionPerformed(evt);
+                campoDataActionPerformed(evt);
             }
         });
 
@@ -86,10 +88,9 @@ public class AtaListaPresenca extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jButton1)
-                        .addComponent(jLabel8)
-                        .addComponent(dataRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton1)
+                    .addComponent(jLabel8)
+                    .addComponent(campoData, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
@@ -101,7 +102,7 @@ public class AtaListaPresenca extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dataRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(campoData, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addContainerGap(146, Short.MAX_VALUE))
@@ -121,9 +122,9 @@ public class AtaListaPresenca extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void dataRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataRelatorioActionPerformed
+    private void campoDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoDataActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_dataRelatorioActionPerformed
+    }//GEN-LAST:event_campoDataActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -140,12 +141,16 @@ public class AtaListaPresenca extends javax.swing.JFrame {
             } catch (FileNotFoundException e) {
                 //campoMensagem.setText("Erro ao gerar o relatório. ERRO: " + e.getMessage());
             }
+            DateFormat dfmt = new SimpleDateFormat(" d 'de' MMMM 'de' yyyy");
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            String dataRelatorio = campoData.getText().substring(6, 10) + "-" + campoData.getText().substring(3, 5) + "-" + campoData.getText().substring(0, 2);
+            java.sql.Time dataRelatorioFormat = new java.sql.Time(format.parse(dataRelatorio).getTime());
+
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             parametros.add(new Parametro("codigoConcurso", "" + Concurso.getInstance().getCodigo()));
-            parametros.add(new Parametro("dataRelatorio", dataRelatorio.getText()));
+            parametros.add(new Parametro("dataRelatorio", dfmt.format(dataRelatorioFormat)));
             parametros.add(new Parametro("logo", file.getAbsolutePath()));
-  
-           
+
             GeradorRelatorios.gerar(System.getProperty("user.dir") + "\\src\\relatorios\\listaPresenca.jasper", parametros);
         } catch (Exception e) {
             //                campoMensagem.setText("Erro ao gerar o relatório. ERRO: " + e.getMessage());
@@ -188,28 +193,10 @@ public class AtaListaPresenca extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField dataRelatorio;
+    private javax.swing.JTextField campoData;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JDialog jDialog1;
-    private javax.swing.JInternalFrame jInternalFrame1;
-    private javax.swing.JInternalFrame jInternalFrame2;
-    private javax.swing.JInternalFrame jInternalFrame3;
-    private javax.swing.JInternalFrame jInternalFrame4;
-    private javax.swing.JInternalFrame jInternalFrame5;
-    private javax.swing.JInternalFrame jInternalFrame6;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
