@@ -84,10 +84,11 @@ public class AtaListaPresenca extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(dataRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jButton1)
+                        .addComponent(jLabel8)
+                        .addComponent(dataRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -139,13 +140,10 @@ public class AtaListaPresenca extends javax.swing.JFrame {
             }
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //parametros.add(new Parametro("hora", "" + ));
-
+            
             parametros.add(new Parametro("dataRelatorio", dataRelatorio.getText()));
-            //parametros.add(new Parametro("hora", hora.getText()));
-            //parametros.add(new Parametro("local", local.getText()));
-            //parametros.add(new Parametro("portaria", portaria.getText()));
-            //parametros.add(new Parametro("emissor", emissor.getText()));
 
+            
             GeradorRelatorios.gerar(System.getProperty("user.dir") + "\\src\\relatorios\\listaPresenca.jasper", parametros);
         } catch (Exception e) {
             //                campoMensagem.setText("Erro ao gerar o relatório. ERRO: " + e.getMessage());
