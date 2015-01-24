@@ -1,0 +1,11 @@
+[Principal]
+versao=3.5
+normativa=Edital 52/2013
+data_compilacao=03/05/2013
+[ClasseI1]
+Disc1=Isto é um teste.
+Pont1=200
+Regra1=0
+Disc2=Doutorado em área afim do objeto do concurso.
+Pont2=10
+Regra2=0

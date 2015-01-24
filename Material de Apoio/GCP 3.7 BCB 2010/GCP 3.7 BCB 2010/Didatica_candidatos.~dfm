@@ -1,0 +1,84 @@
+object FormDidaticaCandidatos: TFormDidaticaCandidatos
+  Left = 441
+  Top = 232
+  BorderIcons = []
+  BorderStyle = bsSingle
+  Caption = 'Prova Did'#225'tica - Configura'#231#227'o dos candidatos'
+  ClientHeight = 390
+  ClientWidth = 562
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 24
+    Top = 32
+    Width = 159
+    Height = 13
+    Caption = 'Candidatos inscritos no concurso:'
+  end
+  object Label2: TLabel
+    Left = 312
+    Top = 24
+    Width = 209
+    Height = 13
+    Caption = 'Candidatos aptos a realizar a prova did'#225'tica:'
+  end
+  object Label3: TLabel
+    Left = 312
+    Top = 40
+    Width = 96
+    Height = 13
+    Caption = '(em ordem sorteada)'
+  end
+  object ListBox1: TListBox
+    Left = 24
+    Top = 64
+    Width = 241
+    Height = 273
+    ItemHeight = 13
+    TabOrder = 0
+  end
+  object ListBox2: TListBox
+    Left = 312
+    Top = 64
+    Width = 225
+    Height = 273
+    ItemHeight = 13
+    TabOrder = 1
+  end
+  object Button6: TButton
+    Left = 279
+    Top = 80
+    Width = 25
+    Height = 25
+    Caption = '-->'
+    TabOrder = 2
+    OnClick = Button6Click
+  end
+  object Button17: TButton
+    Left = 279
+    Top = 112
+    Width = 25
+    Height = 25
+    Caption = '<--'
+    TabOrder = 3
+    OnClick = Button17Click
+  end
+  object Button1: TButton
+    Left = 464
+    Top = 352
+    Width = 75
+    Height = 25
+    Caption = 'OK'
+    ModalResult = 1
+    TabOrder = 4
+    OnClick = Button1Click
+  end
+end

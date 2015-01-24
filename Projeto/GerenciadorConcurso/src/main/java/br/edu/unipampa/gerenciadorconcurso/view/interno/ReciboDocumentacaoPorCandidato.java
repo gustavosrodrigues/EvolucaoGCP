@@ -14,6 +14,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JFormattedTextField;
 
@@ -24,7 +26,7 @@ import javax.swing.JFormattedTextField;
 public class ReciboDocumentacaoPorCandidato extends javax.swing.JInternalFrame {
 
     private Campos tratamentoCampos;
-    
+
     /**
      * Creates new form CadastroCandidato
      */
@@ -126,9 +128,14 @@ public class ReciboDocumentacaoPorCandidato extends javax.swing.JInternalFrame {
                     campoMensagem.setText("Erro ao gerar o relatório. ERRO: " + e.getMessage());
                 }
 
+                DateFormat dfmt = new SimpleDateFormat(" d 'de' MMMM 'de' yyyy");
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                String dataRelatorio = campoData.getText().substring(6, 10) + "-" + campoData.getText().substring(3, 5) + "-" + campoData.getText().substring(0, 2);
+                java.sql.Time dataRelatorioFormat = new java.sql.Time(format.parse(dataRelatorio).getTime());
+
                 ArrayList<Parametro> parametros = new ArrayList<Parametro>();
                 parametros.add(new Parametro("codigoConcurso", "" + Concurso.getInstance().getCodigo()));
-                parametros.add(new Parametro("dataRelatorio", campoData.getText().toString()));
+                parametros.add(new Parametro("dataRelatorio", dfmt.format(dataRelatorioFormat)));
                 parametros.add(new Parametro("logo", file.getAbsolutePath()));
 
                 GeradorRelatorios.gerar(System.getProperty("user.dir") + "\\src\\relatorios\\ReciboDocCandidatos.jasper", parametros);

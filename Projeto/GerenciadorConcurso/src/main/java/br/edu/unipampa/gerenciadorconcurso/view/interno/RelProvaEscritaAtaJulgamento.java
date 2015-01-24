@@ -8,6 +8,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JFormattedTextField;
 
@@ -21,7 +23,7 @@ import javax.swing.JFormattedTextField;
 public class RelProvaEscritaAtaJulgamento extends javax.swing.JInternalFrame {
 
     private final Campos tratamentoCampos;
-    
+
     /**
      * Creates new form CadastroCandidato
      */
@@ -202,12 +204,24 @@ public class RelProvaEscritaAtaJulgamento extends javax.swing.JInternalFrame {
                     campoMensagem.setText("Erro ao gerar o relatório. ERRO: " + e.getMessage());
                 }
 
+                DateFormat dfmt = new SimpleDateFormat(" d 'de' MMMM 'de' yyyy");
+                DateFormat dfmt2 = new SimpleDateFormat("d 'dias do mês de' MMMM 'de' yyyy");
+                DateFormat dfmt3 = new SimpleDateFormat("HH 'horas e' mm 'minutos'");
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                SimpleDateFormat formatHora = new SimpleDateFormat("HH:mm");
+
+                String dataRelatorio = campoData.getText().substring(6, 10) + "-" + campoData.getText().substring(3, 5) + "-" + campoData.getText().substring(0, 2);
+                java.sql.Time dataRelatorioFormat = new java.sql.Time(format.parse(dataRelatorio).getTime());
+
+                String hora = campoHoraInicio.getText();
+                java.sql.Time horaFormat = new java.sql.Time(formatHora.parse(hora).getTime());
+
                 ArrayList<Parametro> parametros = new ArrayList<Parametro>();
-                parametros.add(new Parametro("dataRelatorio", campoData.getText().toString()));
-                parametros.add(new Parametro("hora", campoHoraInicio.getText().toString()));
+                parametros.add(new Parametro("dataRelatorio", dfmt.format(dataRelatorioFormat)));
+                parametros.add(new Parametro("hora", dfmt3.format(horaFormat)));
                 parametros.add(new Parametro("local", campoLocal.getText().toString()));
                 parametros.add(new Parametro("nroDoc", campoNroDoc.getText().toString()));
-                parametros.add(new Parametro("diaExtenso", campoData.getText().toString()));
+                parametros.add(new Parametro("diaExtenso", dfmt2.format(dataRelatorioFormat)));
                 parametros.add(new Parametro("logo", file.getAbsolutePath()));
 
                 GeradorRelatorios.gerar(System.getProperty("user.dir") + "\\src\\relatorios\\RelAtaJulgamentoProvaEscrita.jasper", parametros);
