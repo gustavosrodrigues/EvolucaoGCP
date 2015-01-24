@@ -2,11 +2,14 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a83bc037-dff5-4cff-8f40-ac4282e76d6d">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="221"/>
 	<parameter name="candidato" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<parameter name="examinador" class="java.lang.String"/>
+	<parameter name="logo" class="java.lang.String"/>
+	<parameter name="concurso" class="java.lang.String"/>
+	<parameter name="dataRelatorio" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT
      candidato.`codigo` AS candidato_codigo,
@@ -55,7 +58,8 @@ FROM
      INNER JOIN `configuracaoavaliacaoprovaescrita` configuracaoavaliacaoprovaescrita ON escrita.`codigo` = configuracaoavaliacaoprovaescrita.`provaEscrita`
      INNER JOIN `configuracaoavaliacaoprova` configuracaoavaliacaoprova ON configuracaoavaliacaoprovaescrita.`configuracaoAvaliacaoProva` = configuracaoavaliacaoprova.`codigo`
 WHERE
-     candidato.codigo = $P{candidato}]]>
+     candidato.codigo = $P{candidato} and
+	concurso.codigo = $P{concurso};]]>
 	</queryString>
 	<field name="candidato_codigo" class="java.lang.Integer"/>
 	<field name="candidato_dataNacimento" class="java.sql.Date"/>
@@ -96,65 +100,67 @@ WHERE
 	<field name="concurso_regras" class="java.lang.String"/>
 	<field name="concurso_dataInicio" class="java.sql.Date"/>
 	<field name="concurso_banca" class="java.lang.Integer"/>
-	<group name="candidato_codigo">
-		<groupExpression><![CDATA[$F{candidato_codigo}]]></groupExpression>
-		<groupHeader>
-			<band height="7"/>
-		</groupHeader>
-	</group>
-	<group name="escrita_codigo">
-		<groupExpression><![CDATA[$F{escrita_codigo}]]></groupExpression>
-		<groupHeader>
-			<band height="5"/>
-		</groupHeader>
-	</group>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="160" splitType="Stretch">
+		<band height="198" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="140" width="555" height="20" uuid="7961974e-972b-4e85-a312-cc71be9e65a4"/>
+				<reportElement x="0" y="174" width="555" height="20" uuid="7961974e-972b-4e85-a312-cc71be9e65a4"/>
 				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[AVALIAÇÃO INDIVIDUAL DA PROVA ESCRITA ]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="206" y="59" width="349" height="13" uuid="0ddf5c03-67f0-42a0-8b4e-151a74faab0c"/>
+				<reportElement x="206" y="95" width="349" height="13" uuid="0ddf5c03-67f0-42a0-8b4e-151a74faab0c"/>
 				<textElement>
 					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA["CAMPUS: "+$F{concurso_campus}.toUpperCase()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="206" y="31" width="349" height="14" uuid="0459e478-59de-4288-b595-4fc0e130cf0e"/>
+				<reportElement x="206" y="67" width="349" height="14" uuid="0459e478-59de-4288-b595-4fc0e130cf0e"/>
 				<textElement>
 					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA["MINISTÉRIO: "+ $F{concurso_ministerio}.toUpperCase()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="206" y="45" width="349" height="14" uuid="b739529c-f7b5-4890-8d24-a86bc591e1e6"/>
+				<reportElement x="206" y="81" width="349" height="14" uuid="b739529c-f7b5-4890-8d24-a86bc591e1e6"/>
 				<textElement>
 					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA["UNIVERSIDADE: "+$F{concurso_universidade}.toUpperCase()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="206" y="85" width="349" height="16" uuid="b57ceace-a49f-470a-9fbf-aadac140e129"/>
+				<reportElement x="206" y="121" width="349" height="16" uuid="b57ceace-a49f-470a-9fbf-aadac140e129"/>
 				<textElement>
 					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA["ÁREA: "+$F{concurso_area}.toUpperCase()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="206" y="72" width="349" height="13" uuid="85876426-f08d-44e9-baa3-3472c414a641"/>
+				<reportElement x="206" y="108" width="349" height="13" uuid="85876426-f08d-44e9-baa3-3472c414a641"/>
 				<textElement>
 					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA["CONCURSO PÚBLICO: "+$F{concurso_classe}.toUpperCase()]]></textFieldExpression>
 			</textField>
+			<image>
+				<reportElement stretchType="RelativeToTallestObject" x="26" y="38" width="149" height="100" uuid="25b8600c-dfdc-4255-b9b3-6cdad4f60a82"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="421" y="0" width="134" height="38" uuid="a0bce4c1-4742-4231-9679-eb181295c32e"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Folha nº: ________
+Rubrica: ________
+Uso exclusivo Divisão de Concursos
+]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>
@@ -178,7 +184,7 @@ WHERE
 				<text><![CDATA[Examinador: ]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="63" y="20" width="358" height="20" uuid="d98f3094-ab1a-4104-9ffb-3a81b72c81b5"/>
+				<reportElement x="63" y="20" width="358" height="20" uuid="9af7ed37-a0cc-44a7-aaac-d095ee0f3cc3"/>
 				<textFieldExpression><![CDATA[$P{examinador}]]></textFieldExpression>
 			</textField>
 		</band>
@@ -238,7 +244,20 @@ WHERE
 		<band height="12" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="10" splitType="Stretch"/>
+		<band height="162" splitType="Stretch">
+			<textField>
+				<reportElement x="338" y="41" width="217" height="20" uuid="80f4e899-e70b-4140-ab94-38ede8968a30"/>
+				<textFieldExpression><![CDATA[$P{dataRelatorio}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="175" y="124" width="204" height="1" uuid="ea0b0563-fc86-4003-bdc7-78129077b725"/>
+			</line>
+			<textField>
+				<reportElement x="175" y="125" width="204" height="20" uuid="761b677f-2e0c-4f42-a5d4-7616c18bf360"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["Exam. "+$P{examinador}]]></textFieldExpression>
+			</textField>
+		</band>
 	</pageFooter>
 	<summary>
 		<band height="42" splitType="Stretch"/>
