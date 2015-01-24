@@ -5,6 +5,7 @@ import br.edu.unipampa.gerenciadorconcurso.validator.Campos;
 import br.edu.unipampa.gerenciadorconcurso.validator.FieldSearchFormat;
 import br.edu.unipampa.gerenciadorconcurso.validator.FormattedFieldFormat;
 import br.edu.unipampa.gerenciadorconcurso.view.pesq.PesqCandidato;
+import br.edu.unipampa.gerenciadorconcurso.view.pesq.PesqExaminador;
 import br.edu.unipampa.gerenciadorconcurso.view.reports.GeradorRelatorios;
 import br.edu.unipampa.gerenciadorconcurso.view.reports.Parametro;
 import java.io.File;
@@ -103,7 +104,6 @@ public class RelAvaliacaoIndividualProvaEscrita extends javax.swing.JInternalFra
         txtAlertExaminador.setText("!!!!");
         txtAlertExaminador.setToolTipText("Campo nome é obrigatorio.");
 
-        btPesquisarExaminador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/executar.png")));
         btPesquisarExaminador.setText("Pesquisar");
         btPesquisarExaminador.setFocusable(false);
         btPesquisarExaminador.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -114,7 +114,6 @@ public class RelAvaliacaoIndividualProvaEscrita extends javax.swing.JInternalFra
             }
         });
 
-        btPesquisarCandidato.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/executar.png")));
         btPesquisarCandidato.setText("Pesquisar");
         btPesquisarCandidato.setFocusable(false);
         btPesquisarCandidato.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -132,32 +131,38 @@ public class RelAvaliacaoIndividualProvaEscrita extends javax.swing.JInternalFra
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE)
             .addComponent(campoMensagem)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtExaminador)
-                    .addComponent(textNascimento)
-                    .addComponent(txtCandidato))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(campoCandidato)
-                    .addComponent(campoData, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
-                    .addComponent(campoExaminador))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(txtExaminador))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(textNascimento)
+                            .addComponent(txtCandidato))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(campoCandidato)
+                            .addComponent(campoData, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                            .addComponent(campoExaminador, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btPesquisarExaminador, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btPesquisarCandidato, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtAlertCandidato))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btPesquisarExaminador, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtAlertExaminador)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAlertExaminador)
-                        .addGap(11, 11, 11)
-                        .addComponent(txtNomeExaminador, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btPesquisarCandidato, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAlertCandidato)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNomeCandidato, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNomeCandidato, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNomeExaminador, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(txtAlertData))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,24 +176,24 @@ public class RelAvaliacaoIndividualProvaEscrita extends javax.swing.JInternalFra
                     .addComponent(txtAlertData)
                     .addComponent(campoData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btPesquisarCandidato, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtNomeCandidato, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(campoCandidato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCandidato)
+                            .addComponent(txtAlertCandidato))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(campoCandidato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtCandidato)
-                        .addComponent(txtNomeCandidato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtAlertCandidato))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btPesquisarCandidato, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtExaminador)
                         .addComponent(campoExaminador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtExaminador))
+                    .addComponent(btPesquisarExaminador, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(txtNomeExaminador, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtAlertExaminador))
-                    .addComponent(btPesquisarExaminador, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(116, 116, 116))
+                        .addComponent(txtAlertExaminador)))
+                .addContainerGap(225, Short.MAX_VALUE))
         );
 
         txtAlertData.setVisible(false);
@@ -231,11 +236,13 @@ public class RelAvaliacaoIndividualProvaEscrita extends javax.swing.JInternalFra
     }//GEN-LAST:event_btGerarActionPerformed
 
     private void btPesquisarExaminadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarExaminadorActionPerformed
-        // TODO add your handling code here:
+        PesqExaminador pesqExaminador = new PesqExaminador(null, true, campoExaminador, txtNomeCandidato);
+        pesqExaminador.setVisible(true);
     }//GEN-LAST:event_btPesquisarExaminadorActionPerformed
 
     private void btPesquisarCandidatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarCandidatoActionPerformed
-        PesqCandidato pesqCandidato = new PesqCandidato(null, closable, campoCandidato, txtNomeCandidato);
+        PesqCandidato pesqCandidato = new PesqCandidato(null, true, campoCandidato, txtNomeCandidato);
+        pesqCandidato.setVisible(true);
     }//GEN-LAST:event_btPesquisarCandidatoActionPerformed
 
     //<editor-fold defaultstate="collapsed" desc="variaveis">

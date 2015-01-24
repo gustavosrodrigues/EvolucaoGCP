@@ -25,37 +25,49 @@
           <Component id="jToolBar1" alignment="0" pref="531" max="32767" attributes="0"/>
           <Component id="campoMensagem" alignment="0" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="txtExaminador" min="-2" max="-2" attributes="0"/>
-                  <Component id="textNascimento" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtCandidato" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="campoCandidato" max="32767" attributes="0"/>
-                  <Component id="campoData" pref="97" max="32767" attributes="0"/>
-                  <Component id="campoExaminador" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="txtExaminador" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="textNascimento" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCandidato" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="campoCandidato" max="32767" attributes="0"/>
+                          <Component id="campoData" pref="97" max="32767" attributes="0"/>
+                          <Component id="campoExaminador" alignment="1" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="btPesquisarExaminador" min="-2" pref="79" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="btPesquisarCandidato" min="-2" pref="79" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtAlertCandidato" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="btPesquisarExaminador" min="-2" pref="79" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="txtAlertExaminador" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtAlertExaminador" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                      <Component id="txtNomeExaminador" min="-2" pref="188" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="btPesquisarCandidato" min="-2" pref="79" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtAlertCandidato" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtNomeCandidato" min="-2" pref="188" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="txtNomeCandidato" min="-2" pref="188" max="-2" attributes="0"/>
+                          <Component id="txtNomeExaminador" min="-2" pref="188" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <Component id="txtAlertData" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="65" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -72,29 +84,30 @@
                   <Component id="campoData" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                      <Component id="campoCandidato" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtCandidato" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtNomeCandidato" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txtAlertCandidato" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="btPesquisarCandidato" min="-2" pref="21" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="btPesquisarCandidato" min="-2" pref="21" max="-2" attributes="0"/>
+                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                      <Component id="txtNomeCandidato" min="-2" pref="21" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="campoCandidato" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCandidato" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtAlertCandidato" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                      <Component id="txtExaminador" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="campoExaminador" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtNomeExaminador" alignment="1" min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="txtAlertExaminador" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtExaminador" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="btPesquisarExaminador" min="-2" pref="21" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                      <Component id="txtNomeExaminador" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="txtAlertExaminador" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
+              <EmptySpace pref="225" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -203,9 +216,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="btPesquisarExaminador">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.ImageIcon(getClass().getResource(&quot;/img/executar.png&quot;))" type="code"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Pesquisar"/>
         <Property name="focusable" type="boolean" value="false"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -217,9 +227,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="btPesquisarCandidato">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.ImageIcon(getClass().getResource(&quot;/img/executar.png&quot;))" type="code"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Pesquisar"/>
         <Property name="focusable" type="boolean" value="false"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>

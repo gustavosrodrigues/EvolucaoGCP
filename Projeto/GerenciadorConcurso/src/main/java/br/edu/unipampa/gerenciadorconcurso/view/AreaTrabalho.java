@@ -10,6 +10,7 @@ import br.edu.unipampa.gerenciadorconcurso.view.interno.DefinirCronograma;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.CadastroExaminador;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.DefinirPesoProvasConcurso;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.ReciboDocumentacaoPorCandidato;
+import br.edu.unipampa.gerenciadorconcurso.view.interno.RelAvaliacaoIndividualProvaEscrita;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelPEAtaSessaoDivulgacaoResultado;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelProvaEscritaAtaJulgamento;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelTermoDesistenciaProvaEscrita;
@@ -59,13 +60,17 @@ public class AreaTrabalho extends javax.swing.JFrame {
         reciboDocumentacaoPorCandidato = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         itemMenuAtaInstalacaoComissao = new javax.swing.JMenuItem();
-        menuProvaEscrita = new javax.swing.JMenu();
-        menuProvaEscritaRelatorios = new javax.swing.JMenu();
-        menuProvaEscritaRelatoriosAtas = new javax.swing.JMenu();
-        menuProvaEscritaRelatoriosAtasAtaJulgamento = new javax.swing.JMenuItem();
-        menuProvaEscritaRelatoriosAtasAtaSessaoDivulgacaoResultado = new javax.swing.JMenuItem();
-        itemMenuTermosProvaEscrita = new javax.swing.JMenu();
-        itemMenuTermosDesistenciaProvaEscrita = new javax.swing.JMenuItem();
+        menuProvaEscrita1 = new javax.swing.JMenu();
+        menuProvaEscritaRelatorios1 = new javax.swing.JMenu();
+        menuProvaEscritaRelatoriosAtas1 = new javax.swing.JMenu();
+        menuProvaEscritaRelatoriosAtasAtaJulgamento1 = new javax.swing.JMenuItem();
+        menuProvaEscritaRelatoriosAtasAtaSessaoDivulgacaoResultado1 = new javax.swing.JMenuItem();
+        itemMenuAtaInstalacaoComissao1 = new javax.swing.JMenuItem();
+        itemMenuTermosProvaEscrita1 = new javax.swing.JMenu();
+        itemMenuTermosDesistenciaProvaEscrita1 = new javax.swing.JMenuItem();
+        jMenu6 = new javax.swing.JMenu();
+        reciboDocumentacaoPorCandidato1 = new javax.swing.JMenuItem();
+        itemMenuAvaliacaoIndividualProvaEscrita = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -84,6 +89,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
 
         jToolBar1.setRollover(true);
 
+        menuAbrirConcurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/abrir.png")));
         menuAbrirConcurso.setText("Abrir Concurso");
 
         itemMenuCadastro.setText("Cadastro");
@@ -148,46 +154,76 @@ public class AreaTrabalho extends javax.swing.JFrame {
 
         jMenuBar1.add(menuAbrirConcurso);
 
-        menuProvaEscrita.setText("Prova Escrita");
+        menuProvaEscrita1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/report.png")));
+        menuProvaEscrita1.setText("Prova Escrita");
 
-        menuProvaEscritaRelatorios.setText("Relatórios");
+        menuProvaEscritaRelatorios1.setText("Relatórios");
 
-        menuProvaEscritaRelatoriosAtas.setText("Atas");
+        menuProvaEscritaRelatoriosAtas1.setText("Atas");
 
-        menuProvaEscritaRelatoriosAtasAtaJulgamento.setText("Ata Julgamento");
-        menuProvaEscritaRelatoriosAtasAtaJulgamento.addActionListener(new java.awt.event.ActionListener() {
+        menuProvaEscritaRelatoriosAtasAtaJulgamento1.setText("Ata Julgamento");
+        menuProvaEscritaRelatoriosAtasAtaJulgamento1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuProvaEscritaRelatoriosAtasAtaJulgamentoActionPerformed(evt);
             }
         });
-        menuProvaEscritaRelatoriosAtas.add(menuProvaEscritaRelatoriosAtasAtaJulgamento);
+        menuProvaEscritaRelatoriosAtas1.add(menuProvaEscritaRelatoriosAtasAtaJulgamento1);
 
-        menuProvaEscritaRelatoriosAtasAtaSessaoDivulgacaoResultado.setText("Ata da Sessão de Divulgação do Resultado");
-        menuProvaEscritaRelatoriosAtasAtaSessaoDivulgacaoResultado.addActionListener(new java.awt.event.ActionListener() {
+        menuProvaEscritaRelatoriosAtasAtaSessaoDivulgacaoResultado1.setText("Ata da Sessão de Divulgação do Resultado");
+        menuProvaEscritaRelatoriosAtasAtaSessaoDivulgacaoResultado1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuProvaEscritaRelatoriosAtasAtaSessaoDivulgacaoResultadoActionPerformed(evt);
             }
         });
-        menuProvaEscritaRelatoriosAtas.add(menuProvaEscritaRelatoriosAtasAtaSessaoDivulgacaoResultado);
+        menuProvaEscritaRelatoriosAtas1.add(menuProvaEscritaRelatoriosAtasAtaSessaoDivulgacaoResultado1);
 
-        menuProvaEscritaRelatorios.add(menuProvaEscritaRelatoriosAtas);
+        itemMenuAtaInstalacaoComissao1.setText("Ata de Instalação da Comissão");
+        itemMenuAtaInstalacaoComissao1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemMenuAtaInstalacaoComissaoActionPerformed(evt);
+            }
+        });
+        menuProvaEscritaRelatoriosAtas1.add(itemMenuAtaInstalacaoComissao1);
 
-        itemMenuTermosProvaEscrita.setText("Termos");
+        menuProvaEscritaRelatorios1.add(menuProvaEscritaRelatoriosAtas1);
 
-        itemMenuTermosDesistenciaProvaEscrita.setText("Termo de Desistência do Prazo Recursal da Nota Final");
-        itemMenuTermosDesistenciaProvaEscrita.addActionListener(new java.awt.event.ActionListener() {
+        itemMenuTermosProvaEscrita1.setText("Termos");
+
+        itemMenuTermosDesistenciaProvaEscrita1.setText("Termo de Desistência do Prazo Recursal da Nota Final");
+        itemMenuTermosDesistenciaProvaEscrita1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itemMenuTermosDesistenciaProvaEscritaActionPerformed(evt);
             }
         });
-        itemMenuTermosProvaEscrita.add(itemMenuTermosDesistenciaProvaEscrita);
+        itemMenuTermosProvaEscrita1.add(itemMenuTermosDesistenciaProvaEscrita1);
 
-        menuProvaEscritaRelatorios.add(itemMenuTermosProvaEscrita);
+        menuProvaEscritaRelatorios1.add(itemMenuTermosProvaEscrita1);
 
-        menuProvaEscrita.add(menuProvaEscritaRelatorios);
+        jMenu6.setText("Relatórios");
 
-        jMenuBar1.add(menuProvaEscrita);
+        reciboDocumentacaoPorCandidato1.setText("Recibo de documentação - por candidato");
+        reciboDocumentacaoPorCandidato1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reciboDocumentacaoPorCandidatoActionPerformed(evt);
+            }
+        });
+        jMenu6.add(reciboDocumentacaoPorCandidato1);
 
+        itemMenuAvaliacaoIndividualProvaEscrita.setText("Avaliação Individual Prova Escrita");
+        itemMenuAvaliacaoIndividualProvaEscrita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemMenuAvaliacaoIndividualProvaEscritaActionPerformed(evt);
+            }
+        });
+        jMenu6.add(itemMenuAvaliacaoIndividualProvaEscrita);
+
+        menuProvaEscritaRelatorios1.add(jMenu6);
+
+        menuProvaEscrita1.add(menuProvaEscritaRelatorios1);
+
+        jMenuBar1.add(menuProvaEscrita1);
+
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/sobre.png")));
         jMenu2.setText("Sobre");
         jMenuBar1.add(jMenu2);
 
@@ -253,6 +289,10 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private void itemMenuTermosDesistenciaProvaEscritaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuTermosDesistenciaProvaEscritaActionPerformed
         criarRelatorioTermoDesistenciaPrazoRecursalNotaFinalProvaEscrita();
     }//GEN-LAST:event_itemMenuTermosDesistenciaProvaEscritaActionPerformed
+
+    private void itemMenuAvaliacaoIndividualProvaEscritaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuAvaliacaoIndividualProvaEscritaActionPerformed
+        criarRelatorioAvaliacaoIndividualProvaEscrita();
+    }//GEN-LAST:event_itemMenuAvaliacaoIndividualProvaEscritaActionPerformed
 
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Inicio">
@@ -345,31 +385,40 @@ public class AreaTrabalho extends javax.swing.JFrame {
         RelTermoDesistenciaProvaEscrita termoDesistenciaProvaEscrita = new RelTermoDesistenciaProvaEscrita();
         adicionarJanela(termoDesistenciaProvaEscrita);
     }
+    
+    private void criarRelatorioAvaliacaoIndividualProvaEscrita() {
+        RelAvaliacaoIndividualProvaEscrita relAvaliacaoIndividualProvaEscrita = new RelAvaliacaoIndividualProvaEscrita();
+        adicionarJanela(relAvaliacaoIndividualProvaEscrita);
+    }
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Variaveis">
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane areaTrabalho;
     private javax.swing.JMenuItem itemMenuAtaInstalacaoComissao;
+    private javax.swing.JMenuItem itemMenuAtaInstalacaoComissao1;
+    private javax.swing.JMenuItem itemMenuAvaliacaoIndividualProvaEscrita;
     private javax.swing.JMenu itemMenuCadastro;
     private javax.swing.JMenuItem itemMenuCandidato;
     private javax.swing.JMenuItem itemMenuExaminadores;
-    private javax.swing.JMenuItem itemMenuTermosDesistenciaProvaEscrita;
-    private javax.swing.JMenu itemMenuTermosProvaEscrita;
+    private javax.swing.JMenuItem itemMenuTermosDesistenciaProvaEscrita1;
+    private javax.swing.JMenu itemMenuTermosProvaEscrita1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JMenu menuAbrirConcurso;
-    private javax.swing.JMenu menuProvaEscrita;
-    private javax.swing.JMenu menuProvaEscritaRelatorios;
-    private javax.swing.JMenu menuProvaEscritaRelatoriosAtas;
-    private javax.swing.JMenuItem menuProvaEscritaRelatoriosAtasAtaJulgamento;
-    private javax.swing.JMenuItem menuProvaEscritaRelatoriosAtasAtaSessaoDivulgacaoResultado;
+    private javax.swing.JMenu menuProvaEscrita1;
+    private javax.swing.JMenu menuProvaEscritaRelatorios1;
+    private javax.swing.JMenu menuProvaEscritaRelatoriosAtas1;
+    private javax.swing.JMenuItem menuProvaEscritaRelatoriosAtasAtaJulgamento1;
+    private javax.swing.JMenuItem menuProvaEscritaRelatoriosAtasAtaSessaoDivulgacaoResultado1;
     private javax.swing.JMenuItem reciboDocumentacaoPorCandidato;
+    private javax.swing.JMenuItem reciboDocumentacaoPorCandidato1;
     // End of variables declaration//GEN-END:variables
 //</editor-fold>
 }

@@ -50,18 +50,18 @@ public class ExaminadorService {
     }
 //</editor-fold>
 
-    public static void listaExaminadores(ArrayList<Examinador> candidatos, DefaultTableModel modelo) {
+    public static void listaExaminadores(ArrayList<Examinador> examinadores, DefaultTableModel modelo) {
         Tabela.limparTabela(modelo);
         String infoExaminadores[] = new String[4];
-        for (int i = 0; i < candidatos.size(); i++) {
-            infoExaminadores[0] = candidatos.get(i).getCodigo() + "";
-            infoExaminadores[1] = candidatos.get(i).getPessoa().getNome() + "";
-            if (candidatos.get(i).getPessoa().getSexo()) {
+        for (int i = 0; i < examinadores.size(); i++) {
+            infoExaminadores[0] = examinadores.get(i).getCodigo() + "";
+            infoExaminadores[1] = examinadores.get(i).getPessoa().getNome() + "";
+            if (examinadores.get(i).getPessoa().getSexo()) {
                 infoExaminadores[2] = "Masculino";
             } else {
                 infoExaminadores[2] = "Feminino";
             }
-            infoExaminadores[3] = candidatos.get(i).getCategoria();
+            infoExaminadores[3] = examinadores.get(i).getCategoria();
             modelo.addRow(infoExaminadores);
         }
     }
