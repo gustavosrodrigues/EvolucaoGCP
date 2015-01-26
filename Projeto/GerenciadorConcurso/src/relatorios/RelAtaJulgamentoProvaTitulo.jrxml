@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelAtaJulgamentoProvaTitulo" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a44ed14e-06ef-44ec-be8c-2b98027d9e5f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="concurso" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dataRelatorio" class="java.lang.String"/>
+	<parameter name="horaRelatorio" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     concurso.`codigo` AS concurso_codigo,
+     concurso.`edital` AS concurso_edital,
+     concurso.`area` AS concurso_area,
+     concurso.`classe` AS concurso_classe,
+     concurso.`campus` AS concurso_campus,
+     concurso.`universidade` AS concurso_universidade,
+     concurso.`ministerio` AS concurso_ministerio,
+     concurso.`regras` AS concurso_regras,
+     concurso.`dataInicio` AS concurso_dataInicio,
+     concurso.`banca` AS concurso_banca,
+     examinador.`codigo` AS examinador_codigo,
+     examinador.`categoria` AS examinador_categoria,
+     examinador.`pessoa` AS examinador_pessoa,
+     examinador.`concurso` AS examinador_concurso,
+     pessoa.`codigo` AS pessoa_codigo,
+     pessoa.`nome` AS pessoa_nome,
+     pessoa.`sexo` AS pessoa_sexo
+FROM
+     `concurso` concurso INNER JOIN `examinador` examinador ON concurso.`codigo` = examinador.`concurso`
+     INNER JOIN `pessoa` pessoa ON examinador.`pessoa` = pessoa.`codigo`
+WHERE concurso.codigo = $P{concurso}]]>
+	</queryString>
+	<field name="concurso_codigo" class="java.lang.Integer"/>
+	<field name="concurso_edital" class="java.lang.String"/>
+	<field name="concurso_area" class="java.lang.String"/>
+	<field name="concurso_classe" class="java.lang.String"/>
+	<field name="concurso_campus" class="java.lang.String"/>
+	<field name="concurso_universidade" class="java.lang.String"/>
+	<field name="concurso_ministerio" class="java.lang.String"/>
+	<field name="concurso_regras" class="java.lang.String"/>
+	<field name="concurso_dataInicio" class="java.sql.Date"/>
+	<field name="concurso_banca" class="java.lang.Integer"/>
+	<field name="examinador_codigo" class="java.lang.Integer"/>
+	<field name="examinador_categoria" class="java.lang.String"/>
+	<field name="examinador_pessoa" class="java.lang.Integer"/>
+	<field name="examinador_concurso" class="java.lang.Integer"/>
+	<field name="pessoa_codigo" class="java.lang.Integer"/>
+	<field name="pessoa_nome" class="java.lang.String"/>
+	<field name="pessoa_sexo" class="java.lang.Boolean"/>
+	<group name="concurso_codigo">
+		<groupExpression><![CDATA[$F{concurso_codigo}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="98" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="15" width="555" height="20" uuid="90737439-b59d-4511-ae21-d3994c091be8"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ata Nro 1 - Julgamento da prova de títulos ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="35" width="555" height="61" uuid="cd0e2365-a1ac-42ce-92a9-f778d6f6596a"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Aos "+$P{dataRelatorio}+", às "+$P{horaRelatorio}+", na "+$F{concurso_universidade}+", reuniu-se a Comissão Examinadora do Concurso Público para Professor do Magistério Superior para o campus Alegrete na área de Engenharia de Software - Processamento de Imagens para realizar o Julgamento da Prova de Títulos do referido Concurso Público. As notas da prova de cada candidato, concedidas pelos examinadores, foram acondicionadas em envelopes lacrados, para serem abertos somente na Sessão Pública para Divulgação dos Resultados. Encerrados os trabalhos e nada mais havendo a tratar, lavrou-se a presente ata."]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="6" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
