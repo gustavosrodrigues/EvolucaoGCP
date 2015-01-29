@@ -20,14 +20,14 @@ import javax.swing.JFormattedTextField;
  * @author Douglas Giordano
  * @since 20/01/2015
  */
-public class RelAvaliacaoIndividualProvaEscrita extends javax.swing.JInternalFrame {
+public class RelPlanilhaCriteriosAvaliacaoProvaEscrita extends javax.swing.JInternalFrame {
 
     private final Campos tratamentoCampos;
     
     /**
      * Creates new form CadastroCandidato
      */
-    public RelAvaliacaoIndividualProvaEscrita() {
+    public RelPlanilhaCriteriosAvaliacaoProvaEscrita() {
         initComponents();
         tratamentoCampos = new Campos();
         tratamentoCampos.setCampo(new FormattedFieldFormat(campoData, txtAlertData, true));
@@ -62,7 +62,7 @@ public class RelAvaliacaoIndividualProvaEscrita extends javax.swing.JInternalFra
         btPesquisarExaminador = new javax.swing.JButton();
         btPesquisarCandidato = new javax.swing.JButton();
 
-        setTitle("Relatório de Avaliação Individual da Prova Escrita");
+        setTitle("Relatório de Planilhan de Critérios de Avaliação da Prova Escrita");
 
         jToolBar1.setRollover(true);
 
@@ -226,7 +226,7 @@ public class RelAvaliacaoIndividualProvaEscrita extends javax.swing.JInternalFra
                 parametros.add(new Parametro("concurso", Concurso.getInstance().getCodigo()+""));
                 parametros.add(new Parametro("logo", file.getAbsolutePath()));
 
-                GeradorRelatorios.gerar(System.getProperty("user.dir") + "\\src\\relatorios\\RelAvaliacaoIndividualProvaEscrita.jasper", parametros);
+                GeradorRelatorios.gerar(System.getProperty("user.dir") + "\\src\\relatorios\\RelPlanilhaAvaliacaoProvaEscrita.jasper", parametros);
                 campoMensagem.setText("Relatório gerado com sucesso.");
             } catch (Exception e) {
                 campoMensagem.setText("Erro ao gerar o relatório. ERRO: " + e.getMessage());
