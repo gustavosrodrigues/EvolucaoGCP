@@ -60,6 +60,13 @@ public class Examinador implements Serializable {
         this.categoria = categoria;
     }
 
+    /*
+     * Criar lista de presença na prova de defesa do memorial de trajetória academica
+     */
+    public void criarListaPresencaDefesaMemorialTrajetoriaAcademica(String nomes){
+        String lista = nomes;
+    }
+    
     public int getCodigo() {
         return codigo;
     }
