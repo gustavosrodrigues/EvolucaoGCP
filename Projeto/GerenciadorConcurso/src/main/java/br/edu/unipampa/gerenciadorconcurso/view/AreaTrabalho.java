@@ -10,6 +10,7 @@ import br.edu.unipampa.gerenciadorconcurso.view.interno.DefinirCronograma;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.CadastroExaminador;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.DefinirPesoProvasConcurso;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.ReciboDocumentacaoPorCandidato;
+import br.edu.unipampa.gerenciadorconcurso.view.interno.RelAtaJulgamentoProvaTitulo;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelAvaliacaoIndividualProvaEscrita;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelPEAtaSessaoDivulgacaoResultado;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelProvaEscritaAtaJulgamento;
@@ -71,6 +72,10 @@ public class AreaTrabalho extends javax.swing.JFrame {
         jMenu6 = new javax.swing.JMenu();
         reciboDocumentacaoPorCandidato1 = new javax.swing.JMenuItem();
         itemMenuAvaliacaoIndividualProvaEscrita = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
+        jMenu7 = new javax.swing.JMenu();
+        itemMenuAtaJulgamentoProvaTitulo = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -223,6 +228,26 @@ public class AreaTrabalho extends javax.swing.JFrame {
 
         jMenuBar1.add(menuProvaEscrita1);
 
+        jMenu4.setText("Prova Titulo");
+
+        jMenu5.setText("Relatórios");
+
+        jMenu7.setText("Atas");
+
+        itemMenuAtaJulgamentoProvaTitulo.setText("Ata de Julgamento da Prova de Títulos");
+        itemMenuAtaJulgamentoProvaTitulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemMenuAtaJulgamentoProvaTituloActionPerformed(evt);
+            }
+        });
+        jMenu7.add(itemMenuAtaJulgamentoProvaTitulo);
+
+        jMenu5.add(jMenu7);
+
+        jMenu4.add(jMenu5);
+
+        jMenuBar1.add(jMenu4);
+
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/sobre.png")));
         jMenu2.setText("Sobre");
         jMenuBar1.add(jMenu2);
@@ -293,6 +318,10 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private void itemMenuAvaliacaoIndividualProvaEscritaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuAvaliacaoIndividualProvaEscritaActionPerformed
         criarRelatorioAvaliacaoIndividualProvaEscrita();
     }//GEN-LAST:event_itemMenuAvaliacaoIndividualProvaEscritaActionPerformed
+
+    private void itemMenuAtaJulgamentoProvaTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuAtaJulgamentoProvaTituloActionPerformed
+        criarRelatorioAtaJulgamentoProvaTitulo();
+    }//GEN-LAST:event_itemMenuAtaJulgamentoProvaTituloActionPerformed
 
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Inicio">
@@ -390,6 +419,11 @@ public class AreaTrabalho extends javax.swing.JFrame {
         RelAvaliacaoIndividualProvaEscrita relAvaliacaoIndividualProvaEscrita = new RelAvaliacaoIndividualProvaEscrita();
         adicionarJanela(relAvaliacaoIndividualProvaEscrita);
     }
+    
+    private void criarRelatorioAtaJulgamentoProvaTitulo() {
+        RelAtaJulgamentoProvaTitulo relAtaJulgamentoProvaTitulo = new RelAtaJulgamentoProvaTitulo();
+        adicionarJanela(relAtaJulgamentoProvaTitulo);
+    }
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Variaveis">
@@ -397,6 +431,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private javax.swing.JDesktopPane areaTrabalho;
     private javax.swing.JMenuItem itemMenuAtaInstalacaoComissao;
     private javax.swing.JMenuItem itemMenuAtaInstalacaoComissao1;
+    private javax.swing.JMenuItem itemMenuAtaJulgamentoProvaTitulo;
     private javax.swing.JMenuItem itemMenuAvaliacaoIndividualProvaEscrita;
     private javax.swing.JMenu itemMenuCadastro;
     private javax.swing.JMenuItem itemMenuCandidato;
@@ -406,7 +441,10 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem3;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelAtaJulgamentoProvaTitulo" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a44ed14e-06ef-44ec-be8c-2b98027d9e5f">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelAtaJulgamentoProvaTitulo" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a44ed14e-06ef-44ec-be8c-2b98027d9e5f">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -96,17 +96,17 @@ Uso exclusivo Divisão de Concursos
 				</textElement>
 				<textFieldExpression><![CDATA["CAMPUS: "+$F{concurso_campus}.toUpperCase()]]></textFieldExpression>
 			</textField>
+			<image>
+				<reportElement stretchType="RelativeToTallestObject" x="46" y="51" width="149" height="100" uuid="da2c805b-bc87-45f2-bad4-c6b55959f6b2"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
 			<textField>
-				<reportElement x="206" y="80" width="349" height="14" uuid="9393ee56-f842-4a10-b1b8-c8a4a07d548b"/>
+				<reportElement x="206" y="80" width="349" height="14" uuid="a52602cc-8607-4fb3-b06f-8832c1e44b87"/>
 				<textElement>
 					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA["UNIVERSIDADE: "+$F{concurso_universidade}.toUpperCase()]]></textFieldExpression>
 			</textField>
-			<image>
-				<reportElement x="41" y="39" width="150" height="97" uuid="6387caab-2994-418f-9a83-653434fb0ab0"/>
-				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
-			</image>
 		</band>
 	</title>
 	<pageHeader>
@@ -141,10 +141,6 @@ Uso exclusivo Divisão de Concursos
 				</textElement>
 				<textFieldExpression><![CDATA[$P{dataRelatorio}]]></textFieldExpression>
 			</textField>
-			<image>
-				<reportElement stretchType="RelativeToTallestObject" x="-267" y="-408" width="149" height="100" uuid="3a3dc0dc-140a-47bd-b85e-750f476c432f"/>
-				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
-			</image>
 		</band>
 	</columnHeader>
 	<detail>

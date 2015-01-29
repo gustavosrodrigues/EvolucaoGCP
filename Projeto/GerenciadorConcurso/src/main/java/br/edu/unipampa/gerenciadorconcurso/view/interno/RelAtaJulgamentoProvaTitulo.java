@@ -178,10 +178,10 @@ public class RelAtaJulgamentoProvaTitulo extends javax.swing.JInternalFrame {
                 parametros.add(new Parametro("dataRelatorio", campoData.getText()));
                 parametros.add(new Parametro("concurso", Concurso.getInstance().getCodigo()+""));
                 parametros.add(new Parametro("local", campoLocal.getText()));
-                parametros.add(new Parametro("hora", campoHoraInicio.getText()));
+                parametros.add(new Parametro("horaRelatorio", campoHoraInicio.getText()));
                 parametros.add(new Parametro("logo", file.getAbsolutePath()));
 
-                GeradorRelatorios.gerar(System.getProperty("user.dir") + "\\src\\relatorios\\AtaJulgamentoProvaTitulo.jasper", parametros);
+                GeradorRelatorios.gerar(System.getProperty("user.dir") + "\\src\\relatorios\\RelAtaJulgamentoProvaTitulo.jasper", parametros);
                 campoMensagem.setText("Relatório gerado com sucesso.");
             } catch (Exception e) {
                 campoMensagem.setText("Erro ao gerar o relatório. ERRO: " + e.getMessage());
