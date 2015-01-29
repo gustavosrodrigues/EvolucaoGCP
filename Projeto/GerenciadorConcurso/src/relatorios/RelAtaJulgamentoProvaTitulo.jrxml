@@ -8,6 +8,7 @@
 	</parameter>
 	<parameter name="dataRelatorio" class="java.lang.String"/>
 	<parameter name="horaRelatorio" class="java.lang.String"/>
+	<parameter name="logo" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT
      concurso.`codigo` AS concurso_codigo,
@@ -56,7 +57,57 @@ WHERE concurso.codigo = $P{concurso}]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch"/>
+		<band height="175" splitType="Stretch">
+			<textField>
+				<reportElement x="206" y="66" width="349" height="14" uuid="70704746-9365-4e1d-b44e-0c1c1ea1ac3c"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["MINISTÉRIO: "+ $F{concurso_ministerio}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="401" y="16" width="134" height="38" uuid="fb851559-d9f0-4145-902f-04847fb46960"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Folha nº: ________
+Rubrica: ________
+Uso exclusivo Divisão de Concursos
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="206" y="120" width="349" height="16" uuid="ffb7f7d0-c0f7-4812-9c85-cf282ebcd70f"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ÁREA: "+$F{concurso_area}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="206" y="107" width="349" height="13" uuid="0beb8e58-9353-40d3-ab8f-20922757a4fc"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["CONCURSO PÚBLICO: "+$F{concurso_classe}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="206" y="94" width="349" height="13" uuid="ddb72bb5-a4c4-48c6-bcfe-a6b126dcf632"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["CAMPUS: "+$F{concurso_campus}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="206" y="80" width="349" height="14" uuid="9393ee56-f842-4a10-b1b8-c8a4a07d548b"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["UNIVERSIDADE: "+$F{concurso_universidade}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="41" y="39" width="150" height="97" uuid="6387caab-2994-418f-9a83-653434fb0ab0"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+		</band>
 	</title>
 	<pageHeader>
 		<band height="98" splitType="Stretch">
@@ -70,21 +121,49 @@ WHERE concurso.codigo = $P{concurso}]]>
 			<textField>
 				<reportElement x="0" y="35" width="555" height="61" uuid="cd0e2365-a1ac-42ce-92a9-f778d6f6596a"/>
 				<textElement markup="none"/>
-				<textFieldExpression><![CDATA["Aos "+$P{dataRelatorio}+", às "+$P{horaRelatorio}+", na "+$F{concurso_universidade}+", reuniu-se a Comissão Examinadora do Concurso Público para Professor do Magistério Superior para o campus Alegrete na área de Engenharia de Software - Processamento de Imagens para realizar o Julgamento da Prova de Títulos do referido Concurso Público. As notas da prova de cada candidato, concedidas pelos examinadores, foram acondicionadas em envelopes lacrados, para serem abertos somente na Sessão Pública para Divulgação dos Resultados. Encerrados os trabalhos e nada mais havendo a tratar, lavrou-se a presente ata."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Aos "+$P{dataRelatorio}+", às "+$P{horaRelatorio}+", na "+$F{concurso_universidade}+", reuniu-se a Comissão Examinadora do Concurso Público para "+$F{concurso_classe}+" para o campus "+$F{concurso_campus}+" na área de "+$F{concurso_area}+" para realizar o Julgamento da Prova de Títulos do referido Concurso Público. As notas da prova de cada candidato, concedidas pelos examinadores, foram acondicionadas em envelopes lacrados, para serem abertos somente na Sessão Pública para Divulgação dos Resultados. Encerrados os trabalhos e nada mais havendo a tratar, lavrou-se a presente ata."]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="6" splitType="Stretch"/>
+		<band height="83" splitType="Stretch">
+			<textField>
+				<reportElement x="314" y="44" width="106" height="20" uuid="ab940bac-5997-4621-8922-25d0e42f2a4e"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Alegrete, "]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="420" y="44" width="136" height="20" uuid="d20cb97f-1f49-49c3-9ccf-b195c985b944"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dataRelatorio}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement stretchType="RelativeToTallestObject" x="-267" y="-408" width="149" height="100" uuid="3a3dc0dc-140a-47bd-b85e-750f476c432f"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch"/>
+		<band height="66" splitType="Stretch">
+			<line>
+				<reportElement x="203" y="40" width="198" height="1" uuid="aab09c36-1a98-47d5-bda3-4e4985ed9a88"/>
+			</line>
+			<textField>
+				<reportElement x="203" y="40" width="198" height="20" uuid="92bc6df8-5777-448e-ab97-891638ee874e"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["Examinador "+$F{pessoa_nome}]]></textFieldExpression>
+			</textField>
+		</band>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch"/>
+		<band height="4" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="54" splitType="Stretch"/>
+		<band height="6" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
 		<band height="42" splitType="Stretch"/>
