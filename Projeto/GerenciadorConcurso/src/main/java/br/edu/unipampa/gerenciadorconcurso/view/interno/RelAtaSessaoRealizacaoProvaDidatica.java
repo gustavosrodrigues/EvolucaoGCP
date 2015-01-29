@@ -64,7 +64,7 @@ public class RelAtaSessaoRealizacaoProvaDidatica extends javax.swing.JInternalFr
 
         jToolBar1.setRollover(true);
 
-        btNovo.setText("Gerar Ata sessão de divulgação do resultado");
+        btNovo.setText("Gerar Relatório");
         btNovo.setFocusable(false);
         btNovo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btNovo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -192,7 +192,7 @@ public class RelAtaSessaoRealizacaoProvaDidatica extends javax.swing.JInternalFr
                 parametros.add(new Parametro("local", campoLocal.getText().toString()));
                 parametros.add(new Parametro("nroDoc", campoNroDoc.getText().toString()));
                 parametros.add(new Parametro("diaExtenso", dfmt2.format(dataRelatorioFormat)));
-                parametros.add(new Parametro("candidatos", candidatosPresentes()));
+                parametros.add(new Parametro("candidatos", getCandidatosPresentes()));
                 parametros.add(new Parametro("logo", file.getAbsolutePath()));
 
                 GeradorRelatorios.gerar(System.getProperty("user.dir") + "\\src\\relatorios\\RelAtaSessaoRealizacaoProvaDidatica.jasper", parametros);
@@ -221,7 +221,7 @@ public class RelAtaSessaoRealizacaoProvaDidatica extends javax.swing.JInternalFr
     // End of variables declaration//GEN-END:variables
 
     
-    private String candidatosPresentes(){
+    private String getCandidatosPresentes(){
         //exemplo
         //O candidato 1 compareceu às nove horas e quarenta minutos e apresentou o ponto de número zero com o seguinte título: . 
         //O candidato 2 compareceu às nove horas e quarenta minutos e apresentou o ponto de número zero com o seguinte título: .
