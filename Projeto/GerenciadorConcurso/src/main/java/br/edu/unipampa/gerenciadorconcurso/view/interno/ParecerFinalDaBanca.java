@@ -12,6 +12,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -80,6 +81,11 @@ public class ParecerFinalDaBanca extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Examinador E = new Examinador();
         E.criarParecerFinal(jTextField1.getText());
+        
+        if(jTextField1.getText() == ""){
+            JOptionPane.showMessageDialog (null, "Por favor preencha o campo com o parecer", "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
