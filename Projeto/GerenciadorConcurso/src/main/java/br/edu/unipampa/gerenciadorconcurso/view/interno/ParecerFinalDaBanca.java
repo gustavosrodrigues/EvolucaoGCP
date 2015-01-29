@@ -5,6 +5,7 @@
  */
 package br.edu.unipampa.gerenciadorconcurso.view.interno;
 
+import br.edu.unipampa.gerenciadorconcurso.model.Examinador;
 import br.edu.unipampa.gerenciadorconcurso.view.reports.*;
 import java.io.File;
 import java.io.FileInputStream;
@@ -43,6 +44,11 @@ public class ParecerFinalDaBanca extends javax.swing.JFrame {
         jLabel1.setText("Parecer Final");
 
         jButton2.setText("Salvar Parecer Final da Banca Examinadora");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -70,6 +76,11 @@ public class ParecerFinalDaBanca extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Examinador E = new Examinador();
+        E.criarParecerFinal(jTextField1.getText());
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

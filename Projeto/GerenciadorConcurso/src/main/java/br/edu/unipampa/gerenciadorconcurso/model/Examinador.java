@@ -63,7 +63,7 @@ public class Examinador implements Serializable {
     /*
      * 8.4 Criar Parecer Final da Banca Examinadora
      */
-    public void criarPareceFinal(String parecerFinal){
+    public void criarParecerFinal(String parecerFinal){
         String parecer = parecerFinal;
     }
 
