@@ -64,6 +64,14 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="reciboDocumentacaoPorCandidatoActionPerformed"/>
                   </Events>
                 </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Declara&#xe7;&#xe3;o de n&#xe3;o impedimento - por membro de banca"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
+                  </Events>
+                </MenuItem>
                 <Menu class="javax.swing.JMenu" name="jMenu3">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Atas"/>

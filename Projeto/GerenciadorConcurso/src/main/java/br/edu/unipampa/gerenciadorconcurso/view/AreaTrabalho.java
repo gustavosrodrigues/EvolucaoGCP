@@ -12,6 +12,7 @@ import br.edu.unipampa.gerenciadorconcurso.view.interno.DefinirPesoProvasConcurs
 import br.edu.unipampa.gerenciadorconcurso.view.interno.ReciboDocumentacaoPorCandidato;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelAtaJulgamentoProvaTitulo;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelAvaliacaoIndividualProvaEscrita;
+import br.edu.unipampa.gerenciadorconcurso.view.interno.RelDeclaracaoNaoImpedimentoPorMembroBanca;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelPEAtaSessaoDivulgacaoResultado;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelProvaEscritaAtaJulgamento;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelReciboDevolucaoDocumentacaoProvaTitulo;
@@ -60,6 +61,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         reciboDocumentacaoPorCandidato = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         itemMenuAtaInstalacaoComissao = new javax.swing.JMenuItem();
         menuProvaEscrita1 = new javax.swing.JMenu();
@@ -144,6 +146,14 @@ public class AreaTrabalho extends javax.swing.JFrame {
             }
         });
         jMenu1.add(reciboDocumentacaoPorCandidato);
+
+        jMenuItem2.setText("Declaração de não impedimento - por membro de banca");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
 
         jMenu3.setText("Atas");
 
@@ -337,6 +347,10 @@ public class AreaTrabalho extends javax.swing.JFrame {
         criarRelatorioReciboDevolucaoDocumentacaoProvaTitulo();
     }//GEN-LAST:event_itemMenuReciboDevolucaoDocumentacaoActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        criarDeclaracaoNaoImpedimentoMembros();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Inicio">
     /**
@@ -424,6 +438,11 @@ public class AreaTrabalho extends javax.swing.JFrame {
         adicionarJanela(reciboDocumentacaoPorCandidato);
     }
     
+    private void criarDeclaracaoNaoImpedimentoMembros() {
+        RelDeclaracaoNaoImpedimentoPorMembroBanca declaracao = new RelDeclaracaoNaoImpedimentoPorMembroBanca();
+        adicionarJanela(declaracao);
+    }
+    
     private void criarRelatorioTermoDesistenciaPrazoRecursalNotaFinalProvaEscrita() {
         RelTermoDesistenciaProvaEscrita termoDesistenciaProvaEscrita = new RelTermoDesistenciaProvaEscrita();
         adicionarJanela(termoDesistenciaProvaEscrita);
@@ -467,6 +486,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JMenu menuAbrirConcurso;
