@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelAtaComissao" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ff09d756-e546-4157-8d3e-0dbad0b8e9c9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="dataRelatorio" class="java.lang.String"/>
+	<parameter name="logo" class="java.lang.String"/>
+	<parameter name="hora" class="java.lang.String"/>
+	<parameter name="local" class="java.lang.String"/>
+	<parameter name="nroDoc" class="java.lang.String"/>
+	<parameter name="diaExtenso" class="java.lang.String"/>
+	<parameter name="candidatos" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="candidato_codigo" class="java.lang.Integer"/>
+	<field name="candidato_concurso" class="java.lang.Integer"/>
+	<field name="pessoa_nome" class="java.lang.String"/>
+	<field name="candidato_pessoa" class="java.lang.Integer"/>
+	<sortField name="pessoa_nome"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="597" splitType="Stretch">
+			<staticText>
+				<reportElement x="196" y="61" width="351" height="85" uuid="1fb4c53f-ae67-4197-8ba3-9939b9694312"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[MINISTÉRIO DA EDUCAÇÃO
+FUNDAÇÃO UNIVERSIDADE FEDERAL DO PAMPA
+CAMPUS: ALEGRETE
+CONCURSO PÚBLICO PARA PROFESSOR DO MAGISTÉRIO SUPERIOR
+ÁREA:
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="406" y="11" width="134" height="38" uuid="2a62d628-d338-418d-b983-20ab08fcf65e"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Folha nº: ________
+Rubrica: ________
+Uso exclusivo Divisão de Concursos
+]]></text>
+			</staticText>
+			<image>
+				<reportElement stretchType="RelativeToTallestObject" x="27" y="49" width="149" height="100" uuid="f30d7f57-f37a-401f-a669-a509027d2a8b"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="43" y="227" width="478" height="201" uuid="87712a7c-4b18-4666-9959-ec705ef8e226"/>
+				<textElement textAlignment="Justified">
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Aos " + $P{diaExtenso} + ", às " + $P{hora} + ", na " + $P{local} + ", reuniu-se a Comissão Examinadora do Concurso Público para Professor do Magistério Superior para a realização da Avaliação da Prova Didática do referido Concurso Público. " + $P{candidatos} + " Durante a apresentação de cada candidato, os examinadores fizeram o seu julgamento individual segundo critérios previamente estabelecidos e anexados ao presente processo. As planilhas com as notas dos candidatos foram acondicionadas em envelopes individuais, por examinador. Os envelopes foram guardados para serem abertos somente na Sessão Pública para Divulgação dos Resultados do Concurso Público. As apresentações de cada candidato foram gravadas e as gravações foram anexadas ao processo do Concurso Público. Após o encerramento dos trabalhos, que transcorreram sem anormalidades, lavrou-se a presente ata."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="58" y="510" width="214" height="20" uuid="f75e5d5f-5ff0-499d-937a-8651b7b9edc1"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Prof. Dr. (Presidente)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="58" y="490" width="214" height="20" uuid="d65c3685-26f6-4d8e-8260-846dfca4f9c6"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[______________________________________]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="280" y="438" width="241" height="20" uuid="acb48f0f-68b8-42b1-b50a-56a81bc2c979"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Alegrete," + $P{dataRelatorio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="295" y="490" width="214" height="20" uuid="7c9a94c3-846b-417b-ba92-3e012583f6c0"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[______________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="510" width="214" height="20" uuid="9561986b-aaf9-4763-86aa-c256867805e4"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Prof. Dr. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="171" y="551" width="214" height="20" uuid="0b9aaa3b-9826-46f0-9ff7-5c8965572788"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[______________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="171" y="571" width="214" height="20" uuid="f8c263e1-ed70-498e-8bc1-77f227961154"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Prof. Dr. ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="27" y="184" width="513" height="26" uuid="2b631066-408f-4fac-b75b-5e3431e49c28"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="14"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Ata Nro " + $P{nroDoc} + "- Realização da Prova Didática"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+</jasperReport>
