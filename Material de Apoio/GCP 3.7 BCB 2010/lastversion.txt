@@ -1,0 +1,21 @@
+; Arquivo de controle de atualizações do GCP
+
+[Principal]
+; Indica a versão release mais atualizada do GCP
+ultima_versao="3.8"
+; Número de arquivos para download
+nro_arquivos=3
+; Número de arquivos de regras para download
+nro_arquivos_regras=3
+
+[Download]
+; Nomes dos arquivos para download
+arquivo1="GCP.exe"
+arquivo2="logo.fig"
+arquivo3="Manual_GCP_3.6.pdf"
+
+[Regras]
+; Nomes dos arquivos de regras para download
+arquivo1="resolucao64-2013.gcr"
+arquivo2="resolucao82-2014.gcr"
+arquivo3="resolucao82-2014-titular.gcr"

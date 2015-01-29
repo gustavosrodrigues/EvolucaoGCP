@@ -42,12 +42,6 @@
             <groupId>net.sf.jasperreports</groupId>
             <artifactId>jasperreports</artifactId>
             <version>5.6.0</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>org.java.net.substance</groupId>
-            <artifactId>substance</artifactId>
-            <version>6.0</version>
         </dependency>
     </dependencies>
     <properties>

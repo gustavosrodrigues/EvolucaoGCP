@@ -1,0 +1,327 @@
+; Arquivo de regras do Aplicativo Gerenciador de Concursos Públicos UNIPAMPA
+; Formato: <variável>=<valor>
+; Não modifique o nome das variáveis
+; Linhas que iniciam com ';' são comentários
+; Criado por Alessandro Girardi em fevereiro de 2014.
+
+[Principal]
+; Descrição do arquivo de regras:
+descricao=Professor da carreira do magistério superior - Resolução 66/2013 do CONSUNI
+; Versão mínima do GCP para o qual estas regras são compatíveis:
+versao_minima=3.7
+; Número da resolução normativa: 
+normativa=Resolução 66/2013 do CONSUNI 
+; Tipo de concurso
+tipo_concurso=Concurso Público
+; Existencia das provas 1-sim, 0-não, 2-opcional (de acordo com o edital)
+ha_prova_escrita=1
+ha_prova_didatica=1
+ha_prova_memorial=1
+ha_prova_titulos=1
+ha_prova_entrevista=0
+; Peso das provas fixo 1-sim (definido pela resoluçao) 0-nao (definido por edital)
+peso_escrita_fixo=1
+peso_didatica_fixo=1
+peso_memorial_fixo=1
+peso_titulos_fixo=1
+peso_entrevista_fixo=0
+; Pesos das provas (somatório deve ser igual a 1):
+peso_escrita=0,2
+peso_didatica=0,3
+peso_memorial=0,2
+peso_titulos=0,3
+peso_entrevista=0
+; Concurso eliminatório 1-sim 0-não
+eliminatoria=1
+; Caso concurso eliminatório, nota mínima para aprovação:
+nota_minima=7
+
+[Didatica]
+; Prova eliminatória 1-sim 0-não
+eliminatoria=1
+; Caso seja prova eliminatória, nota mínima para aprovação (0 a 10):
+nota_minima=7
+; Artigo da resolução que trata sobre o prazo recursal da prova didática:
+artigo_prazo_recursal=30
+; Candidato pode renunciar ao prazo recursal 1-sim, 0-não
+pode_desistir_recurso=1
+; Critérios de avaliação:
+nro_criterios_avaliacao=4
+criterio_didatica_1=Planejamento de uma aula=0
+criterio_didatica_2=Domínio do tema sorteado=0 
+criterio_didatica_3=Capacidade de comunicação=0
+criterio_didatica_4=Postura pedagógica=0
+
+[Memorial]
+; Prova eliminatória 1-sim 0-não
+eliminatoria=0
+; Caso seja prova eliminatória, nota mínima para aprovação (0 a 10):
+nota_minima=0
+
+[Escrita]
+; Prova eliminatória 1-sim 0-não
+eliminatoria=1
+; Caso seja prova eliminatória, nota mínima para aprovação (0 a 10):
+nota_minima=7
+; Artigo da resolução que trata sobre o prazo recursal da prova escrita:
+artigo_prazo_recursal=29
+; Candidato pode renunciar ao prazo recursal 1-sim, 0-não
+pode_desistir_recurso=1
+; Critérios de avaliação:
+nro_criterios_avaliacao=3
+criterio_escrita_1=Emprego de conceitos=0
+criterio_escrita_2=Utilização de técnicas e suas inter-relações=0 
+criterio_escrita_3=Capacidade de expressão em linguagem acadêmica de acordo com a área de conhecimento do concurso=0
+
+[Titulos]
+; Prova eliminatória 1-sim 0-não
+eliminatoria=0
+; Caso seja prova eliminatória, nota mínima para aprovação (0 a 10):
+nota_minima=0
+; Número de classes na tabela de pontuação
+nro_classes=3
+; Título das colunas da tabela de pontuação
+titulo_col1=Item
+titulo_col2=Discriminação
+titulo_col3=Pontuação
+titulo_col4=Quantidade
+titulo_col5=Total
+; Regras da tabela de pontuação
+; CUMULATIVO - formato: CUMULATIVO_CLASSE_x_ITEM_yy_ITEM_zz
+; Descrição: não permite que os itens yy e zz da classe x sejam cumulativos
+; MAXPONT - formato: MAXPONT_CLASSE_x_ITEM_yy_QUANT_zzz,z
+; Descrição: máxima pontuação no item yy da classe x é zzz,z (informar os 4 dígitos do valor z)
+nro_regras=58
+Regra1=CUMULATIVO_CLASSE_1_ITEM_01_ITEM_05
+Regra2=MAXPONT_CLASSE_2_ITEM_01_QUANT_080,5
+Regra3=MAXPONT_CLASSE_2_ITEM_02_QUANT_050,0
+Regra4=MAXPONT_CLASSE_2_ITEM_03_QUANT_030,0
+Regra5=MAXPONT_CLASSE_2_ITEM_04_QUANT_015,0
+Regra6=MAXPONT_CLASSE_2_ITEM_05_QUANT_010,0
+Regra7=MAXPONT_CLASSE_2_ITEM_06_QUANT_050,0
+Regra8=MAXPONT_CLASSE_2_ITEM_07_QUANT_060,0
+Regra9=MAXPONT_CLASSE_2_ITEM_08_QUANT_040,0
+Regra10=MAXPONT_CLASSE_2_ITEM_09_QUANT_020,0
+Regra11=MAXPONT_CLASSE_2_ITEM_10_QUANT_010,0
+Regra12=MAXPONT_CLASSE_2_ITEM_11_QUANT_003,0
+Regra13=MAXPONT_CLASSE_2_ITEM_12_QUANT_001,0
+Regra14=MAXPONT_CLASSE_2_ITEM_13_QUANT_008,0
+Regra15=MAXPONT_CLASSE_2_ITEM_14_QUANT_004,0
+Regra16=MAXPONT_CLASSE_2_ITEM_15_QUANT_080,0
+Regra17=MAXPONT_CLASSE_2_ITEM_16_QUANT_016,0
+Regra18=MAXPONT_CLASSE_2_ITEM_17_QUANT_008,0
+Regra19=MAXPONT_CLASSE_2_ITEM_18_QUANT_004,0
+Regra20=MAXPONT_CLASSE_2_ITEM_19_QUANT_002,0
+Regra21=MAXPONT_CLASSE_2_ITEM_20_QUANT_004,0
+Regra22=MAXPONT_CLASSE_2_ITEM_21_QUANT_008,0
+Regra23=MAXPONT_CLASSE_2_ITEM_22_QUANT_010,0
+Regra24=MAXPONT_CLASSE_2_ITEM_23_QUANT_010,0
+Regra25=MAXPONT_CLASSE_2_ITEM_24_QUANT_008,0
+Regra26=MAXPONT_CLASSE_2_ITEM_25_QUANT_006,0
+Regra27=MAXPONT_CLASSE_2_ITEM_26_QUANT_004,0
+Regra28=MAXPONT_CLASSE_2_ITEM_27_QUANT_002,0
+Regra29=MAXPONT_CLASSE_2_ITEM_28_QUANT_010,0
+Regra30=MAXPONT_CLASSE_2_ITEM_29_QUANT_008,0
+Regra31=MAXPONT_CLASSE_2_ITEM_30_QUANT_002,0
+Regra32=MAXPONT_CLASSE_2_ITEM_31_QUANT_001,0
+Regra33=MAXPONT_CLASSE_2_ITEM_32_QUANT_010,0
+Regra34=MAXPONT_CLASSE_2_ITEM_33_QUANT_008,0
+Regra35=MAXPONT_CLASSE_2_ITEM_34_QUANT_010,0
+Regra36=MAXPONT_CLASSE_2_ITEM_35_QUANT_001,0
+Regra37=MAXPONT_CLASSE_2_ITEM_36_QUANT_000,5
+Regra38=MAXPONT_CLASSE_2_ITEM_37_QUANT_000,5
+Regra39=MAXPONT_CLASSE_3_ITEM_01_QUANT_020,0
+Regra40=MAXPONT_CLASSE_3_ITEM_02_QUANT_005,0
+Regra41=MAXPONT_CLASSE_3_ITEM_03_QUANT_005,0
+Regra42=MAXPONT_CLASSE_3_ITEM_04_QUANT_020,0
+Regra43=MAXPONT_CLASSE_3_ITEM_05_QUANT_010,0
+Regra44=MAXPONT_CLASSE_3_ITEM_06_QUANT_003,0
+Regra45=MAXPONT_CLASSE_3_ITEM_07_QUANT_001,0
+Regra46=MAXPONT_CLASSE_3_ITEM_08_QUANT_002,0
+Regra47=MAXPONT_CLASSE_3_ITEM_09_QUANT_001,0
+Regra48=MAXPONT_CLASSE_3_ITEM_10_QUANT_002,0
+Regra49=MAXPONT_CLASSE_3_ITEM_11_QUANT_001,0
+Regra50=MAXPONT_CLASSE_3_ITEM_12_QUANT_000,5
+Regra51=MAXPONT_CLASSE_3_ITEM_13_QUANT_004,0
+Regra52=MAXPONT_CLASSE_3_ITEM_14_QUANT_002,0
+Regra53=MAXPONT_CLASSE_3_ITEM_15_QUANT_002,0
+Regra54=MAXPONT_CLASSE_3_ITEM_16_QUANT_001,0
+Regra55=MAXPONT_CLASSE_3_ITEM_17_QUANT_001,0
+Regra56=MAXPONT_CLASSE_3_ITEM_18_QUANT_001,0
+Regra57=MAXPONT_CLASSE_3_ITEM_19_QUANT_004,0
+Regra58=MAXPONT_CLASSE_3_ITEM_20_QUANT_002,0
+
+[Classe1]
+Titulo=Classe I.1. Formação e Aperfeiçoamento Acadêmico
+Rodape=* Formação ou aperfeiçoamento acadêmico em área afim à área do Concurso recebe metade da pontuação do referido item.
+Subtitulo=
+; Peso máximo e mínimo da classe:
+Pesomin=0,4
+Pesomax=0,4
+; Existe pontuação maxima na classe 1-sim 0-não
+Pontuacao_maxima=0
+; Caso exista, valor da pontuação máxima:
+Valor_pontuacao_maxima=0
+nro_items=7
+Disc1=Doutorado na área do Concurso. *
+Pont1=20
+Disc2=Mestrado na área do Concurso. *
+Pont2=10
+Disc3=Especialização na área do Concurso, com exigência de aproveitamento e frequência, com duração mínima de 360 horas. *
+Pont3=0,5
+Disc4=Residência realizada em instituição credenciada pela Comissão Nacional de Residência Médica ou equivalente, na especialidade objeto do Concurso. *
+Pont4=0,5
+Disc5=Conclusão, com aproveitamento comprovado pelos conceitos, de todos os créditos de Doutorado na área do Concurso, desde que com elaboração de tese em andamento e vínculo regular ao Programa de Pós-Graduação no qual obteve os créditos (não cumulativo com o item 1). * 
+Pont5=5
+Disc6=Graduação na área do Concurso. *
+Pont6=1
+Disc7=Pós-Doutorado na área do Concurso, tempo mínimo de 1 ano. *
+Pont7=1
+
+[Classe2]
+Titulo=Classe I.2. Produção Científica, Tecnológica, Artística e Cultural (Considerando os últimos 5 anos) - na área do Concurso
+Rodape=* Produção Científica, Tecnológica, Artística ou Cultural em área afim à área do Concurso recebe metade da pontuação do referido item. 
+Subtitulo=Máximo 100,0 pontos nesta classe.
+; Peso máximo e mínimo da classe:
+Pesomin=0,4
+Pesomax=0,4
+; Existe pontuação maxima na classe 1-sim 0-não
+Pontuacao_maxima=1
+; Caso exista, valor da pontuação máxima:
+Valor_pontuacao_maxima=100
+nro_items=37
+Disc1=Autoria de livro com corpo editorial internacional cadastrado no ISBN ou similar (por unidade, no máximo 80,0 pontos). 
+Pont1=8
+Disc2=Autoria de livro com corpo editorial nacional cadastrado no ISBN ou similar (por unidade, no máximo 50,0 pontos). 
+Pont2=5
+Disc3=Coautoria de livro internacional cadastrado no ISBN ou similar (por unidade, no máximo 30,0 pontos).
+Pont3=3
+Disc4=Coautoria de livro nacional cadastrado no ISBN ou similar (por unidade, no máximo 15,0 pontos).
+Pont4=1,5
+Disc5=Tradução de livro cadastrado no ISBN ou similar (por unidade, no máximo 10,0 pontos).
+Pont5=1
+Disc6=Tradução de capítulo de livro ou artigo cadastrado no ISBN ou similar (por unidade, no máximo 5,0 pontos).
+Pont6=0,5
+Disc7=Autoria de artigo publicado em periódicos científicos especializados classificado no sistema Qualis da CAPES como A1 (por artigo, máximo 60,0 pontos).
+Pont7=6
+Disc8=Artigo publicado em periódicos científicos especializados classificado no sistema Qualis da CAPES como A2 (por artigo, no máximo 40,0 pontos).
+Pont8=4
+Disc9=Artigo publicado em periódicos científicos especializados classificado no sistema Qualis da CAPES como B1 ou B2 (por artigo, no máximo 20,0 pontos).
+Pont9=2
+Disc10=Artigo publicado em periódicos científicos especializados classificado no sistema Qualis da CAPES como B3 ou B4 (por artigo, no máximo 10,0 pontos).
+Pont10=1
+Disc11=Artigo publicado em periódicos científicos especializados classificado no sistema Qualis da CAPES como B5 ou menor (por artigo, no máximo 3,0 pontos).
+Pont11=0,3
+Disc12=Artigo publicado em periódico não classificado no sistema Qualis da CAPES (por artigo, no máximo 1,0 ponto).
+Pont12=0,1
+Disc13=Trabalho completo publicado em Anais de Congressos Científicos internacionais (por trabalho, no máximo 8,0 pontos).
+Pont13=0,8
+Disc14=Trabalho completo publicado em Anais de Congressos Científicos nacionais (por trabalho, no máximo 4,0 pontos).
+Pont14=0,4
+Disc15=Patente ou licença de produtos tecnológicos e registro de software - documentos emitidos por autoridades - (por patente ou licença, no máximo 80,0 pontos).
+Pont15=8
+Disc16=Prêmios e títulos honoríficos, de reconhecimento internacional (por prêmio ou título, no máximo 16,0 pontos).
+Pont16=1,6
+Disc17=Prêmios e títulos honoríficos, de reconhecimento nacional (por prêmio ou título, no máximo 8,0 pontos).
+Pont17=0,8
+Disc18=Prêmios e títulos honoríficos, de reconhecimento regional ou estadual (por prêmio ou título, no máximo 4,0 pontos).
+Pont18=0,4
+Disc19=Promoção ou produção artística em evento local (por promoção ou produção, no máximo 2,0 pontos).
+Pont19=0,2
+Disc20=Promoção ou produção artística em evento nacional (por promoção ou produção, no máximo 4,0 pontos).
+Pont20=0,4
+Disc21=Promoção ou produção artística em evento internacional (por promoção ou produção, no máximo 8,0 pontos).
+Pont21=0,8
+Disc22=Filmes, vídeos, discos ou audiovisuais de apoio pedagógico, artístico, informativo ou de divulgação científica (por filme, vídeo, disco ou audiovisual, no máximo 10,0 pontos).
+Pont22=1
+Disc23=Composição de obra original para música de câmara, coro, banda ou orquestra, que tenha sido estreada ou gravada comercialmente ou publicada (por composição, no máximo 10,0 pontos).
+Pont23=1
+Disc24=Composição de obra original para instrumento ou voz, que tenha sido estreada ou gravada comercialmente ou publicada (por composição, no máximo 8,0 pontos).
+Pont24=0,8
+Disc25=Composição de canção popular ou música instrumental, que tenha sido estreada ou gravada comercialmente ou publicada (por composição, no máximo 6,0 pontos).
+Pont25=0,6
+Disc26=Arranjo para grupo instrumental ou vocal, que tenha sido estreado ou gravado comercialmente ou publicado (por arranjo, no máximo 4,0 pontos).
+Pont26=0,4
+Disc27=Arranjo para instrumento solo ou voz, que tenha sido estreado ou gravado comercialmente ou publicado (por arranjo, no máximo 2,0 pontos).
+Pont27=0,2
+Disc28=Participação como regente ou solista em concerto coral ou sinfônico, com estreia de programa (50% ou mais de repertório novo) e apresentação do programa completo (por participação, no máximo 10,0 pontos).
+Pont28=1
+Disc29=Recital solo ou de música de câmara ou show solo com estreia de programa (50% ou mais de repertório novo) e apresentação do programa completo (por recital, no máximo 8,0 pontos).
+Pont29=0,8
+Disc30=Concerto, recital ou show solo com repertório já apresentado anteriormente (por concerto, recital ou solo, no máximo 2,0 pontos).
+Pont30=0,2
+Disc31=Participação como instrumentista ou cantor em recitais, concertos ou shows (por participação, no máximo 1,0 ponto).
+Pont31=0,1
+Disc32=Produção fonográfica de CD ou DVD publicado comercialmente (por produção, no máximo 10,0 pontos).
+Pont32=1
+Disc33=Produção ou organização de evento artístico/cultural com financiamento através de órgãos de fomentou ou aprovação em edital municipal, estadual ou nacional (por produção ou organização, no máximo 8,0 pontos).
+Pont33=0,8
+Disc34=CD ou DVD solo ou de música de câmara publicado comercialmente (por unidade, no máximo 10 pontos).
+Pont34=1
+Disc35=Participoação como solista em faixa de CD ou DVD publicado comercialmente (por unidade, no máximo 1,0 ponto).
+Pont35=0,1
+Disc36=Participação como músico acompanhador em faixa de CD ou DVD publicado comercialmente (por unidade, no máximo 0,5 pontos).
+Pont36=0,05
+Disc37=Gravação de música em programa de rádio ou TV (por unidade, no máximo 0,5 pontos).
+Pont37=0,05
+
+[Classe3]
+Titulo=Classe I.3. Atividades de Pesquisa, Ensino, Extensão e Profissional
+Rodape=* Nas orientações as atividades de coorientação são pontuadas com a metade dos pontos estabelecidos no item. Neste caso, as quantidades são indicadas de maneira proporcional. Ex: se o candidato possui duas orientações como orientador principal e uma como co-orientador, o valor "2,5" é indicado no campo "Quantidade" do item.
+Subtitulo=Máximo 50,0 pontos nesta classe.
+; Peso máximo e mínimo da classe:
+Pesomin=0,2
+Pesomax=0,2
+; Existe pontuação maxima na classe 1-sim 0-não
+Pontuacao_maxima=1
+; Caso exista, valor da pontuação máxima:
+Valor_pontuacao_maxima=50
+nro_items=24
+Disc1=Disciplina ministrada no Magistério Superior (a cada 30h ministradas, no máximo 20,0 pontos). 
+Pont1=0,5
+Disc2=Magistério no Ensino Médio ou Fundamental (por ano lecionado, no máximo 5,0 pontos). 
+Pont2=0,5
+Disc3=Atividade profissional na área do concurso* (por ano de trabalho, no máximo 5,0 pontos).
+Pont3=0,5
+Disc4=Orientação de tese de Doutorado* (unidade, no máximo 20,0 pontos).
+Pont4=2
+Disc5=Orientação de dissertação de Mestrado* (unidade, no máximo 10,0 pontos).
+Pont5=1
+Disc6=Orientação de monografia de Especialização (unidade, no máximo 3 pontos). 
+Pont6=0,3
+Disc7=Orientação de Projeto de Iniciação Científica ou de Extensão (vinculado a órgãos de fomento) e de Trabalho de Conclusão de Curso de Graduação (TCC) reconhecidos* (unidade, no máximo 1 ponto). 
+Pont7=0,1
+Disc8=Membro titular de Banca de Concurso para Docente Efetivo (por banca, máximo 2,0 pontos).
+Pont8=0,2
+Disc9=Membro titular de Banca de Concurso para Professor Substituto (por banca, no máximo 1,0 ponto).
+Pont9=0,1
+Disc10=Membro titular de Banca de tese de Doutorado (por banca, no máximo 2,0 pontos). 
+Pont10=0,2
+Disc11=Membro titular de Banca de dissertação de Mestrado (por banca, no máximo 1,0 ponto).
+Pont11=0,1
+Disc12=Membro titular de Banca de defesa de monografia de conclusão de Graduação e/ou Especialização (por banca, no máximo 0,5 pontos). 
+Pont12=0,05
+Disc13=Curso de Extensão ministrado com 40 horas ou mais (por curso, no máximo 4,0 pontos). 
+Pont13=0,4
+Disc14=Curso de Extensão ministrado com 20 horas e 40 horas (por curso, no máximo 2,0 pontos).
+Pont14=0,2
+Disc15=Palestrante, conferencista ou participante em mesa-redonda, em evento científico, cultural ou artístico em nível nacional ou internacional (por atividade, no máximo 2,0 pontos). 
+Pont15=0,2
+Disc16=Palestrante, conferencista ou participante em mesa-redonda, em evento científico, cultural ou artístico em nível local ou estadual (por atividade, no máximo 1,0 ponto). 
+Pont16=0,1
+Disc17=Coordenador de Projeto de Pesquisa (duração mínima 6 meses, máximo 1,0 ponto).
+Pont17=0,1
+Disc18=Coordenador de Projeto de Extensão (duração mínima 6 meses, máximo 1,0 ponto).
+Pont18=0,1
+Disc19=Coordenador de Curso de Graduação e Pós-Graduação Stricto Sensu (a cada ano, no máximo 4,0 pontos). 
+Pont19=0,4
+Disc20=Coordenador de Curso de Especialização (a cada ano, no máximo 2,0 pontos). 
+Pont20=0,2
+Disc21=Chefe de Departamento ou Coordenador Acadêmico de Unidade Universitária (a cada ano).
+Pont21=0,5
+Disc22=Diretor de Unidade Universitária (a cada ano). 
+Pont22=0,6
+Disc23=Vice-Reitor ou Pró-Reitor (a cada ano). 
+Pont23=0,8
+Disc24=Reitor (a cada ano).
+Pont24=1

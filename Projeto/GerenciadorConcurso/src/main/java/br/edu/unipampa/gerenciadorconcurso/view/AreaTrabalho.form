@@ -41,6 +41,14 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
                   </Events>
                 </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="DefinirConograma"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem3ActionPerformed"/>
+                  </Events>
+                </MenuItem>
               </SubComponents>
             </Menu>
             <Menu class="javax.swing.JMenu" name="jMenu1">
@@ -54,6 +62,14 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="reciboDocumentacaoPorCandidatoActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Declara&#xe7;&#xe3;o de n&#xe3;o impedimento - por membro de banca"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
                   </Events>
                 </MenuItem>
                 <Menu class="javax.swing.JMenu" name="jMenu3">
@@ -75,7 +91,7 @@
             </Menu>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="menuProvaEscrita">
+        <Menu class="javax.swing.JMenu" name="menuProvaEscrita1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="new javax.swing.ImageIcon(getClass().getResource(&quot;/img/report.png&quot;))" type="code"/>
@@ -83,17 +99,17 @@
             <Property name="text" type="java.lang.String" value="Prova Escrita"/>
           </Properties>
           <SubComponents>
-            <Menu class="javax.swing.JMenu" name="menuProvaEscritaRelatorios">
+            <Menu class="javax.swing.JMenu" name="menuProvaEscritaRelatorios1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Relat&#xf3;rios"/>
               </Properties>
               <SubComponents>
-                <Menu class="javax.swing.JMenu" name="menuProvaEscritaRelatoriosAtas">
+                <Menu class="javax.swing.JMenu" name="menuProvaEscritaRelatoriosAtas1">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Atas"/>
                   </Properties>
                   <SubComponents>
-                    <MenuItem class="javax.swing.JMenuItem" name="menuProvaEscritaRelatoriosAtasAtaJulgamento">
+                    <MenuItem class="javax.swing.JMenuItem" name="menuProvaEscritaRelatoriosAtasAtaJulgamento1">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Ata Julgamento"/>
                       </Properties>
@@ -101,7 +117,7 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuProvaEscritaRelatoriosAtasAtaJulgamentoActionPerformed"/>
                       </Events>
                     </MenuItem>
-                    <MenuItem class="javax.swing.JMenuItem" name="menuProvaEscritaRelatoriosAtasAtaSessaoDivulgacaoResultado">
+                    <MenuItem class="javax.swing.JMenuItem" name="menuProvaEscritaRelatoriosAtasAtaSessaoDivulgacaoResultado1">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Ata da Sess&#xe3;o de Divulga&#xe7;&#xe3;o do Resultado"/>
                       </Properties>
@@ -109,14 +125,22 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuProvaEscritaRelatoriosAtasAtaSessaoDivulgacaoResultadoActionPerformed"/>
                       </Events>
                     </MenuItem>
+                    <MenuItem class="javax.swing.JMenuItem" name="itemMenuAtaInstalacaoComissao1">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Ata de Instala&#xe7;&#xe3;o da Comiss&#xe3;o"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemMenuAtaInstalacaoComissaoActionPerformed"/>
+                      </Events>
+                    </MenuItem>
                   </SubComponents>
                 </Menu>
-                <Menu class="javax.swing.JMenu" name="itemMenuTermosProvaEscrita">
+                <Menu class="javax.swing.JMenu" name="itemMenuTermosProvaEscrita1">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Termos"/>
                   </Properties>
                   <SubComponents>
-                    <MenuItem class="javax.swing.JMenuItem" name="itemMenuTermosDesistenciaProvaEscrita">
+                    <MenuItem class="javax.swing.JMenuItem" name="itemMenuTermosDesistenciaProvaEscrita1">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Termo de Desist&#xea;ncia do Prazo Recursal da Nota Final"/>
                       </Properties>
@@ -126,6 +150,66 @@
                     </MenuItem>
                   </SubComponents>
                 </Menu>
+                <Menu class="javax.swing.JMenu" name="jMenu6">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Relat&#xf3;rios"/>
+                  </Properties>
+                  <SubComponents>
+                    <MenuItem class="javax.swing.JMenuItem" name="reciboDocumentacaoPorCandidato1">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Recibo de documenta&#xe7;&#xe3;o - por candidato"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="reciboDocumentacaoPorCandidatoActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                    <MenuItem class="javax.swing.JMenuItem" name="itemMenuAvaliacaoIndividualProvaEscrita">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Avalia&#xe7;&#xe3;o Individual Prova Escrita"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemMenuAvaliacaoIndividualProvaEscritaActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                  </SubComponents>
+                </Menu>
+              </SubComponents>
+            </Menu>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenu4">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Prova Titulo"/>
+          </Properties>
+          <SubComponents>
+            <Menu class="javax.swing.JMenu" name="jMenu5">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Relat&#xf3;rios"/>
+              </Properties>
+              <SubComponents>
+                <Menu class="javax.swing.JMenu" name="jMenu7">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Atas"/>
+                  </Properties>
+                  <SubComponents>
+                    <MenuItem class="javax.swing.JMenuItem" name="itemMenuAtaJulgamentoProvaTitulo">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Ata de Julgamento da Prova de T&#xed;tulos"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemMenuAtaJulgamentoProvaTituloActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                  </SubComponents>
+                </Menu>
+                <MenuItem class="javax.swing.JMenuItem" name="itemMenuReciboDevolucaoDocumentacao">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Recibo Devolu&#xe7;&#xe3;o de Documenta&#xe7;&#xe3;o"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemMenuReciboDevolucaoDocumentacaoActionPerformed"/>
+                  </Events>
+                </MenuItem>
               </SubComponents>
             </Menu>
           </SubComponents>

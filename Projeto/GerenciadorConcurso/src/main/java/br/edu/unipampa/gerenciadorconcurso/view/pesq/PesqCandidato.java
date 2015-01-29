@@ -8,8 +8,8 @@ package br.edu.unipampa.gerenciadorconcurso.view.pesq;
 import br.edu.unipampa.gerenciadorconcurso.model.Candidato;
 import br.edu.unipampa.gerenciadorconcurso.model.Concurso;
 import br.edu.unipampa.gerenciadorconcurso.service.CandidatoService;
-import br.edu.unipampa.gerenciadorconcurso.service.ConcursoService;
 import java.util.ArrayList;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 public class PesqCandidato extends javax.swing.JDialog {
 
     private JTextField campoCodigo;
-    private JTextField campoNome;
+    private JLabel campoNome;
     private ArrayList<Candidato> candidatos;
     private CandidatoService candidatoService;
     private DefaultTableModel modelo;
@@ -28,7 +28,7 @@ public class PesqCandidato extends javax.swing.JDialog {
     /**
      * Creates new form PesqCandidato
      */
-    public PesqCandidato(java.awt.Frame parent, boolean modal, JTextField campoCodigo, JTextField campoNome) {
+    public PesqCandidato(java.awt.Frame parent, boolean modal, JTextField campoCodigo, JLabel campoNome) {
         super(parent, modal);
         candidatoService = new CandidatoService();
         candidatos = candidatoService.buscar(Concurso.getInstance());
@@ -123,6 +123,11 @@ public class PesqCandidato extends javax.swing.JDialog {
             int codigoLinha = tabelaCandidatos.getSelectedRow();
             int codigo = Integer.parseInt(tabelaCandidatos.getValueAt(codigoLinha, 0) + "");
             campoCodigo.setText(codigo+"");
+            if(campoNome != null){
+                Candidato candidato = candidatoService.buscar(codigo);
+                campoNome.setText(candidato.getPessoa().getNome());
+            }
+            
             dispose();
         }
     }//GEN-LAST:event_tabelaCandidatosMouseClicked
