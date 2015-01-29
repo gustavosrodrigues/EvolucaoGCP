@@ -41,7 +41,7 @@ public class Examinador implements Serializable {
     @Basic(optional = false)
     @Column(name = "categoria")
     private String categoria;
-    @JoinColumn(name = "pessoa", referencedColumnName = "codigo")
+    @JoinColumn(name = "pessoa", referencedColumnName = "codigo", insertable = true, updatable = true)
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
     private Pessoa pessoa;
     @JoinColumn(name = "concurso", referencedColumnName = "codigo")
