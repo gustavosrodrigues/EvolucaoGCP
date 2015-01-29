@@ -2,7 +2,7 @@
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
   <Properties>
-    <Property name="title" type="java.lang.String" value="Ata de Sess&#xe3;o de Divulga&#xe7;&#xe3;o do Resultado da Prova Escrita"/>
+    <Property name="title" type="java.lang.String" value="Ata da Sess&#xe3;o de Divulga&#xe7;&#xe3;o do Resultado da Prova Did&#xe1;tica"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -112,7 +112,7 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="btNovo">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Gerar Ata sess&#xe3;o de divulga&#xe7;&#xe3;o do resultado"/>
+            <Property name="text" type="java.lang.String" value="Gerar Ata"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalTextPosition" type="int" value="3"/>

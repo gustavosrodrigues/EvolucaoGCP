@@ -12,7 +12,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JFormattedTextField;
-import org.exolab.castor.types.Date;
 
 /**
  * Relatório Prova Escrita Ata Sessao Divulgacao Resultado
@@ -21,14 +20,14 @@ import org.exolab.castor.types.Date;
  * @author Alex Becker
  *
  */
-public class RelPEAtaSessaoDivulgacaoResultado extends javax.swing.JInternalFrame {
+public class RelAtaSessaoDivulgacaoResultadoProvaDidatica extends javax.swing.JInternalFrame {
 
     private final Campos tratamentoCampos;
 
     /**
      * Creates new form CadastroCandidato
      */
-    public RelPEAtaSessaoDivulgacaoResultado() {
+    public RelAtaSessaoDivulgacaoResultadoProvaDidatica() {
         initComponents();
         tratamentoCampos = new Campos();
         tratamentoCampos.setCampo(new FormattedFieldFormat(campoData, txtAlertData, true));
@@ -64,11 +63,11 @@ public class RelPEAtaSessaoDivulgacaoResultado extends javax.swing.JInternalFram
         txtAlertLocal = new javax.swing.JLabel();
         campoLocal = new javax.swing.JFormattedTextField();
 
-        setTitle("Ata de Sessão de Divulgação do Resultado da Prova Escrita");
+        setTitle("Ata da Sessão de Divulgação do Resultado da Prova Didática");
 
         jToolBar1.setRollover(true);
 
-        btNovo.setText("Gerar Ata sessão de divulgação do resultado");
+        btNovo.setText("Gerar Ata");
         btNovo.setFocusable(false);
         btNovo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btNovo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -226,7 +225,7 @@ public class RelPEAtaSessaoDivulgacaoResultado extends javax.swing.JInternalFram
                 parametros.add(new Parametro("diaExtenso", dfmt2.format(dataRelatorioFormat)));
                 parametros.add(new Parametro("logo", file.getAbsolutePath()));
 
-                GeradorRelatorios.gerar(System.getProperty("user.dir") + "\\src\\relatorios\\RelAtaSessaoDivulgacaoResultadoProvaEscrita.jasper", parametros);
+                GeradorRelatorios.gerar(System.getProperty("user.dir") + "\\src\\relatorios\\RelAtaSessaoDivulgacaoResultadoProvaDidatica.jasper", parametros);
                 campoMensagem.setText("Relatório gerado com sucesso.");
             } catch (Exception e) {
                 campoMensagem.setText("Erro ao gerar o relatório. ERRO: " + e.getMessage());
