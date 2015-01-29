@@ -214,6 +214,35 @@
             </Menu>
           </SubComponents>
         </Menu>
+        <Menu class="javax.swing.JMenu" name="menuProvaDidatica">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Prova Did&#xe1;tica"/>
+          </Properties>
+          <SubComponents>
+            <Menu class="javax.swing.JMenu" name="menuProvaDidaticaRelatorios">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Relat&#xf3;rios"/>
+              </Properties>
+              <SubComponents>
+                <Menu class="javax.swing.JMenu" name="menuProvaDidaticaRelatoriosAtas">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Atas"/>
+                  </Properties>
+                  <SubComponents>
+                    <MenuItem class="javax.swing.JMenuItem" name="menuProvaDidaticaRelatoriosAtaDivulgacaoResutlado">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Sess&#xe3;o de Divulga&#xe7;&#xe3;o"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuProvaDidaticaRelatoriosAtaDivulgacaoResutladoActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                  </SubComponents>
+                </Menu>
+              </SubComponents>
+            </Menu>
+          </SubComponents>
+        </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
