@@ -10,9 +10,12 @@ import br.edu.unipampa.gerenciadorconcurso.view.interno.DefinirCronograma;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.CadastroExaminador;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.DefinirPesoProvasConcurso;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.ReciboDocumentacaoPorCandidato;
+import br.edu.unipampa.gerenciadorconcurso.view.interno.RelAtaJulgamentoProvaTitulo;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelAvaliacaoIndividualProvaEscrita;
+import br.edu.unipampa.gerenciadorconcurso.view.interno.RelDeclaracaoNaoImpedimentoPorMembroBanca;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelPEAtaSessaoDivulgacaoResultado;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelProvaEscritaAtaJulgamento;
+import br.edu.unipampa.gerenciadorconcurso.view.interno.RelReciboDevolucaoDocumentacaoProvaTitulo;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelTermoDesistenciaProvaEscrita;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.SelecaoConcurso;
 import java.beans.PropertyVetoException;
@@ -58,6 +61,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         reciboDocumentacaoPorCandidato = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         itemMenuAtaInstalacaoComissao = new javax.swing.JMenuItem();
         menuProvaEscrita1 = new javax.swing.JMenu();
@@ -71,6 +75,11 @@ public class AreaTrabalho extends javax.swing.JFrame {
         jMenu6 = new javax.swing.JMenu();
         reciboDocumentacaoPorCandidato1 = new javax.swing.JMenuItem();
         itemMenuAvaliacaoIndividualProvaEscrita = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
+        jMenu7 = new javax.swing.JMenu();
+        itemMenuAtaJulgamentoProvaTitulo = new javax.swing.JMenuItem();
+        itemMenuReciboDevolucaoDocumentacao = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -137,6 +146,14 @@ public class AreaTrabalho extends javax.swing.JFrame {
             }
         });
         jMenu1.add(reciboDocumentacaoPorCandidato);
+
+        jMenuItem2.setText("Declaração de não impedimento - por membro de banca");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
 
         jMenu3.setText("Atas");
 
@@ -223,6 +240,34 @@ public class AreaTrabalho extends javax.swing.JFrame {
 
         jMenuBar1.add(menuProvaEscrita1);
 
+        jMenu4.setText("Prova Titulo");
+
+        jMenu5.setText("Relatórios");
+
+        jMenu7.setText("Atas");
+
+        itemMenuAtaJulgamentoProvaTitulo.setText("Ata de Julgamento da Prova de Títulos");
+        itemMenuAtaJulgamentoProvaTitulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemMenuAtaJulgamentoProvaTituloActionPerformed(evt);
+            }
+        });
+        jMenu7.add(itemMenuAtaJulgamentoProvaTitulo);
+
+        jMenu5.add(jMenu7);
+
+        itemMenuReciboDevolucaoDocumentacao.setText("Recibo Devolução de Documentação");
+        itemMenuReciboDevolucaoDocumentacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemMenuReciboDevolucaoDocumentacaoActionPerformed(evt);
+            }
+        });
+        jMenu5.add(itemMenuReciboDevolucaoDocumentacao);
+
+        jMenu4.add(jMenu5);
+
+        jMenuBar1.add(jMenu4);
+
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/sobre.png")));
         jMenu2.setText("Sobre");
         jMenuBar1.add(jMenu2);
@@ -293,6 +338,18 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private void itemMenuAvaliacaoIndividualProvaEscritaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuAvaliacaoIndividualProvaEscritaActionPerformed
         criarRelatorioAvaliacaoIndividualProvaEscrita();
     }//GEN-LAST:event_itemMenuAvaliacaoIndividualProvaEscritaActionPerformed
+
+    private void itemMenuAtaJulgamentoProvaTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuAtaJulgamentoProvaTituloActionPerformed
+        criarRelatorioAtaJulgamentoProvaTitulo();
+    }//GEN-LAST:event_itemMenuAtaJulgamentoProvaTituloActionPerformed
+
+    private void itemMenuReciboDevolucaoDocumentacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuReciboDevolucaoDocumentacaoActionPerformed
+        criarRelatorioReciboDevolucaoDocumentacaoProvaTitulo();
+    }//GEN-LAST:event_itemMenuReciboDevolucaoDocumentacaoActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        criarDeclaracaoNaoImpedimentoMembros();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Inicio">
@@ -381,6 +438,11 @@ public class AreaTrabalho extends javax.swing.JFrame {
         adicionarJanela(reciboDocumentacaoPorCandidato);
     }
     
+    private void criarDeclaracaoNaoImpedimentoMembros() {
+        RelDeclaracaoNaoImpedimentoPorMembroBanca declaracao = new RelDeclaracaoNaoImpedimentoPorMembroBanca();
+        adicionarJanela(declaracao);
+    }
+    
     private void criarRelatorioTermoDesistenciaPrazoRecursalNotaFinalProvaEscrita() {
         RelTermoDesistenciaProvaEscrita termoDesistenciaProvaEscrita = new RelTermoDesistenciaProvaEscrita();
         adicionarJanela(termoDesistenciaProvaEscrita);
@@ -390,6 +452,16 @@ public class AreaTrabalho extends javax.swing.JFrame {
         RelAvaliacaoIndividualProvaEscrita relAvaliacaoIndividualProvaEscrita = new RelAvaliacaoIndividualProvaEscrita();
         adicionarJanela(relAvaliacaoIndividualProvaEscrita);
     }
+    
+    private void criarRelatorioAtaJulgamentoProvaTitulo() {
+        RelAtaJulgamentoProvaTitulo relAtaJulgamentoProvaTitulo = new RelAtaJulgamentoProvaTitulo();
+        adicionarJanela(relAtaJulgamentoProvaTitulo);
+    }
+    
+    private void criarRelatorioReciboDevolucaoDocumentacaoProvaTitulo() {
+        RelReciboDevolucaoDocumentacaoProvaTitulo relReciboDevolucaoDocumentacaoProvaTitulo = new RelReciboDevolucaoDocumentacaoProvaTitulo();
+        adicionarJanela(relReciboDevolucaoDocumentacaoProvaTitulo);
+    }
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Variaveis">
@@ -397,18 +469,24 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private javax.swing.JDesktopPane areaTrabalho;
     private javax.swing.JMenuItem itemMenuAtaInstalacaoComissao;
     private javax.swing.JMenuItem itemMenuAtaInstalacaoComissao1;
+    private javax.swing.JMenuItem itemMenuAtaJulgamentoProvaTitulo;
     private javax.swing.JMenuItem itemMenuAvaliacaoIndividualProvaEscrita;
     private javax.swing.JMenu itemMenuCadastro;
     private javax.swing.JMenuItem itemMenuCandidato;
     private javax.swing.JMenuItem itemMenuExaminadores;
+    private javax.swing.JMenuItem itemMenuReciboDevolucaoDocumentacao;
     private javax.swing.JMenuItem itemMenuTermosDesistenciaProvaEscrita1;
     private javax.swing.JMenu itemMenuTermosProvaEscrita1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JMenu menuAbrirConcurso;
