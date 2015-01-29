@@ -1,5 +1,6 @@
 package br.edu.unipampa.gerenciadorconcurso.view.interno;
 
+import br.edu.unipampa.gerenciadorconcurso.model.Concurso;
 import br.edu.unipampa.gerenciadorconcurso.validator.Campos;
 import br.edu.unipampa.gerenciadorconcurso.validator.FormattedFieldFormat;
 import br.edu.unipampa.gerenciadorconcurso.view.reports.GeradorRelatorios;
@@ -8,33 +9,25 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JFormattedTextField;
-import org.exolab.castor.types.Date;
-
 /**
- * Relatório Prova Escrita Ata Sessao Divulgacao Resultado
+ * Tela de geração do relatório da ata de julgamento da prova de titulos.
  *
- * @version v 1.0 19/01/2015
- * @author Alex Becker
- *
+ * @author Douglas Giordano
+ * @since 29/01/2015
  */
-public class RelPEAtaSessaoDivulgacaoResultado extends javax.swing.JInternalFrame {
+public class RelAtaJulgamentoProvaTitulo extends javax.swing.JInternalFrame {
 
     private final Campos tratamentoCampos;
-
+    
     /**
      * Creates new form CadastroCandidato
      */
-    public RelPEAtaSessaoDivulgacaoResultado() {
+    public RelAtaJulgamentoProvaTitulo() {
         initComponents();
         tratamentoCampos = new Campos();
         tratamentoCampos.setCampo(new FormattedFieldFormat(campoData, txtAlertData, true));
-//        tratamentoCampos.setCampo(new FormattedFieldFormat(campoHoraInicio, txtAlertHoraInicio, true));
-//        tratamentoCampos.setCampo(new FormattedFieldFormat(campoLocal, txtAlertLocal, true));
-//        tratamentoCampos.setCampo(new FormattedFieldFormat(campoNroDoc, txtAlertNroDoc, true));
     }
 
     /**
@@ -47,37 +40,35 @@ public class RelPEAtaSessaoDivulgacaoResultado extends javax.swing.JInternalFram
     private void initComponents() {
 
         jToolBar1 = new javax.swing.JToolBar();
-        btNovo = new javax.swing.JButton();
+        btGerar = new javax.swing.JButton();
         textNascimento = new javax.swing.JLabel();
         campoMensagem = new javax.swing.JTextField();
         txtAlertData = new javax.swing.JLabel();
         campoData = new JFormattedTextField(Campos.createFormatter("##-##-####"));
         ;
-        textNascimento1 = new javax.swing.JLabel();
-        txtAlertNroDoc = new javax.swing.JLabel();
-        campoNroDoc = new javax.swing.JFormattedTextField();
         textNascimento2 = new javax.swing.JLabel();
-        txtAlertHoraInicio = new javax.swing.JLabel();
         campoHoraInicio = new JFormattedTextField(Campos.createFormatter("##:##"));
         ;
+        txtAlertHoraInicio = new javax.swing.JLabel();
         textNascimento3 = new javax.swing.JLabel();
-        txtAlertLocal = new javax.swing.JLabel();
         campoLocal = new javax.swing.JFormattedTextField();
+        txtAlertLocal = new javax.swing.JLabel();
 
-        setTitle("Ata de Sessão de Divulgação do Resultado da Prova Escrita");
+        setTitle("Ata de Julgamento da Prova de Titulos");
 
         jToolBar1.setRollover(true);
 
-        btNovo.setText("Gerar Ata sessão de divulgação do resultado");
-        btNovo.setFocusable(false);
-        btNovo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btNovo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btNovo.addActionListener(new java.awt.event.ActionListener() {
+        btGerar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/executar.png")));
+        btGerar.setText("Gerar Relatório");
+        btGerar.setFocusable(false);
+        btGerar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btGerar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btGerar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btNovoActionPerformed(evt);
+                btGerarActionPerformed(evt);
             }
         });
-        jToolBar1.add(btNovo);
+        jToolBar1.add(btGerar);
 
         textNascimento.setText("Data");
 
@@ -89,29 +80,21 @@ public class RelPEAtaSessaoDivulgacaoResultado extends javax.swing.JInternalFram
 
         campoData.setToolTipText("");
 
-        textNascimento1.setText("Nro. Doc.");
-
-        txtAlertNroDoc.setBackground(new java.awt.Color(102, 0, 0));
-        txtAlertNroDoc.setText("!!!!");
-        txtAlertNroDoc.setToolTipText("Campo nome é obrigatorio.");
-
-        campoNroDoc.setToolTipText("");
-
         textNascimento2.setText("Hora Início");
+
+        campoHoraInicio.setToolTipText("");
 
         txtAlertHoraInicio.setBackground(new java.awt.Color(102, 0, 0));
         txtAlertHoraInicio.setText("!!!!");
         txtAlertHoraInicio.setToolTipText("Campo nome é obrigatorio.");
 
-        campoHoraInicio.setToolTipText("");
-
         textNascimento3.setText("Local");
+
+        campoLocal.setToolTipText("");
 
         txtAlertLocal.setBackground(new java.awt.Color(102, 0, 0));
         txtAlertLocal.setText("!!!!");
         txtAlertLocal.setToolTipText("Campo nome é obrigatorio.");
-
-        campoLocal.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -122,52 +105,39 @@ public class RelPEAtaSessaoDivulgacaoResultado extends javax.swing.JInternalFram
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(textNascimento1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(campoNroDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(textNascimento2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(campoHoraInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(textNascimento2)
+                            .addComponent(textNascimento))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtAlertHoraInicio)
-                            .addComponent(txtAlertNroDoc)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(campoData, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtAlertData))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(campoHoraInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtAlertHoraInicio))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
+                        .addGap(27, 27, 27)
                         .addComponent(textNascimento3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(campoLocal, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAlertLocal))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(textNascimento)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campoData, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAlertData)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(txtAlertLocal)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(campoMensagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textNascimento)
                     .addComponent(txtAlertData)
                     .addComponent(campoData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textNascimento1)
-                    .addComponent(txtAlertNroDoc)
-                    .addComponent(campoNroDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textNascimento2)
@@ -178,10 +148,9 @@ public class RelPEAtaSessaoDivulgacaoResultado extends javax.swing.JInternalFram
                     .addComponent(textNascimento3)
                     .addComponent(txtAlertLocal)
                     .addComponent(campoLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(116, Short.MAX_VALUE))
         );
 
-        txtAlertData.setVisible(false);
         txtAlertData.setVisible(false);
         txtAlertData.setVisible(false);
         txtAlertData.setVisible(false);
@@ -189,7 +158,7 @@ public class RelPEAtaSessaoDivulgacaoResultado extends javax.swing.JInternalFram
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
+    private void btGerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGerarActionPerformed
         if (tratamentoCampos.validaObrigatorios()) {
             InputStream inputStreamDaImagem = null;
             try {
@@ -205,53 +174,37 @@ public class RelPEAtaSessaoDivulgacaoResultado extends javax.swing.JInternalFram
                     campoMensagem.setText("Erro ao gerar o relatório. ERRO: " + e.getMessage());
                 }
 
-                DateFormat dfmt = new SimpleDateFormat(" d 'de' MMMM 'de' yyyy");
-                DateFormat dfmt2 = new SimpleDateFormat("d 'dias do mês de' MMMM 'de' yyyy");
-                DateFormat dfmt3 = new SimpleDateFormat("HH 'horas e' mm 'minutos'");
-                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-                SimpleDateFormat formatHora = new SimpleDateFormat("HH:mm");
-
-                String dataRelatorio = campoData.getText().substring(6, 10) + "-" + campoData.getText().substring(3, 5) + "-" + campoData.getText().substring(0, 2);
-                java.sql.Time dataRelatorioFormat = new java.sql.Time(format.parse(dataRelatorio).getTime());
-
-                String hora = campoHoraInicio.getText();
-                java.sql.Time horaFormat = new java.sql.Time(formatHora.parse(hora).getTime());
-
                 ArrayList<Parametro> parametros = new ArrayList<Parametro>();
-
-                parametros.add(new Parametro("dataRelatorio", dfmt.format(dataRelatorioFormat)));
-                parametros.add(new Parametro("hora", dfmt3.format(horaFormat)));
-                parametros.add(new Parametro("local", campoLocal.getText().toString()));
-                parametros.add(new Parametro("nroDoc", campoNroDoc.getText().toString()));
-                parametros.add(new Parametro("diaExtenso", dfmt2.format(dataRelatorioFormat)));
+                parametros.add(new Parametro("dataRelatorio", campoData.getText()));
+                parametros.add(new Parametro("concurso", Concurso.getInstance().getCodigo()+""));
+                parametros.add(new Parametro("local", campoLocal.getText()));
+                parametros.add(new Parametro("horaRelatorio", campoHoraInicio.getText()));
                 parametros.add(new Parametro("logo", file.getAbsolutePath()));
 
-                GeradorRelatorios.gerar(System.getProperty("user.dir") + "\\src\\relatorios\\RelAtaSessaoDivulgacaoResultadoProvaEscrita.jasper", parametros);
+                GeradorRelatorios.gerar(System.getProperty("user.dir") + "\\src\\relatorios\\RelAtaJulgamentoProvaTitulo.jasper", parametros);
                 campoMensagem.setText("Relatório gerado com sucesso.");
             } catch (Exception e) {
                 campoMensagem.setText("Erro ao gerar o relatório. ERRO: " + e.getMessage());
             }
 
         }
-    }//GEN-LAST:event_btNovoActionPerformed
+    }//GEN-LAST:event_btGerarActionPerformed
 
-
+    //<editor-fold defaultstate="collapsed" desc="variaveis">
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btNovo;
+    private javax.swing.JButton btGerar;
     private javax.swing.JFormattedTextField campoData;
     private javax.swing.JFormattedTextField campoHoraInicio;
     private javax.swing.JFormattedTextField campoLocal;
     private javax.swing.JTextField campoMensagem;
-    private javax.swing.JFormattedTextField campoNroDoc;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel textNascimento;
-    private javax.swing.JLabel textNascimento1;
     private javax.swing.JLabel textNascimento2;
     private javax.swing.JLabel textNascimento3;
     private javax.swing.JLabel txtAlertData;
     private javax.swing.JLabel txtAlertHoraInicio;
     private javax.swing.JLabel txtAlertLocal;
-    private javax.swing.JLabel txtAlertNroDoc;
     // End of variables declaration//GEN-END:variables
-
+    
+//</editor-fold>
 }

@@ -7,9 +7,9 @@ package br.edu.unipampa.gerenciadorconcurso.view.pesq;
 
 import br.edu.unipampa.gerenciadorconcurso.model.Concurso;
 import br.edu.unipampa.gerenciadorconcurso.model.Examinador;
-import br.edu.unipampa.gerenciadorconcurso.service.CandidatoService;
 import br.edu.unipampa.gerenciadorconcurso.service.ExaminadorService;
 import java.util.ArrayList;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 public class PesqExaminador extends javax.swing.JDialog {
 
     private JTextField campoCodigo;
-    private JTextField campoNome;
+    private JLabel campoNome;
     private ArrayList<Examinador> examinadores;
     private ExaminadorService examinadorService;
     private DefaultTableModel modelo;
@@ -28,7 +28,7 @@ public class PesqExaminador extends javax.swing.JDialog {
     /**
      * Creates new form PesqCandidato
      */
-    public PesqExaminador(java.awt.Frame parent, boolean modal, JTextField campoCodigo, JTextField campoNome) {
+    public PesqExaminador(java.awt.Frame parent, boolean modal, JTextField campoCodigo, JLabel campoNome) {
         super(parent, modal);
         examinadorService = new ExaminadorService();
         examinadores = examinadorService.buscar(Concurso.getInstance());
@@ -122,7 +122,11 @@ public class PesqExaminador extends javax.swing.JDialog {
         if (evt.getClickCount() > 1) {
             int codigoLinha = tabelaExaminadores.getSelectedRow();
             int codigo = Integer.parseInt(tabelaExaminadores.getValueAt(codigoLinha, 0) + "");
-            campoCodigo.setText(codigo+"");
+            campoCodigo.setText(codigo + "");
+            if (campoNome != null) {
+                Examinador examinador = examinadorService.buscar(codigo);
+                campoNome.setText(examinador.getPessoa().getNome());
+            }
             dispose();
         }
     }//GEN-LAST:event_tabelaExaminadoresMouseClicked
