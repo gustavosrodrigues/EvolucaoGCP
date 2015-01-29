@@ -14,6 +14,7 @@ import br.edu.unipampa.gerenciadorconcurso.view.interno.RelAtaJulgamentoProvaTit
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelAvaliacaoIndividualProvaEscrita;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelDeclaracaoNaoImpedimentoPorMembroBanca;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelPEAtaSessaoDivulgacaoResultado;
+import br.edu.unipampa.gerenciadorconcurso.view.interno.RelPlanilhaCriteriosAvaliacaoProvaEscrita;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelProvaEscritaAtaJulgamento;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelReciboDevolucaoDocumentacaoProvaTitulo;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelTermoDesistenciaProvaEscrita;
@@ -75,6 +76,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
         jMenu6 = new javax.swing.JMenu();
         reciboDocumentacaoPorCandidato1 = new javax.swing.JMenuItem();
         itemMenuAvaliacaoIndividualProvaEscrita = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
@@ -234,6 +236,14 @@ public class AreaTrabalho extends javax.swing.JFrame {
         });
         jMenu6.add(itemMenuAvaliacaoIndividualProvaEscrita);
 
+        jMenuItem4.setText("Planilha de Critérios de Avaliação da Prova Escrita");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jMenuItem4);
+
         menuProvaEscritaRelatorios1.add(jMenu6);
 
         menuProvaEscrita1.add(menuProvaEscritaRelatorios1);
@@ -351,6 +361,10 @@ public class AreaTrabalho extends javax.swing.JFrame {
         criarDeclaracaoNaoImpedimentoMembros();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        criarPlanilhaCriterioAvaliacaoProvaEscrita();
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Inicio">
     /**
@@ -453,6 +467,11 @@ public class AreaTrabalho extends javax.swing.JFrame {
         adicionarJanela(relAvaliacaoIndividualProvaEscrita);
     }
     
+    private void criarPlanilhaCriterioAvaliacaoProvaEscrita() {
+        RelPlanilhaCriteriosAvaliacaoProvaEscrita relatorio = new RelPlanilhaCriteriosAvaliacaoProvaEscrita();
+        adicionarJanela(relatorio);
+    }
+    
     private void criarRelatorioAtaJulgamentoProvaTitulo() {
         RelAtaJulgamentoProvaTitulo relAtaJulgamentoProvaTitulo = new RelAtaJulgamentoProvaTitulo();
         adicionarJanela(relAtaJulgamentoProvaTitulo);
@@ -488,6 +507,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JMenu menuAbrirConcurso;
     private javax.swing.JMenu menuProvaEscrita1;
