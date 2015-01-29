@@ -1,6 +1,4 @@
-﻿/*
- * Área de Trabalho
- */
+
 package br.edu.unipampa.gerenciadorconcurso.view;
 
 import br.edu.unipampa.gerenciadorconcurso.dao.HibernateUtil;
