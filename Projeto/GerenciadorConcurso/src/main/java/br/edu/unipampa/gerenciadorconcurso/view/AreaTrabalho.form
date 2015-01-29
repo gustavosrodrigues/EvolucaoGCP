@@ -194,6 +194,14 @@
                     </MenuItem>
                   </SubComponents>
                 </Menu>
+                <MenuItem class="javax.swing.JMenuItem" name="itemMenuReciboDevolucaoDocumentacao">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Recibo Devolu&#xe7;&#xe3;o de Documenta&#xe7;&#xe3;o"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemMenuReciboDevolucaoDocumentacaoActionPerformed"/>
+                  </Events>
+                </MenuItem>
               </SubComponents>
             </Menu>
           </SubComponents>

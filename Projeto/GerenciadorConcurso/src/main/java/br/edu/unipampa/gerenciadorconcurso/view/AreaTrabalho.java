@@ -14,6 +14,7 @@ import br.edu.unipampa.gerenciadorconcurso.view.interno.RelAtaJulgamentoProvaTit
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelAvaliacaoIndividualProvaEscrita;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelPEAtaSessaoDivulgacaoResultado;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelProvaEscritaAtaJulgamento;
+import br.edu.unipampa.gerenciadorconcurso.view.interno.RelReciboDevolucaoDocumentacaoProvaTitulo;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelTermoDesistenciaProvaEscrita;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.SelecaoConcurso;
 import java.beans.PropertyVetoException;
@@ -76,6 +77,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
         itemMenuAtaJulgamentoProvaTitulo = new javax.swing.JMenuItem();
+        itemMenuReciboDevolucaoDocumentacao = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -244,6 +246,14 @@ public class AreaTrabalho extends javax.swing.JFrame {
 
         jMenu5.add(jMenu7);
 
+        itemMenuReciboDevolucaoDocumentacao.setText("Recibo Devolução de Documentação");
+        itemMenuReciboDevolucaoDocumentacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemMenuReciboDevolucaoDocumentacaoActionPerformed(evt);
+            }
+        });
+        jMenu5.add(itemMenuReciboDevolucaoDocumentacao);
+
         jMenu4.add(jMenu5);
 
         jMenuBar1.add(jMenu4);
@@ -322,6 +332,10 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private void itemMenuAtaJulgamentoProvaTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuAtaJulgamentoProvaTituloActionPerformed
         criarRelatorioAtaJulgamentoProvaTitulo();
     }//GEN-LAST:event_itemMenuAtaJulgamentoProvaTituloActionPerformed
+
+    private void itemMenuReciboDevolucaoDocumentacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuReciboDevolucaoDocumentacaoActionPerformed
+        criarRelatorioReciboDevolucaoDocumentacaoProvaTitulo();
+    }//GEN-LAST:event_itemMenuReciboDevolucaoDocumentacaoActionPerformed
 
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Inicio">
@@ -424,6 +438,11 @@ public class AreaTrabalho extends javax.swing.JFrame {
         RelAtaJulgamentoProvaTitulo relAtaJulgamentoProvaTitulo = new RelAtaJulgamentoProvaTitulo();
         adicionarJanela(relAtaJulgamentoProvaTitulo);
     }
+    
+    private void criarRelatorioReciboDevolucaoDocumentacaoProvaTitulo() {
+        RelReciboDevolucaoDocumentacaoProvaTitulo relReciboDevolucaoDocumentacaoProvaTitulo = new RelReciboDevolucaoDocumentacaoProvaTitulo();
+        adicionarJanela(relReciboDevolucaoDocumentacaoProvaTitulo);
+    }
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Variaveis">
@@ -436,6 +455,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private javax.swing.JMenu itemMenuCadastro;
     private javax.swing.JMenuItem itemMenuCandidato;
     private javax.swing.JMenuItem itemMenuExaminadores;
+    private javax.swing.JMenuItem itemMenuReciboDevolucaoDocumentacao;
     private javax.swing.JMenuItem itemMenuTermosDesistenciaProvaEscrita1;
     private javax.swing.JMenu itemMenuTermosProvaEscrita1;
     private javax.swing.JMenu jMenu1;
