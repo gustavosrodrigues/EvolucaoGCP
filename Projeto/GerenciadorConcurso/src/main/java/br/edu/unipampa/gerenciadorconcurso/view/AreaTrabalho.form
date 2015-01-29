@@ -229,9 +229,17 @@
                     <Property name="text" type="java.lang.String" value="Atas"/>
                   </Properties>
                   <SubComponents>
+                    <MenuItem class="javax.swing.JMenuItem" name="menuProvaDidaticaRelatoriosAtaSessaoRealizacao">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Sess&#xe3;o de Realiza&#xe7;&#xe3;o"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuProvaDidaticaRelatoriosAtaSessaoRealizacaoActionPerformed"/>
+                      </Events>
+                    </MenuItem>
                     <MenuItem class="javax.swing.JMenuItem" name="menuProvaDidaticaRelatoriosAtaDivulgacaoResutlado">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Sess&#xe3;o de Divulga&#xe7;&#xe3;o"/>
+                        <Property name="text" type="java.lang.String" value="Sess&#xe3;o de Divulga&#xe7;&#xe3;o do Resultado"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuProvaDidaticaRelatoriosAtaDivulgacaoResutladoActionPerformed"/>

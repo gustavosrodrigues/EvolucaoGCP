@@ -12,6 +12,7 @@ import br.edu.unipampa.gerenciadorconcurso.view.interno.DefinirPesoProvasConcurs
 import br.edu.unipampa.gerenciadorconcurso.view.interno.ReciboDocumentacaoPorCandidato;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelAtaJulgamentoProvaTitulo;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelAtaSessaoDivulgacaoResultadoProvaDidatica;
+import br.edu.unipampa.gerenciadorconcurso.view.interno.RelAtaSessaoRealizacaoProvaDidatica;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelAvaliacaoIndividualProvaEscrita;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelDeclaracaoNaoImpedimentoPorMembroBanca;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelPEAtaSessaoDivulgacaoResultado;
@@ -84,6 +85,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
         menuProvaDidatica = new javax.swing.JMenu();
         menuProvaDidaticaRelatorios = new javax.swing.JMenu();
         menuProvaDidaticaRelatoriosAtas = new javax.swing.JMenu();
+        menuProvaDidaticaRelatoriosAtaSessaoRealizacao = new javax.swing.JMenuItem();
         menuProvaDidaticaRelatoriosAtaDivulgacaoResutlado = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
@@ -279,7 +281,15 @@ public class AreaTrabalho extends javax.swing.JFrame {
 
         menuProvaDidaticaRelatoriosAtas.setText("Atas");
 
-        menuProvaDidaticaRelatoriosAtaDivulgacaoResutlado.setText("Sessão de Divulgação");
+        menuProvaDidaticaRelatoriosAtaSessaoRealizacao.setText("Sessão de Realização");
+        menuProvaDidaticaRelatoriosAtaSessaoRealizacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuProvaDidaticaRelatoriosAtaSessaoRealizacaoActionPerformed(evt);
+            }
+        });
+        menuProvaDidaticaRelatoriosAtas.add(menuProvaDidaticaRelatoriosAtaSessaoRealizacao);
+
+        menuProvaDidaticaRelatoriosAtaDivulgacaoResutlado.setText("Sessão de Divulgação do Resultado");
         menuProvaDidaticaRelatoriosAtaDivulgacaoResutlado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuProvaDidaticaRelatoriosAtaDivulgacaoResutladoActionPerformed(evt);
@@ -379,6 +389,10 @@ public class AreaTrabalho extends javax.swing.JFrame {
         criarAtaSessaoDivulgacaoResultadoProvaDidatica();
     }//GEN-LAST:event_menuProvaDidaticaRelatoriosAtaDivulgacaoResutladoActionPerformed
 
+    private void menuProvaDidaticaRelatoriosAtaSessaoRealizacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuProvaDidaticaRelatoriosAtaSessaoRealizacaoActionPerformed
+        criarAtaSessaoRealizacaoProvaDidatica();
+    }//GEN-LAST:event_menuProvaDidaticaRelatoriosAtaSessaoRealizacaoActionPerformed
+
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Inicio">
     /**
@@ -476,6 +490,11 @@ public class AreaTrabalho extends javax.swing.JFrame {
         RelAtaSessaoDivulgacaoResultadoProvaDidatica divulgacaoResultado = new RelAtaSessaoDivulgacaoResultadoProvaDidatica();
         adicionarJanela(divulgacaoResultado);
     }
+    
+    private void criarAtaSessaoRealizacaoProvaDidatica() {
+        RelAtaSessaoRealizacaoProvaDidatica relAtaSessaoRealizacaoProvaDidatica = new RelAtaSessaoRealizacaoProvaDidatica();
+        adicionarJanela(relAtaSessaoRealizacaoProvaDidatica);
+    }
 
     private void criarRelatorioTermoDesistenciaPrazoRecursalNotaFinalProvaEscrita() {
         RelTermoDesistenciaProvaEscrita termoDesistenciaProvaEscrita = new RelTermoDesistenciaProvaEscrita();
@@ -527,6 +546,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private javax.swing.JMenu menuProvaDidatica;
     private javax.swing.JMenu menuProvaDidaticaRelatorios;
     private javax.swing.JMenuItem menuProvaDidaticaRelatoriosAtaDivulgacaoResutlado;
+    private javax.swing.JMenuItem menuProvaDidaticaRelatoriosAtaSessaoRealizacao;
     private javax.swing.JMenu menuProvaDidaticaRelatoriosAtas;
     private javax.swing.JMenu menuProvaEscrita1;
     private javax.swing.JMenu menuProvaEscritaRelatorios1;
