@@ -59,6 +59,13 @@ public class Examinador implements Serializable {
         this.codigo = codigo;
         this.categoria = categoria;
     }
+    
+    /*
+     * 8.4 Criar Parecer Final da Banca Examinadora
+     */
+    public void criarPareceFinal(String parecerFinal){
+        String parecer = parecerFinal;
+    }
 
     public int getCodigo() {
         return codigo;
