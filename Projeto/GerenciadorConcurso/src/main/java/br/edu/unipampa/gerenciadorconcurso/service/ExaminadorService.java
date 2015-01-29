@@ -56,11 +56,11 @@ public class ExaminadorService {
         for (int i = 0; i < examinadores.size(); i++) {
             infoExaminadores[0] = examinadores.get(i).getCodigo() + "";
             infoExaminadores[1] = examinadores.get(i).getPessoa().getNome() + "";
-            if (examinadores.get(i).getPessoa().getSexo()) {
-                infoExaminadores[2] = "Masculino";
-            } else {
-                infoExaminadores[2] = "Feminino";
-            }
+//            if (examinadores.get(i).getPessoa().getSexo()) {
+//                infoExaminadores[2] = "Masculino";
+//            } else {
+//                infoExaminadores[2] = "Feminino";
+//            }
             infoExaminadores[3] = examinadores.get(i).getCategoria();
             modelo.addRow(infoExaminadores);
         }
