@@ -5,10 +5,12 @@ package br.edu.unipampa.gerenciadorconcurso.view;
 
 import br.edu.unipampa.gerenciadorconcurso.dao.HibernateUtil;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.AtaComissao;
+import br.edu.unipampa.gerenciadorconcurso.view.interno.AtaRealizacaoProvaEscrita2;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.CadastroCandidato;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.DefinirCronograma;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.CadastroExaminador;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.DefinirPesoProvasConcurso;
+import br.edu.unipampa.gerenciadorconcurso.view.interno.ParecerFinalDaBancaExaminadora2;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.ReciboDocumentacaoPorCandidato;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelAvaliacaoIndividualProvaEscrita;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelPEAtaSessaoDivulgacaoResultado;
@@ -64,6 +66,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
         menuProvaEscritaRelatorios1 = new javax.swing.JMenu();
         menuProvaEscritaRelatoriosAtas1 = new javax.swing.JMenu();
         menuProvaEscritaRelatoriosAtasAtaJulgamento1 = new javax.swing.JMenuItem();
+        ataRealizacaoProvaEscrita = new javax.swing.JMenuItem();
         menuProvaEscritaRelatoriosAtasAtaSessaoDivulgacaoResultado1 = new javax.swing.JMenuItem();
         itemMenuAtaInstalacaoComissao1 = new javax.swing.JMenuItem();
         itemMenuTermosProvaEscrita1 = new javax.swing.JMenu();
@@ -168,6 +171,14 @@ public class AreaTrabalho extends javax.swing.JFrame {
             }
         });
         menuProvaEscritaRelatoriosAtas1.add(menuProvaEscritaRelatoriosAtasAtaJulgamento1);
+
+        ataRealizacaoProvaEscrita.setText("Ata de Realização da Prova Escrita");
+        ataRealizacaoProvaEscrita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ataRealizacaoProvaEscritaActionPerformed(evt);
+            }
+        });
+        menuProvaEscritaRelatoriosAtas1.add(ataRealizacaoProvaEscrita);
 
         menuProvaEscritaRelatoriosAtasAtaSessaoDivulgacaoResultado1.setText("Ata da Sessão de Divulgação do Resultado");
         menuProvaEscritaRelatoriosAtasAtaSessaoDivulgacaoResultado1.addActionListener(new java.awt.event.ActionListener() {
@@ -294,6 +305,10 @@ public class AreaTrabalho extends javax.swing.JFrame {
         criarRelatorioAvaliacaoIndividualProvaEscrita();
     }//GEN-LAST:event_itemMenuAvaliacaoIndividualProvaEscritaActionPerformed
 
+    private void ataRealizacaoProvaEscritaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ataRealizacaoProvaEscritaActionPerformed
+        criarAtaRealizacaoProvaEscrita();
+    }//GEN-LAST:event_ataRealizacaoProvaEscritaActionPerformed
+
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Inicio">
     /**
@@ -390,11 +405,22 @@ public class AreaTrabalho extends javax.swing.JFrame {
         RelAvaliacaoIndividualProvaEscrita relAvaliacaoIndividualProvaEscrita = new RelAvaliacaoIndividualProvaEscrita();
         adicionarJanela(relAvaliacaoIndividualProvaEscrita);
     }
+    
+    private void criarAtaRealizacaoProvaEscrita() {
+        AtaRealizacaoProvaEscrita2 relAta = new AtaRealizacaoProvaEscrita2();
+        adicionarJanela(relAta);
+    }
+    
+    private void criarParecerFinalDaBancaExaminadora() {
+        ParecerFinalDaBancaExaminadora2 parecerFinal = new ParecerFinalDaBancaExaminadora2();
+        adicionarJanela(parecerFinal);
+    }
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Variaveis">
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane areaTrabalho;
+    private javax.swing.JMenuItem ataRealizacaoProvaEscrita;
     private javax.swing.JMenuItem itemMenuAtaInstalacaoComissao;
     private javax.swing.JMenuItem itemMenuAtaInstalacaoComissao1;
     private javax.swing.JMenuItem itemMenuAvaliacaoIndividualProvaEscrita;
@@ -421,4 +447,5 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private javax.swing.JMenuItem reciboDocumentacaoPorCandidato1;
     // End of variables declaration//GEN-END:variables
 //</editor-fold>
+
 }
