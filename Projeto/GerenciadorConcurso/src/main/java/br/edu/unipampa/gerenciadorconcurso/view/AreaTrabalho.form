@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
+<<<<<<< HEAD
 <Form version="1.7" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+=======
+<Form version="1.5" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+>>>>>>> feature/8.4_Criar_Parecer_Final_da_Banca_Examinadora
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
@@ -125,6 +129,14 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuProvaEscritaRelatoriosAtasAtaJulgamentoActionPerformed"/>
                       </Events>
                     </MenuItem>
+                    <MenuItem class="javax.swing.JMenuItem" name="ataRealizacaoProvaEscrita">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Ata de Realiza&#xe7;&#xe3;o da Prova Escrita"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ataRealizacaoProvaEscritaActionPerformed"/>
+                      </Events>
+                    </MenuItem>
                     <MenuItem class="javax.swing.JMenuItem" name="menuProvaEscritaRelatoriosAtasAtaSessaoDivulgacaoResultado1">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Ata da Sess&#xe3;o de Divulga&#xe7;&#xe3;o do Resultado"/>
@@ -139,6 +151,14 @@
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemMenuAtaInstalacaoComissaoActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                    <MenuItem class="javax.swing.JMenuItem" name="parecerFinal">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Parecer Final da Banca Examinadora"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="parecerFinalActionPerformed"/>
                       </Events>
                     </MenuItem>
                   </SubComponents>
