@@ -47,6 +47,7 @@ public class Examinador implements Serializable {
     @JoinColumn(name = "concurso", referencedColumnName = "codigo")
     @ManyToOne(optional = false)
     private Concurso concurso;
+    private String local, data;
 
     public Examinador() {
     }
@@ -58,6 +59,11 @@ public class Examinador implements Serializable {
     public Examinador(Integer codigo, String categoria) {
         this.codigo = codigo;
         this.categoria = categoria;
+    }
+    
+    public void criarListaPresencaProvaDeDefesaMemorialTrajetoriaAcademica(String data, String local){
+        this.data = data;
+        this.local = local;
     }
 
     /*
