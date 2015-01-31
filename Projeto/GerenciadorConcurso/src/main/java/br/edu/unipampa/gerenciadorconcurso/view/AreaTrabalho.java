@@ -77,11 +77,8 @@ public class AreaTrabalho extends javax.swing.JFrame {
         ataRealizacaoProvaEscrita = new javax.swing.JMenuItem();
         menuProvaEscritaRelatoriosAtasAtaSessaoDivulgacaoResultado1 = new javax.swing.JMenuItem();
         itemMenuAtaInstalacaoComissao1 = new javax.swing.JMenuItem();
-<<<<<<< HEAD
         parecerFinal = new javax.swing.JMenuItem();
-=======
         listaPresencaProvaEscrita = new javax.swing.JMenuItem();
->>>>>>> feature/7.2_CriarListaDePresencaNaProvaDeDefesaDoMemorialDeTrajetoriaAcademica
         itemMenuTermosProvaEscrita1 = new javax.swing.JMenu();
         itemMenuTermosDesistenciaProvaEscrita1 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
@@ -263,7 +260,6 @@ public class AreaTrabalho extends javax.swing.JFrame {
         });
         menuProvaEscritaRelatoriosAtas1.add(itemMenuAtaInstalacaoComissao1);
 
-<<<<<<< HEAD
         parecerFinal.setText("Parecer Final da Banca Examinadora");
         parecerFinal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -271,7 +267,6 @@ public class AreaTrabalho extends javax.swing.JFrame {
             }
         });
         menuProvaEscritaRelatoriosAtas1.add(parecerFinal);
-=======
         listaPresencaProvaEscrita.setText("Lista de Presença na Prova de Defesa de Memorial de Trajetória Acadêmica");
         listaPresencaProvaEscrita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -279,7 +274,6 @@ public class AreaTrabalho extends javax.swing.JFrame {
             }
         });
         menuProvaEscritaRelatoriosAtas1.add(listaPresencaProvaEscrita);
->>>>>>> feature/7.2_CriarListaDePresencaNaProvaDeDefesaDoMemorialDeTrajetoriaAcademica
 
         menuProvaEscritaRelatorios1.add(menuProvaEscritaRelatoriosAtas1);
 
@@ -623,9 +617,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
         RelAvaliacaoIndividualProvaEscrita relAvaliacaoIndividualProvaEscrita = new RelAvaliacaoIndividualProvaEscrita();
         adicionarJanela(relAvaliacaoIndividualProvaEscrita);
     }
-    <<<<<<< HEAD
-<<<<<<< HEAD
-
+	
     private void criarPlanilhaCriterioAvaliacaoProvaEscrita() {
         RelPlanilhaCriteriosAvaliacaoProvaEscrita relatorio = new RelPlanilhaCriteriosAvaliacaoProvaEscrita();
         adicionarJanela(relatorio);
@@ -644,7 +636,6 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private void criarRelatorioReciboDevolucaoDocumentacaoProvaTitulo() {
         RelReciboDevolucaoDocumentacaoProvaTitulo relReciboDevolucaoDocumentacaoProvaTitulo = new RelReciboDevolucaoDocumentacaoProvaTitulo();
         adicionarJanela(relReciboDevolucaoDocumentacaoProvaTitulo);
-         == == == =
     
 
     private void criarAtaRealizacaoProvaEscrita() {
@@ -655,14 +646,10 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private void criarParecerFinalDaBancaExaminadora() {
         ParecerFinalDaBancaExaminadora2 parecerFinal = new ParecerFinalDaBancaExaminadora2();
         adicionarJanela(parecerFinal);
-         >>> >>> > feature / 8.4_Criar_Parecer_Final_da_Banca_Examinadora
-         == == == =
-    
 
     private void criarListaPresencaProvaDeDefesaMemorialTrajetoriaAcademica() {
         ListaPresencaProvaDeDefesaMemorialTrajetoriaAcademica lista = new ListaPresencaProvaDeDefesaMemorialTrajetoriaAcademica();
         adicionarJanela(lista);
-         >>> >>> > feature / 7.2_CriarListaDePresencaNaProvaDeDefesaDoMemorialDeTrajetoriaAcademica
         
     }
 //</editor-fold>
@@ -695,11 +682,8 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JToolBar jToolBar1;
-<<<<<<< HEAD
     private javax.swing.JTree jTree1;
-=======
     private javax.swing.JMenuItem listaPresencaProvaEscrita;
->>>>>>> feature/7.2_CriarListaDePresencaNaProvaDeDefesaDoMemorialDeTrajetoriaAcademica
     private javax.swing.JMenu menuAbrirConcurso;
 
     private javax.swing.JMenu menuProvaDidatica;
