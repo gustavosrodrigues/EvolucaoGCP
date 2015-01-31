@@ -69,6 +69,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
         ataRealizacaoProvaEscrita = new javax.swing.JMenuItem();
         menuProvaEscritaRelatoriosAtasAtaSessaoDivulgacaoResultado1 = new javax.swing.JMenuItem();
         itemMenuAtaInstalacaoComissao1 = new javax.swing.JMenuItem();
+        parecerFinal = new javax.swing.JMenuItem();
         itemMenuTermosProvaEscrita1 = new javax.swing.JMenu();
         itemMenuTermosDesistenciaProvaEscrita1 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
@@ -196,6 +197,14 @@ public class AreaTrabalho extends javax.swing.JFrame {
         });
         menuProvaEscritaRelatoriosAtas1.add(itemMenuAtaInstalacaoComissao1);
 
+        parecerFinal.setText("Parecer Final da Banca Examinadora");
+        parecerFinal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                parecerFinalActionPerformed(evt);
+            }
+        });
+        menuProvaEscritaRelatoriosAtas1.add(parecerFinal);
+
         menuProvaEscritaRelatorios1.add(menuProvaEscritaRelatoriosAtas1);
 
         itemMenuTermosProvaEscrita1.setText("Termos");
@@ -308,6 +317,10 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private void ataRealizacaoProvaEscritaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ataRealizacaoProvaEscritaActionPerformed
         criarAtaRealizacaoProvaEscrita();
     }//GEN-LAST:event_ataRealizacaoProvaEscritaActionPerformed
+
+    private void parecerFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parecerFinalActionPerformed
+        criarParecerFinalDaBancaExaminadora();
+    }//GEN-LAST:event_parecerFinalActionPerformed
 
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Inicio">
@@ -443,6 +456,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private javax.swing.JMenu menuProvaEscritaRelatoriosAtas1;
     private javax.swing.JMenuItem menuProvaEscritaRelatoriosAtasAtaJulgamento1;
     private javax.swing.JMenuItem menuProvaEscritaRelatoriosAtasAtaSessaoDivulgacaoResultado1;
+    private javax.swing.JMenuItem parecerFinal;
     private javax.swing.JMenuItem reciboDocumentacaoPorCandidato;
     private javax.swing.JMenuItem reciboDocumentacaoPorCandidato1;
     // End of variables declaration//GEN-END:variables

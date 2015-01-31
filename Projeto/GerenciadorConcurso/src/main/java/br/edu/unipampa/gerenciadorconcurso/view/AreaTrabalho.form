@@ -133,6 +133,14 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemMenuAtaInstalacaoComissaoActionPerformed"/>
                       </Events>
                     </MenuItem>
+                    <MenuItem class="javax.swing.JMenuItem" name="parecerFinal">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Parecer Final da Banca Examinadora"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="parecerFinalActionPerformed"/>
+                      </Events>
+                    </MenuItem>
                   </SubComponents>
                 </Menu>
                 <Menu class="javax.swing.JMenu" name="itemMenuTermosProvaEscrita1">
