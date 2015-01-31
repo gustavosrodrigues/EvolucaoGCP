@@ -1,4 +1,3 @@
-
 package br.edu.unipampa.gerenciadorconcurso.view;
 
 import br.edu.unipampa.gerenciadorconcurso.dao.HibernateUtil;
@@ -10,10 +9,8 @@ import br.edu.unipampa.gerenciadorconcurso.view.interno.DefinirCronograma;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.CadastroExaminador;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.DefinirPesoProvasConcurso;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.ParecerFinalDaBancaExaminadora2;
-import br.edu.unipampa.gerenciadorconcurso.view.interno.ListaPresencaProvaDeDefesaMemorialTrajetoriaAcademica;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.ReciboDocumentacaoPorCandidato;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelAtaJulgamentoProvaTitulo;
-import br.edu.unipampa.gerenciadorconcurso.view.interno.RelAtaSessaoDivulgacaoResultadoProvaDidatica;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelAtaSessaoRealizacaoProvaDidatica;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelAvaliacaoIndividualProvaEscrita;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelDeclaracaoNaoImpedimentoPorMembroBanca;
@@ -432,7 +429,6 @@ public class AreaTrabalho extends javax.swing.JFrame {
     }//GEN-LAST:event_itemMenuExaminadoresActionPerformed
 
 //</editor-fold>
-
     private void itemMenuAtaInstalacaoComissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuAtaInstalacaoComissaoActionPerformed
         criarRelatorioAtaInstalacaoComissao();
     }//GEN-LAST:event_itemMenuAtaInstalacaoComissaoActionPerformed
@@ -440,7 +436,6 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private void menuProvaEscritaRelatoriosAtasAtaJulgamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuProvaEscritaRelatoriosAtasAtaJulgamentoActionPerformed
         criarRelatorioAtaJulgamentoProvaEscrita();
     }//GEN-LAST:event_menuProvaEscritaRelatoriosAtasAtaJulgamentoActionPerformed
-
 
     private void reciboDocumentacaoPorCandidatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reciboDocumentacaoPorCandidatoActionPerformed
         criarReciboDocCandidatos();
@@ -471,7 +466,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jTree1ValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_jTree1ValueChanged
-        switch(evt.getPath().getLastPathComponent()+""){
+        switch (evt.getPath().getLastPathComponent() + "") {
             case "Candidato":
                 criarCadastroCandidato();
                 break;
@@ -495,11 +490,10 @@ public class AreaTrabalho extends javax.swing.JFrame {
         criarAtaSessaoRealizacaoProvaDidatica();
     }//GEN-LAST:event_menuProvaDidaticaRelatoriosAtaSessaoRealizacaoActionPerformed
 
-
     private void menuAtaListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAtaListaActionPerformed
         // TODO add your handling code here:
         criarAtaListaPresenca();
-        
+
     }//GEN-LAST:event_menuAtaListaActionPerformed
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         criarPlanilhaCriterioAvaliacaoProvaEscrita();
@@ -614,7 +608,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
         RelAtaSessaoDivulgacaoResultadoProvaDidatica divulgacaoResultado = new RelAtaSessaoDivulgacaoResultadoProvaDidatica();
         adicionarJanela(divulgacaoResultado);
     }
-    
+
     private void criarAtaSessaoRealizacaoProvaDidatica() {
         RelAtaSessaoRealizacaoProvaDidatica relAtaSessaoRealizacaoProvaDidatica = new RelAtaSessaoRealizacaoProvaDidatica();
         adicionarJanela(relAtaSessaoRealizacaoProvaDidatica);
@@ -629,45 +623,49 @@ public class AreaTrabalho extends javax.swing.JFrame {
         RelAvaliacaoIndividualProvaEscrita relAvaliacaoIndividualProvaEscrita = new RelAvaliacaoIndividualProvaEscrita();
         adicionarJanela(relAvaliacaoIndividualProvaEscrita);
     }
-    
+    <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
+
     private void criarPlanilhaCriterioAvaliacaoProvaEscrita() {
         RelPlanilhaCriteriosAvaliacaoProvaEscrita relatorio = new RelPlanilhaCriteriosAvaliacaoProvaEscrita();
         adicionarJanela(relatorio);
     }
-    
+
     private void criarRelatorioAtaJulgamentoProvaTitulo() {
         RelAtaJulgamentoProvaTitulo relAtaJulgamentoProvaTitulo = new RelAtaJulgamentoProvaTitulo();
         adicionarJanela(relAtaJulgamentoProvaTitulo);
     }
-    
+
     private void criarAtaListaPresenca() {
         AtaListaPresencaNovo ata = new AtaListaPresencaNovo();
         adicionarJanela(ata);
     }
-   
+
     private void criarRelatorioReciboDevolucaoDocumentacaoProvaTitulo() {
         RelReciboDevolucaoDocumentacaoProvaTitulo relReciboDevolucaoDocumentacaoProvaTitulo = new RelReciboDevolucaoDocumentacaoProvaTitulo();
         adicionarJanela(relReciboDevolucaoDocumentacaoProvaTitulo);
-=======
+         == == == =
+    
+
     private void criarAtaRealizacaoProvaEscrita() {
         AtaRealizacaoProvaEscrita2 relAta = new AtaRealizacaoProvaEscrita2();
         adicionarJanela(relAta);
     }
-    
+
     private void criarParecerFinalDaBancaExaminadora() {
         ParecerFinalDaBancaExaminadora2 parecerFinal = new ParecerFinalDaBancaExaminadora2();
         adicionarJanela(parecerFinal);
->>>>>>> feature/8.4_Criar_Parecer_Final_da_Banca_Examinadora
-=======
-    private void criarListaPresencaProvaDeDefesaMemorialTrajetoriaAcademica(){
+         >>> >>> > feature / 8.4_Criar_Parecer_Final_da_Banca_Examinadora
+         == == == =
+    
+
+    private void criarListaPresencaProvaDeDefesaMemorialTrajetoriaAcademica() {
         ListaPresencaProvaDeDefesaMemorialTrajetoriaAcademica lista = new ListaPresencaProvaDeDefesaMemorialTrajetoriaAcademica();
         adicionarJanela(lista);
->>>>>>> feature/7.2_CriarListaDePresencaNaProvaDeDefesaDoMemorialDeTrajetoriaAcademica
+         >>> >>> > feature / 7.2_CriarListaDePresencaNaProvaDeDefesaDoMemorialDeTrajetoriaAcademica
+        
     }
 //</editor-fold>
-
     //<editor-fold defaultstate="collapsed" desc="Variaveis">
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane areaTrabalho;
@@ -722,5 +720,4 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private javax.swing.JMenuItem reciboDocumentacaoPorCandidato1;
     // End of variables declaration//GEN-END:variables
 //</editor-fold>
-
 }
