@@ -494,7 +494,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void ataRealizacaoProvaEscritaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ataRealizacaoProvaEscritaActionPerformed
-        criarAtaRealizacaoProvaEscrita();
+        //criarAtaRealizacaoProvaEscrita();
     }//GEN-LAST:event_ataRealizacaoProvaEscritaActionPerformed
 
     private void parecerFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parecerFinalActionPerformed
@@ -502,7 +502,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
     }//GEN-LAST:event_parecerFinalActionPerformed
 
     private void listaPresencaProvaEscritaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaPresencaProvaEscritaActionPerformed
-        criarListaPresencaProvaDeDefesaMemorialTrajetoriaAcademica();
+        //criarListaPresencaProvaDeDefesaMemorialTrajetoriaAcademica();
     }//GEN-LAST:event_listaPresencaProvaEscritaActionPerformed
 
 //</editor-fold>
@@ -599,8 +599,8 @@ public class AreaTrabalho extends javax.swing.JFrame {
     }
 
     private void criarAtaSessaoDivulgacaoResultadoProvaDidatica() {
-        RelAtaSessaoDivulgacaoResultadoProvaDidatica divulgacaoResultado = new RelAtaSessaoDivulgacaoResultadoProvaDidatica();
-        adicionarJanela(divulgacaoResultado);
+//        RelAtaSessaoDivulgacaoResultadoProvaDidatica divulgacaoResultado = new RelAtaSessaoDivulgacaoResultadoProvaDidatica();
+//        adicionarJanela(divulgacaoResultado);
     }
 
     private void criarAtaSessaoRealizacaoProvaDidatica() {
@@ -636,21 +636,11 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private void criarRelatorioReciboDevolucaoDocumentacaoProvaTitulo() {
         RelReciboDevolucaoDocumentacaoProvaTitulo relReciboDevolucaoDocumentacaoProvaTitulo = new RelReciboDevolucaoDocumentacaoProvaTitulo();
         adicionarJanela(relReciboDevolucaoDocumentacaoProvaTitulo);
-    
-
-    private void criarAtaRealizacaoProvaEscrita() {
-        AtaRealizacaoProvaEscrita2 relAta = new AtaRealizacaoProvaEscrita2();
-        adicionarJanela(relAta);
     }
 
     private void criarParecerFinalDaBancaExaminadora() {
-        ParecerFinalDaBancaExaminadora2 parecerFinal = new ParecerFinalDaBancaExaminadora2();
+        ParecerFinalBancaExaminadora parecerFinal = new ParecerFinalBancaExaminadora();
         adicionarJanela(parecerFinal);
-
-    private void criarListaPresencaProvaDeDefesaMemorialTrajetoriaAcademica() {
-        ListaPresencaProvaDeDefesaMemorialTrajetoriaAcademica lista = new ListaPresencaProvaDeDefesaMemorialTrajetoriaAcademica();
-        adicionarJanela(lista);
-        
     }
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Variaveis">
