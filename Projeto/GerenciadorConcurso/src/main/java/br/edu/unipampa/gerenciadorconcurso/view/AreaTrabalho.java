@@ -8,7 +8,7 @@ import br.edu.unipampa.gerenciadorconcurso.view.interno.CadastroCandidato;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.DefinirCronograma;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.CadastroExaminador;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.DefinirPesoProvasConcurso;
-import br.edu.unipampa.gerenciadorconcurso.view.interno.ParecerFinalDaBancaExaminadora2;
+import br.edu.unipampa.gerenciadorconcurso.view.interno.ParecerFinalBancaExaminadora;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.ReciboDocumentacaoPorCandidato;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelAtaJulgamentoProvaTitulo;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelAtaSessaoRealizacaoProvaDidatica;
