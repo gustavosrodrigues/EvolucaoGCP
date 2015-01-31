@@ -3,16 +3,14 @@ package br.edu.unipampa.gerenciadorconcurso.view;
 
 import br.edu.unipampa.gerenciadorconcurso.dao.HibernateUtil;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.AtaComissao;
-<<<<<<< HEAD
 import br.edu.unipampa.gerenciadorconcurso.view.interno.AtaListaPresencaNovo;
-=======
 import br.edu.unipampa.gerenciadorconcurso.view.interno.AtaRealizacaoProvaEscrita2;
->>>>>>> feature/8.4_Criar_Parecer_Final_da_Banca_Examinadora
 import br.edu.unipampa.gerenciadorconcurso.view.interno.CadastroCandidato;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.DefinirCronograma;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.CadastroExaminador;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.DefinirPesoProvasConcurso;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.ParecerFinalDaBancaExaminadora2;
+import br.edu.unipampa.gerenciadorconcurso.view.interno.ListaPresencaProvaDeDefesaMemorialTrajetoriaAcademica;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.ReciboDocumentacaoPorCandidato;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelAtaJulgamentoProvaTitulo;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelAtaSessaoDivulgacaoResultadoProvaDidatica;
@@ -82,7 +80,11 @@ public class AreaTrabalho extends javax.swing.JFrame {
         ataRealizacaoProvaEscrita = new javax.swing.JMenuItem();
         menuProvaEscritaRelatoriosAtasAtaSessaoDivulgacaoResultado1 = new javax.swing.JMenuItem();
         itemMenuAtaInstalacaoComissao1 = new javax.swing.JMenuItem();
+<<<<<<< HEAD
         parecerFinal = new javax.swing.JMenuItem();
+=======
+        listaPresencaProvaEscrita = new javax.swing.JMenuItem();
+>>>>>>> feature/7.2_CriarListaDePresencaNaProvaDeDefesaDoMemorialDeTrajetoriaAcademica
         itemMenuTermosProvaEscrita1 = new javax.swing.JMenu();
         itemMenuTermosDesistenciaProvaEscrita1 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
@@ -264,6 +266,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
         });
         menuProvaEscritaRelatoriosAtas1.add(itemMenuAtaInstalacaoComissao1);
 
+<<<<<<< HEAD
         parecerFinal.setText("Parecer Final da Banca Examinadora");
         parecerFinal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -271,6 +274,15 @@ public class AreaTrabalho extends javax.swing.JFrame {
             }
         });
         menuProvaEscritaRelatoriosAtas1.add(parecerFinal);
+=======
+        listaPresencaProvaEscrita.setText("Lista de Presença na Prova de Defesa de Memorial de Trajetória Acadêmica");
+        listaPresencaProvaEscrita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listaPresencaProvaEscritaActionPerformed(evt);
+            }
+        });
+        menuProvaEscritaRelatoriosAtas1.add(listaPresencaProvaEscrita);
+>>>>>>> feature/7.2_CriarListaDePresencaNaProvaDeDefesaDoMemorialDeTrajetoriaAcademica
 
         menuProvaEscritaRelatorios1.add(menuProvaEscritaRelatoriosAtas1);
 
@@ -446,7 +458,6 @@ public class AreaTrabalho extends javax.swing.JFrame {
         criarRelatorioAvaliacaoIndividualProvaEscrita();
     }//GEN-LAST:event_itemMenuAvaliacaoIndividualProvaEscritaActionPerformed
 
-<<<<<<< HEAD
     private void itemMenuAtaJulgamentoProvaTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuAtaJulgamentoProvaTituloActionPerformed
         criarRelatorioAtaJulgamentoProvaTitulo();
     }//GEN-LAST:event_itemMenuAtaJulgamentoProvaTituloActionPerformed
@@ -493,7 +504,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         criarPlanilhaCriterioAvaliacaoProvaEscrita();
     }//GEN-LAST:event_jMenuItem4ActionPerformed
-=======
+
     private void ataRealizacaoProvaEscritaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ataRealizacaoProvaEscritaActionPerformed
         criarAtaRealizacaoProvaEscrita();
     }//GEN-LAST:event_ataRealizacaoProvaEscritaActionPerformed
@@ -501,7 +512,10 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private void parecerFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parecerFinalActionPerformed
         criarParecerFinalDaBancaExaminadora();
     }//GEN-LAST:event_parecerFinalActionPerformed
->>>>>>> feature/8.4_Criar_Parecer_Final_da_Banca_Examinadora
+
+    private void listaPresencaProvaEscritaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaPresencaProvaEscritaActionPerformed
+        criarListaPresencaProvaDeDefesaMemorialTrajetoriaAcademica();
+    }//GEN-LAST:event_listaPresencaProvaEscritaActionPerformed
 
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Inicio">
@@ -617,6 +631,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
     }
     
 <<<<<<< HEAD
+<<<<<<< HEAD
     private void criarPlanilhaCriterioAvaliacaoProvaEscrita() {
         RelPlanilhaCriteriosAvaliacaoProvaEscrita relatorio = new RelPlanilhaCriteriosAvaliacaoProvaEscrita();
         adicionarJanela(relatorio);
@@ -645,6 +660,11 @@ public class AreaTrabalho extends javax.swing.JFrame {
         ParecerFinalDaBancaExaminadora2 parecerFinal = new ParecerFinalDaBancaExaminadora2();
         adicionarJanela(parecerFinal);
 >>>>>>> feature/8.4_Criar_Parecer_Final_da_Banca_Examinadora
+=======
+    private void criarListaPresencaProvaDeDefesaMemorialTrajetoriaAcademica(){
+        ListaPresencaProvaDeDefesaMemorialTrajetoriaAcademica lista = new ListaPresencaProvaDeDefesaMemorialTrajetoriaAcademica();
+        adicionarJanela(lista);
+>>>>>>> feature/7.2_CriarListaDePresencaNaProvaDeDefesaDoMemorialDeTrajetoriaAcademica
     }
 //</editor-fold>
 
@@ -677,7 +697,11 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JToolBar jToolBar1;
+<<<<<<< HEAD
     private javax.swing.JTree jTree1;
+=======
+    private javax.swing.JMenuItem listaPresencaProvaEscrita;
+>>>>>>> feature/7.2_CriarListaDePresencaNaProvaDeDefesaDoMemorialDeTrajetoriaAcademica
     private javax.swing.JMenu menuAbrirConcurso;
 
     private javax.swing.JMenu menuProvaDidatica;
