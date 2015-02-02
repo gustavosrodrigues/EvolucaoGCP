@@ -24,6 +24,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import javax.swing.JFormattedTextField;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -847,6 +848,7 @@ public class NotasProvasTitulos extends javax.swing.JInternalFrame {
         
         notasTitulosService.salvar(formacaoacademica);
         
+        JOptionPane.showMessageDialog(null, "Salvo com Sucesso");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public void iniciaCamposQuantidade(){
