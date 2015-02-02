@@ -6,7 +6,13 @@
 
 package br.edu.unipampa.gerenciadorconcurso.view.interno;
 
+import br.edu.unipampa.gerenciadorconcurso.enuns.NotasFormacaoAcademica;
+import br.edu.unipampa.gerenciadorconcurso.model.Candidato;
 import br.edu.unipampa.gerenciadorconcurso.model.Concurso;
+import br.edu.unipampa.gerenciadorconcurso.model.Formacaoacademica;
+import br.edu.unipampa.gerenciadorconcurso.model.Titulo;
+import br.edu.unipampa.gerenciadorconcurso.service.CandidatoService;
+import br.edu.unipampa.gerenciadorconcurso.service.NotasTitulosService;
 import br.edu.unipampa.gerenciadorconcurso.validator.CampoNumericoDocument;
 import br.edu.unipampa.gerenciadorconcurso.validator.Campos;
 import br.edu.unipampa.gerenciadorconcurso.validator.FormattedFieldFormat;
@@ -18,8 +24,6 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import javax.swing.JFormattedTextField;
-import br.edu.unipampa.gerenciadorconcurso.enuns.NotasFormacaoAcademica;
-import br.edu.unipampa.gerenciadorconcurso.service.NotasTitulosService;
 
 /**
  *
@@ -28,11 +32,17 @@ import br.edu.unipampa.gerenciadorconcurso.service.NotasTitulosService;
 public class NotasProvasTitulos extends javax.swing.JInternalFrame {
     
     private Campos tratamentoCampos;
+    private NotasTitulosService notasTitulosService;
+    private Formacaoacademica formacaoacademica;
+    private Titulo titulo;
+    private ArrayList<Candidato> cadidatos;
     /**
      * Creates new form NotasProvasTitulos
      */
     public NotasProvasTitulos() {
         initComponents();
+        notasTitulosService = new NotasTitulosService();
+        procurarTitulos();
         iniciaCamposNotas();
         iniciaCamposQuantidade();
     }
@@ -119,9 +129,9 @@ public class NotasProvasTitulos extends javax.swing.JInternalFrame {
         jTextField4 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
-        campoExaminador.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        campoExaminador.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pedro", "Lucas", "Alex", "Douglas" }));
 
-        campoCandidato.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        campoCandidato.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Sam", "João Pablo", "Andreia", "Jean" }));
 
         jLabel1.setText("textoExaminador:");
 
@@ -810,6 +820,32 @@ public class NotasProvasTitulos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextField133ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        float nota1 = Float.parseFloat(jTextField113.getText());
+        float nota2 = Float.parseFloat(jTextField116.getText());
+        float nota3 = Float.parseFloat(jTextField119.getText());
+        float nota4 = Float.parseFloat(jTextField122.getText());
+        float nota5 = Float.parseFloat(jTextField125.getText());
+        float nota6 = Float.parseFloat(jTextField27.getText());
+        float nota7 = Float.parseFloat(jTextField131.getText());
+        float nota8 = Float.parseFloat(jTextField134.getText());
+        float nota9 = Float.parseFloat(jTextField137.getText());
+        
+        if(formacaoacademica == null){
+            formacaoacademica = new Formacaoacademica();
+            formacaoacademica.setTitulo(1);
+        }
+        
+        formacaoacademica.setDoutoradoNaArea(nota1);
+        formacaoacademica.setDoutoradoEmAreaAfimDaArea(nota2);
+        formacaoacademica.setMestradoNaArea(nota3);
+        formacaoacademica.setMestradoEmAreaAfimDaArea(nota4);
+        formacaoacademica.setEspecializacaoArea(nota5);
+        formacaoacademica.setResidenciaRealizada(nota6);
+        formacaoacademica.setConclusaoDoutorado(nota7);
+        formacaoacademica.setPosDoutoradoArea(nota8);
+        formacaoacademica.setPosDoutoradoAreaAfimArea(nota9);
+        
+        notasTitulosService.salvar(formacaoacademica);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -843,6 +879,23 @@ public class NotasProvasTitulos extends javax.swing.JInternalFrame {
         }
         valorNovo = valorAtual + valor;
         jTextField4.setText(valorNovo + "");
+    }
+    
+    public void procurarTitulos(){
+        Concurso concurso = Concurso.getInstance();
+        CandidatoService candidatoService = new CandidatoService();
+        //cadidatos = candidatoService.buscar(concurso);
+        //Candidato candidato = candidatoService.buscar(1);
+        ArrayList<Titulo> titulos = notasTitulosService.buscar();
+        ArrayList<Formacaoacademica> formacaoacademicas = notasTitulosService.buscarNotaFormacaoAcademica();
+        
+        for (Formacaoacademica formacaoacademica1 : formacaoacademicas) {
+            formacaoacademica = formacaoacademica1;
+        }
+        
+        for (Titulo titulo1 : titulos) {
+            titulo = titulo1;
+        }
     }
     
     

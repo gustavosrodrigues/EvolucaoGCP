@@ -10,6 +10,7 @@ import br.edu.unipampa.gerenciadorconcurso.view.interno.DefinirCronograma;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.CadastroExaminador;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.DefinirPesoProvasConcurso;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.ListaDePresencaProvaDefesaMemorialTrajetoriaAcademica;
+import br.edu.unipampa.gerenciadorconcurso.view.interno.NotasProvasTitulos;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.ParecerFinalBancaExaminadora;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.ReciboDocumentacaoPorCandidato;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelAtaJulgamentoProvaTitulo;
@@ -95,6 +96,8 @@ public class AreaTrabalho extends javax.swing.JFrame {
         itemMenuAtaJulgamentoProvaTitulo = new javax.swing.JMenuItem();
         itemMenuReciboDevolucaoDocumentacao = new javax.swing.JMenuItem();
         parecerFinaldaBanca = new javax.swing.JMenuItem();
+        jMenu8 = new javax.swing.JMenu();
+        jMenuItem7 = new javax.swing.JMenuItem();
         menuProvaDidatica = new javax.swing.JMenu();
         menuProvaDidaticaRelatorios = new javax.swing.JMenu();
         menuProvaDidaticaRelatoriosAtas = new javax.swing.JMenu();
@@ -370,6 +373,18 @@ public class AreaTrabalho extends javax.swing.JFrame {
 
         jMenu4.add(jMenu5);
 
+        jMenu8.setText("Planilha de Notas");
+
+        jMenuItem7.setText("Formação Acadêmica");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(jMenuItem7);
+
+        jMenu4.add(jMenu8);
+
         jMenuBar1.add(jMenu4);
 
         menuProvaDidatica.setText("Prova Didática");
@@ -550,6 +565,10 @@ public class AreaTrabalho extends javax.swing.JFrame {
         criarAtaLeituraProvaEscrita();
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        criarFormacaoAcademica();
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Inicio">
     /**
@@ -707,6 +726,11 @@ public class AreaTrabalho extends javax.swing.JFrame {
         AtaLeituraProvaEscrita ataLeitura = new AtaLeituraProvaEscrita();
         adicionarJanela(ataLeitura);
     }
+    
+    private void criarFormacaoAcademica(){
+        NotasProvasTitulos notasProvasTitulos = new NotasProvasTitulos();
+        adicionarJanela(notasProvasTitulos);
+    }
 
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Variaveis">
@@ -730,6 +754,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
@@ -737,6 +762,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JTree jTree1;

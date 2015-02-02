@@ -87,10 +87,10 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+                <StringItem index="0" value="Pedro"/>
+                <StringItem index="1" value="Lucas"/>
+                <StringItem index="2" value="Alex"/>
+                <StringItem index="3" value="Douglas"/>
               </StringArray>
             </Property>
           </Properties>
@@ -99,10 +99,10 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+                <StringItem index="0" value="Sam"/>
+                <StringItem index="1" value="Jo&#xe3;o Pablo"/>
+                <StringItem index="2" value="Andreia"/>
+                <StringItem index="3" value="Jean"/>
               </StringArray>
             </Property>
           </Properties>

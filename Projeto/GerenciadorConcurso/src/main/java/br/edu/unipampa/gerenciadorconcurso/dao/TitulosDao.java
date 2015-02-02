@@ -30,9 +30,9 @@ public class TitulosDao {
         return (ArrayList<Titulo>) DAO.buscarObjetos(Titulo.class);
     }
 
-    public ArrayList<Titulo> buscar(Concurso concurso) {
+    public ArrayList<Titulo> buscar(Candidato candidato) {
         HashMap<String, Object> filtros = new HashMap<>();
-        filtros.put("concurso.codigo", concurso.getCodigo());
+        filtros.put("candidato.codigo", candidato.getCodigo());
         return (ArrayList<Titulo>) DAO.buscarObjetos(filtros,Titulo.class);
     }
 
