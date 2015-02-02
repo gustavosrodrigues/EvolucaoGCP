@@ -8,7 +8,8 @@ import br.edu.unipampa.gerenciadorconcurso.view.interno.CadastroCandidato;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.DefinirCronograma;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.CadastroExaminador;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.DefinirPesoProvasConcurso;
-import br.edu.unipampa.gerenciadorconcurso.view.interno.ParecerFinalDaBancaExaminadora2;
+import br.edu.unipampa.gerenciadorconcurso.view.interno.ListaDePresencaProvaDefesaMemorialTrajetoriaAcademica;
+import br.edu.unipampa.gerenciadorconcurso.view.interno.ParecerFinalBancaExaminadora;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.ReciboDocumentacaoPorCandidato;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelAtaJulgamentoProvaTitulo;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelAtaSessaoRealizacaoProvaDidatica;
@@ -77,11 +78,8 @@ public class AreaTrabalho extends javax.swing.JFrame {
         ataRealizacaoProvaEscrita = new javax.swing.JMenuItem();
         menuProvaEscritaRelatoriosAtasAtaSessaoDivulgacaoResultado1 = new javax.swing.JMenuItem();
         itemMenuAtaInstalacaoComissao1 = new javax.swing.JMenuItem();
-<<<<<<< HEAD
         parecerFinal = new javax.swing.JMenuItem();
-=======
         listaPresencaProvaEscrita = new javax.swing.JMenuItem();
->>>>>>> feature/7.2_CriarListaDePresencaNaProvaDeDefesaDoMemorialDeTrajetoriaAcademica
         itemMenuTermosProvaEscrita1 = new javax.swing.JMenu();
         itemMenuTermosDesistenciaProvaEscrita1 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
@@ -93,6 +91,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
         jMenu7 = new javax.swing.JMenu();
         itemMenuAtaJulgamentoProvaTitulo = new javax.swing.JMenuItem();
         itemMenuReciboDevolucaoDocumentacao = new javax.swing.JMenuItem();
+        parecerFinaldaBanca = new javax.swing.JMenuItem();
         menuProvaDidatica = new javax.swing.JMenu();
         menuProvaDidaticaRelatorios = new javax.swing.JMenu();
         menuProvaDidaticaRelatoriosAtas = new javax.swing.JMenu();
@@ -263,7 +262,6 @@ public class AreaTrabalho extends javax.swing.JFrame {
         });
         menuProvaEscritaRelatoriosAtas1.add(itemMenuAtaInstalacaoComissao1);
 
-<<<<<<< HEAD
         parecerFinal.setText("Parecer Final da Banca Examinadora");
         parecerFinal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -271,7 +269,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
             }
         });
         menuProvaEscritaRelatoriosAtas1.add(parecerFinal);
-=======
+
         listaPresencaProvaEscrita.setText("Lista de Presença na Prova de Defesa de Memorial de Trajetória Acadêmica");
         listaPresencaProvaEscrita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -279,7 +277,6 @@ public class AreaTrabalho extends javax.swing.JFrame {
             }
         });
         menuProvaEscritaRelatoriosAtas1.add(listaPresencaProvaEscrita);
->>>>>>> feature/7.2_CriarListaDePresencaNaProvaDeDefesaDoMemorialDeTrajetoriaAcademica
 
         menuProvaEscritaRelatorios1.add(menuProvaEscritaRelatoriosAtas1);
 
@@ -350,6 +347,14 @@ public class AreaTrabalho extends javax.swing.JFrame {
             }
         });
         jMenu5.add(itemMenuReciboDevolucaoDocumentacao);
+
+        parecerFinaldaBanca.setText("Parecer Final da Banca Examindora");
+        parecerFinaldaBanca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                parecerFinaldaBancaActionPerformed(evt);
+            }
+        });
+        jMenu5.add(parecerFinaldaBanca);
 
         jMenu4.add(jMenu5);
 
@@ -508,8 +513,12 @@ public class AreaTrabalho extends javax.swing.JFrame {
     }//GEN-LAST:event_parecerFinalActionPerformed
 
     private void listaPresencaProvaEscritaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaPresencaProvaEscritaActionPerformed
-        criarListaPresencaProvaDeDefesaMemorialTrajetoriaAcademica();
+        //criarListaPresencaProvaDeDefesaMemorialTrajetoriaAcademica();
     }//GEN-LAST:event_listaPresencaProvaEscritaActionPerformed
+
+    private void parecerFinaldaBancaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parecerFinaldaBancaActionPerformed
+        criarParecerFinalDaBancaExaminadora();
+    }//GEN-LAST:event_parecerFinaldaBancaActionPerformed
 
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Inicio">
@@ -605,8 +614,8 @@ public class AreaTrabalho extends javax.swing.JFrame {
     }
 
     private void criarAtaSessaoDivulgacaoResultadoProvaDidatica() {
-        RelAtaSessaoDivulgacaoResultadoProvaDidatica divulgacaoResultado = new RelAtaSessaoDivulgacaoResultadoProvaDidatica();
-        adicionarJanela(divulgacaoResultado);
+//        RelAtaSessaoDivulgacaoResultadoProvaDidatica divulgacaoResultado = new RelAtaSessaoDivulgacaoResultadoProvaDidatica();
+//        adicionarJanela(divulgacaoResultado);
     }
 
     private void criarAtaSessaoRealizacaoProvaDidatica() {
@@ -623,9 +632,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
         RelAvaliacaoIndividualProvaEscrita relAvaliacaoIndividualProvaEscrita = new RelAvaliacaoIndividualProvaEscrita();
         adicionarJanela(relAvaliacaoIndividualProvaEscrita);
     }
-    <<<<<<< HEAD
-<<<<<<< HEAD
-
+	
     private void criarPlanilhaCriterioAvaliacaoProvaEscrita() {
         RelPlanilhaCriteriosAvaliacaoProvaEscrita relatorio = new RelPlanilhaCriteriosAvaliacaoProvaEscrita();
         adicionarJanela(relatorio);
@@ -644,26 +651,21 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private void criarRelatorioReciboDevolucaoDocumentacaoProvaTitulo() {
         RelReciboDevolucaoDocumentacaoProvaTitulo relReciboDevolucaoDocumentacaoProvaTitulo = new RelReciboDevolucaoDocumentacaoProvaTitulo();
         adicionarJanela(relReciboDevolucaoDocumentacaoProvaTitulo);
-         == == == =
-    
-
-    private void criarAtaRealizacaoProvaEscrita() {
-        AtaRealizacaoProvaEscrita2 relAta = new AtaRealizacaoProvaEscrita2();
-        adicionarJanela(relAta);
     }
 
     private void criarParecerFinalDaBancaExaminadora() {
-        ParecerFinalDaBancaExaminadora2 parecerFinal = new ParecerFinalDaBancaExaminadora2();
+        ParecerFinalBancaExaminadora parecerFinal = new ParecerFinalBancaExaminadora();
         adicionarJanela(parecerFinal);
-         >>> >>> > feature / 8.4_Criar_Parecer_Final_da_Banca_Examinadora
-         == == == =
+    }
     
-
-    private void criarListaPresencaProvaDeDefesaMemorialTrajetoriaAcademica() {
-        ListaPresencaProvaDeDefesaMemorialTrajetoriaAcademica lista = new ListaPresencaProvaDeDefesaMemorialTrajetoriaAcademica();
+    private void criarAtaRealizacaoProvaEscrita() {
+        AtaRealizacaoProvaEscrita2 ataR = new AtaRealizacaoProvaEscrita2();
+        adicionarJanela(ataR);
+    }
+    
+    private void criarListaDePresencaDaProvaDeDefesaDoMemorialDeTrajetoriaAcademica(){
+        ListaDePresencaProvaDefesaMemorialTrajetoriaAcademica lista = new ListaDePresencaProvaDefesaMemorialTrajetoriaAcademica();
         adicionarJanela(lista);
-         >>> >>> > feature / 7.2_CriarListaDePresencaNaProvaDeDefesaDoMemorialDeTrajetoriaAcademica
-        
     }
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Variaveis">
@@ -691,31 +693,25 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToolBar jToolBar1;
-<<<<<<< HEAD
     private javax.swing.JTree jTree1;
-=======
     private javax.swing.JMenuItem listaPresencaProvaEscrita;
->>>>>>> feature/7.2_CriarListaDePresencaNaProvaDeDefesaDoMemorialDeTrajetoriaAcademica
     private javax.swing.JMenu menuAbrirConcurso;
-
+    private javax.swing.JMenuItem menuAtaLista;
     private javax.swing.JMenu menuProvaDidatica;
     private javax.swing.JMenu menuProvaDidaticaRelatorios;
     private javax.swing.JMenuItem menuProvaDidaticaRelatoriosAtaDivulgacaoResutlado;
     private javax.swing.JMenuItem menuProvaDidaticaRelatoriosAtaSessaoRealizacao;
     private javax.swing.JMenu menuProvaDidaticaRelatoriosAtas;
-
-    private javax.swing.JMenuItem menuAtaLista;
-
     private javax.swing.JMenu menuProvaEscrita1;
     private javax.swing.JMenu menuProvaEscritaRelatorios1;
     private javax.swing.JMenu menuProvaEscritaRelatoriosAtas1;
     private javax.swing.JMenuItem menuProvaEscritaRelatoriosAtasAtaJulgamento1;
     private javax.swing.JMenuItem menuProvaEscritaRelatoriosAtasAtaSessaoDivulgacaoResultado1;
     private javax.swing.JMenuItem parecerFinal;
+    private javax.swing.JMenuItem parecerFinaldaBanca;
     private javax.swing.JMenuItem reciboDocumentacaoPorCandidato;
     private javax.swing.JMenuItem reciboDocumentacaoPorCandidato1;
     // End of variables declaration//GEN-END:variables

@@ -53,6 +53,11 @@ public class AtaRealizacaoProvaEscrita2 extends javax.swing.JInternalFrame {
         jLabel5.setText("Observações:");
 
         jButton1.setText("Criar Ata de Realização de Prova Escrita");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,11 +96,29 @@ public class AtaRealizacaoProvaEscrita2 extends javax.swing.JInternalFrame {
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(jButton1)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    private javax.swing.JTextField campoData, campoLocal, campoObservacoes;
+    
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Examinador E = new Examinador();
+        E.criarAtaDeRealizacaoProvaEscrita(campoData.getText().toString(), campoLocal.getText().toString(), campoObservacoes.getText().toString());
+        ArrayList<Parametro> parametros = new ArrayList<Parametro>();
+        parametros.add(new Parametro("Data", campoData.getText().toString()));
+        parametros.add(new Parametro("Local", campoLocal.getText().toString()));
+        parametros.add(new Parametro("Obserções", campoObservacoes.getText().toString()));
+        
+        if(campoData.getText().toString() == "" || campoLocal.getText().toString() == "" || campoObservacoes.getText().toString() == ""){
+            JOptionPane.showMessageDialog (null, "Preencher todos os campos!", "Erro", JOptionPane.ERROR_MESSAGE);
+      
+        } else {
+            GeradorRelatorios Gerador = new GeradorRelatorios();
+            Gerador.gerar("Ata de Realização da Prova Escrita", parametros);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

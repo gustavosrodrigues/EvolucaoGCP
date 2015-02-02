@@ -68,9 +68,10 @@ public class Examinador implements Serializable {
         String parecer = parecerFinal;
     }    
     
-    public void criarListaPresencaProvaDeDefesaMemorialTrajetoriaAcademica(String data, String local){
+    public void criarListaPresencaProvaDeDefesaMemorialTrajetoriaAcademica(String data, String local, String Observacoes){
         this.data = data;
         this.local = local;
+        this.observacoes = observacoes;
     }
 
     /*

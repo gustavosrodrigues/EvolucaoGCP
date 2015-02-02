@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<Form version="1.7" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
-=======
-<Form version="1.5" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
->>>>>>> feature/8.4_Criar_Parecer_Final_da_Banca_Examinadora
-=======
-<Form version="1.5" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
->>>>>>> feature/7.2_CriarListaDePresencaNaProvaDeDefesaDoMemorialDeTrajetoriaAcademica
+<Form version="1.7" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
@@ -157,21 +149,20 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemMenuAtaInstalacaoComissaoActionPerformed"/>
                       </Events>
                     </MenuItem>
-<<<<<<< HEAD
                     <MenuItem class="javax.swing.JMenuItem" name="parecerFinal">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Parecer Final da Banca Examinadora"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="parecerFinalActionPerformed"/>
-=======
+                      </Events>
+                    </MenuItem>
                     <MenuItem class="javax.swing.JMenuItem" name="listaPresencaProvaEscrita">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Lista de Presen&#xe7;a na Prova de Defesa de Memorial de Trajet&#xf3;ria Acad&#xea;mica"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listaPresencaProvaEscritaActionPerformed"/>
->>>>>>> feature/7.2_CriarListaDePresencaNaProvaDeDefesaDoMemorialDeTrajetoriaAcademica
                       </Events>
                     </MenuItem>
                   </SubComponents>
@@ -257,6 +248,14 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemMenuReciboDevolucaoDocumentacaoActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="parecerFinaldaBanca">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Parecer Final da Banca Examindora"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="parecerFinaldaBancaActionPerformed"/>
                   </Events>
                 </MenuItem>
               </SubComponents>

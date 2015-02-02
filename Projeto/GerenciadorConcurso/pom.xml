@@ -48,7 +48,8 @@
             <artifactId>junit</artifactId>
             <version>4.10</version>
             <scope>test</scope>
-            <type>jar</type>
+            <type>jar</type>            <version>4.11</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <properties>
