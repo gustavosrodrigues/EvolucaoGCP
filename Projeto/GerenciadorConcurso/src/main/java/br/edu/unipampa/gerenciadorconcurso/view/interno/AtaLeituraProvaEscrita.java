@@ -17,7 +17,7 @@ import java.util.ArrayList;
  *
  * @author Miguel
  */
-public class AtaLeituraProvaEscrita extends javax.swing.JFrame {
+public class AtaLeituraProvaEscrita extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form AtaLeituraProvaEscrita

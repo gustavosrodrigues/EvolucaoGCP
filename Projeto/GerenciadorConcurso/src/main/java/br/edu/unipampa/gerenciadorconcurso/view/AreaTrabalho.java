@@ -2,6 +2,7 @@ package br.edu.unipampa.gerenciadorconcurso.view;
 
 import br.edu.unipampa.gerenciadorconcurso.dao.HibernateUtil;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.AtaComissao;
+import br.edu.unipampa.gerenciadorconcurso.view.interno.AtaLeituraProvaEscrita;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.AtaListaPresencaNovo;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.AtaRealizacaoProvaEscrita2;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.CadastroCandidato;
@@ -19,6 +20,7 @@ import br.edu.unipampa.gerenciadorconcurso.view.interno.RelPEAtaSessaoDivulgacao
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelPlanilhaCriteriosAvaliacaoProvaEscrita;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelProvaEscritaAtaJulgamento;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelReciboDevolucaoDocumentacaoProvaTitulo;
+import br.edu.unipampa.gerenciadorconcurso.view.interno.RelTermoDesistenciaProvaDidatica;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelTermoDesistenciaProvaEscrita;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.SelecaoConcurso;
 import java.beans.PropertyVetoException;
@@ -75,6 +77,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
         menuProvaEscritaRelatorios1 = new javax.swing.JMenu();
         menuProvaEscritaRelatoriosAtas1 = new javax.swing.JMenu();
         menuProvaEscritaRelatoriosAtasAtaJulgamento1 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
         ataRealizacaoProvaEscrita = new javax.swing.JMenuItem();
         menuProvaEscritaRelatoriosAtasAtaSessaoDivulgacaoResultado1 = new javax.swing.JMenuItem();
         itemMenuAtaInstalacaoComissao1 = new javax.swing.JMenuItem();
@@ -97,6 +100,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
         menuProvaDidaticaRelatoriosAtas = new javax.swing.JMenu();
         menuProvaDidaticaRelatoriosAtaSessaoRealizacao = new javax.swing.JMenuItem();
         menuProvaDidaticaRelatoriosAtaDivulgacaoResutlado = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -237,6 +241,14 @@ public class AreaTrabalho extends javax.swing.JFrame {
             }
         });
         menuProvaEscritaRelatoriosAtas1.add(menuProvaEscritaRelatoriosAtasAtaJulgamento1);
+
+        jMenuItem6.setText("Ata de Leitura da Prova Escrita");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        menuProvaEscritaRelatoriosAtas1.add(jMenuItem6);
 
         ataRealizacaoProvaEscrita.setText("Ata de Realização da Prova Escrita");
         ataRealizacaoProvaEscrita.addActionListener(new java.awt.event.ActionListener() {
@@ -382,6 +394,14 @@ public class AreaTrabalho extends javax.swing.JFrame {
         });
         menuProvaDidaticaRelatoriosAtas.add(menuProvaDidaticaRelatoriosAtaDivulgacaoResutlado);
 
+        jMenuItem5.setText("Termo de Desistência da Prova Didática");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        menuProvaDidaticaRelatoriosAtas.add(jMenuItem5);
+
         menuProvaDidaticaRelatorios.add(menuProvaDidaticaRelatoriosAtas);
 
         menuProvaDidatica.add(menuProvaDidaticaRelatorios);
@@ -519,6 +539,16 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private void parecerFinaldaBancaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parecerFinaldaBancaActionPerformed
         criarParecerFinalDaBancaExaminadora();
     }//GEN-LAST:event_parecerFinaldaBancaActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+        criarTermoDesistenciaProvaDidatica();
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+        criarAtaLeituraProvaEscrita();
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Inicio">
@@ -667,6 +697,17 @@ public class AreaTrabalho extends javax.swing.JFrame {
         ListaDePresencaProvaDefesaMemorialTrajetoriaAcademica lista = new ListaDePresencaProvaDefesaMemorialTrajetoriaAcademica();
         adicionarJanela(lista);
     }
+    
+    private void criarTermoDesistenciaProvaDidatica() {
+        RelTermoDesistenciaProvaDidatica desistirPE = new RelTermoDesistenciaProvaDidatica();
+        adicionarJanela(desistirPE);
+    }
+    
+    private void criarAtaLeituraProvaEscrita() {
+        AtaLeituraProvaEscrita ataLeitura = new AtaLeituraProvaEscrita();
+        adicionarJanela(ataLeitura);
+    }
+
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Variaveis">
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -694,6 +735,8 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JTree jTree1;
