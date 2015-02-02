@@ -8,6 +8,7 @@ import br.edu.unipampa.gerenciadorconcurso.model.Examinador;
 import br.edu.unipampa.gerenciadorconcurso.view.reports.GeradorRelatorios;
 import br.edu.unipampa.gerenciadorconcurso.view.reports.Parametro;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -92,7 +93,8 @@ public class ParecerFinalBancaExaminadora extends javax.swing.JInternalFrame {
         parametros.add(new Parametro("local", campoParecer.getText().toString()));
 
         if (campoParecer.getText().toString() == "") {
-            System.out.println("Preencher o campo com as observações finais!");
+            JOptionPane.showMessageDialog (null, "Preencher todos os campos!", "Erro", JOptionPane.ERROR_MESSAGE);
+        
         } else {
             GeradorRelatorios Gerador = new GeradorRelatorios();
             Gerador.gerar("Parecer Final da Banca Examinadora", parametros);

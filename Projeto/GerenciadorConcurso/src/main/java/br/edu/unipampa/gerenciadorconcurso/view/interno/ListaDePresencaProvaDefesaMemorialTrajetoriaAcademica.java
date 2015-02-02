@@ -8,6 +8,7 @@ import br.edu.unipampa.gerenciadorconcurso.model.Examinador;
 import br.edu.unipampa.gerenciadorconcurso.view.reports.GeradorRelatorios;
 import br.edu.unipampa.gerenciadorconcurso.view.reports.Parametro;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -40,7 +41,7 @@ public class ListaDePresencaProvaDefesaMemorialTrajetoriaAcademica extends javax
         jTextField3 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jInternalFrame1.setVisible(true);
 
@@ -49,12 +50,6 @@ public class ListaDePresencaProvaDefesaMemorialTrajetoriaAcademica extends javax
         jLabel2.setText("Local");
 
         jLabel3.setText("Observações");
-
-        jTextField1.setText("jTextField1");
-
-        jTextField2.setText("jTextField2");
-
-        jTextField3.setText("jTextField3");
 
         jButton1.setText("Gerar Lista de Presença");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -101,7 +96,7 @@ public class ListaDePresencaProvaDefesaMemorialTrajetoriaAcademica extends javax
                 .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -128,7 +123,7 @@ public class ListaDePresencaProvaDefesaMemorialTrajetoriaAcademica extends javax
         parametros.add(new Parametro("Obserções", campoObservacoes.getText().toString()));
         
         if(campoData.getText().toString() == "" || campoLocal.getText().toString() == "" || campoObservacoes.getText().toString() == ""){
-            System.out.println("Preencher todos os campos!");
+            JOptionPane.showMessageDialog (null, "Preencher todos os campos!", "Erro", JOptionPane.ERROR_MESSAGE);
         } else {
             GeradorRelatorios Gerador = new GeradorRelatorios();
             Gerador.gerar("Ata de Realização da Prova Escrita", parametros);

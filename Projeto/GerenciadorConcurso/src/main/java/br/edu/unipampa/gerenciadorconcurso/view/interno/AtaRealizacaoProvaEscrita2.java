@@ -112,7 +112,8 @@ public class AtaRealizacaoProvaEscrita2 extends javax.swing.JInternalFrame {
         parametros.add(new Parametro("Obserções", campoObservacoes.getText().toString()));
         
         if(campoData.getText().toString() == "" || campoLocal.getText().toString() == "" || campoObservacoes.getText().toString() == ""){
-            System.out.println("Preencher todos os campos!");
+            JOptionPane.showMessageDialog (null, "Preencher todos os campos!", "Erro", JOptionPane.ERROR_MESSAGE);
+      
         } else {
             GeradorRelatorios Gerador = new GeradorRelatorios();
             Gerador.gerar("Ata de Realização da Prova Escrita", parametros);
