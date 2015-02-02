@@ -8,6 +8,7 @@ import br.edu.unipampa.gerenciadorconcurso.view.interno.CadastroCandidato;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.DefinirCronograma;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.CadastroExaminador;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.DefinirPesoProvasConcurso;
+import br.edu.unipampa.gerenciadorconcurso.view.interno.ListaDePresencaProvaDefesaMemorialTrajetoriaAcademica;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.ParecerFinalBancaExaminadora;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.ReciboDocumentacaoPorCandidato;
 import br.edu.unipampa.gerenciadorconcurso.view.interno.RelAtaJulgamentoProvaTitulo;
@@ -658,8 +659,13 @@ public class AreaTrabalho extends javax.swing.JFrame {
     }
     
     private void criarAtaRealizacaoProvaEscrita() {
-        AtaRealizacaoProvaEscrita2 ata = new AtaRealizacaoProvaEscrita2();
-        adicionarJanela(ata);
+        AtaRealizacaoProvaEscrita2 ataR = new AtaRealizacaoProvaEscrita2();
+        adicionarJanela(ataR);
+    }
+    
+    private void criarListaDePresencaDaProvaDeDefesaDoMemorialDeTrajetoriaAcademica(){
+        ListaDePresencaProvaDefesaMemorialTrajetoriaAcademica lista = new ListaDePresencaProvaDefesaMemorialTrajetoriaAcademica();
+        adicionarJanela(lista);
     }
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Variaveis">
