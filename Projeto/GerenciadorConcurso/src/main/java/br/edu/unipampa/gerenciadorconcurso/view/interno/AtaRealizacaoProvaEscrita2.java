@@ -101,9 +101,22 @@ public class AtaRealizacaoProvaEscrita2 extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    private javax.swing.JTextField campoData, campoLocal, campoObservacoes;
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Examinador E = new Examinador();
+        E.criarAtaDeRealizacaoProvaEscrita(campoData.getText().toString(), campoLocal.getText().toString(), campoObservacoes.getText().toString());
+        ArrayList<Parametro> parametros = new ArrayList<Parametro>();
+        parametros.add(new Parametro("Data", campoData.getText().toString()));
+        parametros.add(new Parametro("Local", campoLocal.getText().toString()));
+        parametros.add(new Parametro("Obserções", campoObservacoes.getText().toString()));
         
+        if(campoData.getText().toString() == "" || campoLocal.getText().toString() == "" || campoObservacoes.getText().toString() == ""){
+            System.out.println("Preencher todos os campos!");
+        } else {
+            GeradorRelatorios Gerador = new GeradorRelatorios();
+            Gerador.gerar("Ata de Realização da Prova Escrita", parametros);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

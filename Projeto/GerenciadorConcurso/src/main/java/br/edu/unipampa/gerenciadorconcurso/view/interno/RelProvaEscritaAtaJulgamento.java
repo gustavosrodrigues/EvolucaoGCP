@@ -111,6 +111,11 @@ public class RelProvaEscritaAtaJulgamento extends javax.swing.JInternalFrame {
         txtAlertLocal.setToolTipText("Campo nome é obrigatorio.");
 
         campoLocal.setToolTipText("");
+        campoLocal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoLocalActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -177,7 +182,7 @@ public class RelProvaEscritaAtaJulgamento extends javax.swing.JInternalFrame {
                     .addComponent(textNascimento3)
                     .addComponent(txtAlertLocal)
                     .addComponent(campoLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
 
         txtAlertData.setVisible(false);
@@ -232,6 +237,10 @@ public class RelProvaEscritaAtaJulgamento extends javax.swing.JInternalFrame {
 
         }
     }//GEN-LAST:event_btNovoActionPerformed
+
+    private void campoLocalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoLocalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoLocalActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

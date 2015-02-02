@@ -90,6 +90,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
         jMenu7 = new javax.swing.JMenu();
         itemMenuAtaJulgamentoProvaTitulo = new javax.swing.JMenuItem();
         itemMenuReciboDevolucaoDocumentacao = new javax.swing.JMenuItem();
+        parecerFinaldaBanca = new javax.swing.JMenuItem();
         menuProvaDidatica = new javax.swing.JMenu();
         menuProvaDidaticaRelatorios = new javax.swing.JMenu();
         menuProvaDidaticaRelatoriosAtas = new javax.swing.JMenu();
@@ -267,6 +268,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
             }
         });
         menuProvaEscritaRelatoriosAtas1.add(parecerFinal);
+
         listaPresencaProvaEscrita.setText("Lista de Presença na Prova de Defesa de Memorial de Trajetória Acadêmica");
         listaPresencaProvaEscrita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -344,6 +346,14 @@ public class AreaTrabalho extends javax.swing.JFrame {
             }
         });
         jMenu5.add(itemMenuReciboDevolucaoDocumentacao);
+
+        parecerFinaldaBanca.setText("Parecer Final da Banca Examindora");
+        parecerFinaldaBanca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                parecerFinaldaBancaActionPerformed(evt);
+            }
+        });
+        jMenu5.add(parecerFinaldaBanca);
 
         jMenu4.add(jMenu5);
 
@@ -494,7 +504,7 @@ public class AreaTrabalho extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void ataRealizacaoProvaEscritaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ataRealizacaoProvaEscritaActionPerformed
-        //criarAtaRealizacaoProvaEscrita();
+        criarAtaRealizacaoProvaEscrita();
     }//GEN-LAST:event_ataRealizacaoProvaEscritaActionPerformed
 
     private void parecerFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parecerFinalActionPerformed
@@ -504,6 +514,10 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private void listaPresencaProvaEscritaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaPresencaProvaEscritaActionPerformed
         //criarListaPresencaProvaDeDefesaMemorialTrajetoriaAcademica();
     }//GEN-LAST:event_listaPresencaProvaEscritaActionPerformed
+
+    private void parecerFinaldaBancaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parecerFinaldaBancaActionPerformed
+        criarParecerFinalDaBancaExaminadora();
+    }//GEN-LAST:event_parecerFinaldaBancaActionPerformed
 
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Inicio">
@@ -642,6 +656,11 @@ public class AreaTrabalho extends javax.swing.JFrame {
         ParecerFinalBancaExaminadora parecerFinal = new ParecerFinalBancaExaminadora();
         adicionarJanela(parecerFinal);
     }
+    
+    private void criarAtaRealizacaoProvaEscrita() {
+        AtaRealizacaoProvaEscrita2 ata = new AtaRealizacaoProvaEscrita2();
+        adicionarJanela(ata);
+    }
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Variaveis">
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -668,28 +687,25 @@ public class AreaTrabalho extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JTree jTree1;
     private javax.swing.JMenuItem listaPresencaProvaEscrita;
     private javax.swing.JMenu menuAbrirConcurso;
-
+    private javax.swing.JMenuItem menuAtaLista;
     private javax.swing.JMenu menuProvaDidatica;
     private javax.swing.JMenu menuProvaDidaticaRelatorios;
     private javax.swing.JMenuItem menuProvaDidaticaRelatoriosAtaDivulgacaoResutlado;
     private javax.swing.JMenuItem menuProvaDidaticaRelatoriosAtaSessaoRealizacao;
     private javax.swing.JMenu menuProvaDidaticaRelatoriosAtas;
-
-    private javax.swing.JMenuItem menuAtaLista;
-
     private javax.swing.JMenu menuProvaEscrita1;
     private javax.swing.JMenu menuProvaEscritaRelatorios1;
     private javax.swing.JMenu menuProvaEscritaRelatoriosAtas1;
     private javax.swing.JMenuItem menuProvaEscritaRelatoriosAtasAtaJulgamento1;
     private javax.swing.JMenuItem menuProvaEscritaRelatoriosAtasAtaSessaoDivulgacaoResultado1;
     private javax.swing.JMenuItem parecerFinal;
+    private javax.swing.JMenuItem parecerFinaldaBanca;
     private javax.swing.JMenuItem reciboDocumentacaoPorCandidato;
     private javax.swing.JMenuItem reciboDocumentacaoPorCandidato1;
     // End of variables declaration//GEN-END:variables
