@@ -1,6 +1,5 @@
 package br.edu.unipampa.gerenciadorconcurso.view.interno;
 
-import static br.edu.unipampa.gerenciadorconcurso.model.Registrocronograma_.data;
 import br.edu.unipampa.gerenciadorconcurso.validator.Campos;
 import br.edu.unipampa.gerenciadorconcurso.validator.FormattedFieldFormat;
 import br.edu.unipampa.gerenciadorconcurso.view.reports.GeradorRelatorios;

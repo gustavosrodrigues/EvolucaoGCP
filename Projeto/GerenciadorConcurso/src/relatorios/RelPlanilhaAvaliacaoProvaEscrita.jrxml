@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a83bc037-dff5-4cff-8f40-ac4282e76d6d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="candidato" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="examinador" class="java.lang.String"/>
+	<parameter name="logo" class="java.lang.String"/>
+	<parameter name="concurso" class="java.lang.String"/>
+	<parameter name="dataRelatorio" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     candidato.`codigo` AS candidato_codigo,
+     candidato.`dataNacimento` AS candidato_dataNacimento,
+     candidato.`pessoa` AS candidato_pessoa,
+     candidato.`concurso` AS candidato_concurso,
+     candidato.`provaEscrita` AS candidato_provaEscrita,
+     candidato.`titulo` AS candidato_titulo,
+     candidato.`provaDidatica` AS candidato_provaDidatica,
+     candidato.`memorial` AS candidato_memorial,
+     candidato.`aprovado` AS candidato_aprovado,
+     candidato.`compareceuDidatica` AS candidato_compareceuDidatica,
+     pessoa.`codigo` AS pessoa_codigo,
+     pessoa.`nome` AS pessoa_nome,
+     pessoa.`sexo` AS pessoa_sexo,
+     configuracaoavaliacaoprova.`codigo` AS configuracaoavaliacaoprova_codigo,
+     configuracaoavaliacaoprova.`criterio` AS configuracaoavaliacaoprova_criterio,
+     configuracaoavaliacaoprova.`peso` AS configuracaoavaliacaoprova_peso,
+     configuracaoavaliacaoprovaescrita.`configuracaoAvaliacaoProva` AS configuracaoavaliacaoprovaescrita_configuracaoAvaliacaoProva,
+     configuracaoavaliacaoprovaescrita.`provaEscrita` AS configuracaoavaliacaoprovaescrita_provaEscrita,
+     escrita.`codigo` AS escrita_codigo,
+     escrita.`pontoSorteado` AS escrita_pontoSorteado,
+     escrita.`horaSorteio` AS escrita_horaSorteio,
+     escrita.`horaInicio` AS escrita_horaInicio,
+     escrita.`horaFinalizacao` AS escrita_horaFinalizacao,
+     escrita.`local` AS escrita_local,
+     escrita.`horaInicioJugamento` AS escrita_horaInicioJugamento,
+     escrita.`localJulgamento` AS escrita_localJulgamento,
+     escrita.`localDivulgacaoResultado` AS escrita_localDivulgacaoResultado,
+     escrita.`horaInicioResultado` AS escrita_horaInicioResultado,
+     escrita.`tema` AS escrita_tema,
+     concurso.`codigo` AS concurso_codigo,
+     concurso.`edital` AS concurso_edital,
+     concurso.`area` AS concurso_area,
+     concurso.`classe` AS concurso_classe,
+     concurso.`campus` AS concurso_campus,
+     concurso.`universidade` AS concurso_universidade,
+     concurso.`ministerio` AS concurso_ministerio,
+     concurso.`regras` AS concurso_regras,
+     concurso.`dataInicio` AS concurso_dataInicio,
+     concurso.`banca` AS concurso_banca
+FROM
+     `pessoa` pessoa INNER JOIN `candidato` candidato ON pessoa.`codigo` = candidato.`pessoa`
+     INNER JOIN `escrita` escrita ON candidato.`provaEscrita` = escrita.`codigo`
+     INNER JOIN `concurso` concurso ON candidato.`concurso` = concurso.`codigo`
+     INNER JOIN `configuracaoavaliacaoprovaescrita` configuracaoavaliacaoprovaescrita ON escrita.`codigo` = configuracaoavaliacaoprovaescrita.`provaEscrita`
+     INNER JOIN `configuracaoavaliacaoprova` configuracaoavaliacaoprova ON configuracaoavaliacaoprovaescrita.`configuracaoAvaliacaoProva` = configuracaoavaliacaoprova.`codigo`
+WHERE
+     candidato.codigo = $P{candidato}
+     and concurso.codigo = $P{concurso}]]>
+	</queryString>
+	<field name="candidato_codigo" class="java.lang.Integer"/>
+	<field name="candidato_dataNacimento" class="java.sql.Date"/>
+	<field name="candidato_pessoa" class="java.lang.Integer"/>
+	<field name="candidato_concurso" class="java.lang.Integer"/>
+	<field name="candidato_provaEscrita" class="java.lang.Integer"/>
+	<field name="candidato_titulo" class="java.lang.Integer"/>
+	<field name="candidato_provaDidatica" class="java.lang.Integer"/>
+	<field name="candidato_memorial" class="java.lang.Integer"/>
+	<field name="candidato_aprovado" class="java.lang.Boolean"/>
+	<field name="candidato_compareceuDidatica" class="java.lang.Boolean"/>
+	<field name="pessoa_codigo" class="java.lang.Integer"/>
+	<field name="pessoa_nome" class="java.lang.String"/>
+	<field name="pessoa_sexo" class="java.lang.Boolean"/>
+	<field name="configuracaoavaliacaoprova_codigo" class="java.lang.Integer"/>
+	<field name="configuracaoavaliacaoprova_criterio" class="java.lang.String"/>
+	<field name="configuracaoavaliacaoprova_peso" class="java.lang.Float"/>
+	<field name="configuracaoavaliacaoprovaescrita_configuracaoAvaliacaoProva" class="java.lang.Integer"/>
+	<field name="configuracaoavaliacaoprovaescrita_provaEscrita" class="java.lang.Integer"/>
+	<field name="escrita_codigo" class="java.lang.Integer"/>
+	<field name="escrita_pontoSorteado" class="java.lang.Integer"/>
+	<field name="escrita_horaSorteio" class="java.sql.Time"/>
+	<field name="escrita_horaInicio" class="java.sql.Time"/>
+	<field name="escrita_horaFinalizacao" class="java.sql.Time"/>
+	<field name="escrita_local" class="java.lang.String"/>
+	<field name="escrita_horaInicioJugamento" class="java.sql.Time"/>
+	<field name="escrita_localJulgamento" class="java.lang.String"/>
+	<field name="escrita_localDivulgacaoResultado" class="java.lang.String"/>
+	<field name="escrita_horaInicioResultado" class="java.sql.Time"/>
+	<field name="escrita_tema" class="java.lang.Integer"/>
+	<field name="concurso_codigo" class="java.lang.Integer"/>
+	<field name="concurso_edital" class="java.lang.String"/>
+	<field name="concurso_area" class="java.lang.String"/>
+	<field name="concurso_classe" class="java.lang.String"/>
+	<field name="concurso_campus" class="java.lang.String"/>
+	<field name="concurso_universidade" class="java.lang.String"/>
+	<field name="concurso_ministerio" class="java.lang.String"/>
+	<field name="concurso_regras" class="java.lang.String"/>
+	<field name="concurso_dataInicio" class="java.sql.Date"/>
+	<field name="concurso_banca" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="198" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="174" width="555" height="20" uuid="7961974e-972b-4e85-a312-cc71be9e65a4"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CRITÉRIOS DE AVALIAÇÃO DA PROVA ESCRITA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="206" y="95" width="349" height="13" uuid="0ddf5c03-67f0-42a0-8b4e-151a74faab0c"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["CAMPUS: "+$F{concurso_campus}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="206" y="67" width="349" height="14" uuid="0459e478-59de-4288-b595-4fc0e130cf0e"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["MINISTÉRIO: "+ $F{concurso_ministerio}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="206" y="81" width="349" height="14" uuid="b739529c-f7b5-4890-8d24-a86bc591e1e6"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["UNIVERSIDADE: "+$F{concurso_universidade}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="206" y="121" width="349" height="16" uuid="b57ceace-a49f-470a-9fbf-aadac140e129"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ÁREA: "+$F{concurso_area}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="206" y="108" width="349" height="13" uuid="85876426-f08d-44e9-baa3-3472c414a641"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["CONCURSO PÚBLICO: "+$F{concurso_classe}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement stretchType="RelativeToTallestObject" x="26" y="38" width="149" height="100" uuid="25b8600c-dfdc-4255-b9b3-6cdad4f60a82"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="421" y="0" width="134" height="38" uuid="a0bce4c1-4742-4231-9679-eb181295c32e"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Folha nº: ________
+Rubrica: ________
+Uso exclusivo Divisão de Concursos
+]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="55" splitType="Stretch">
+			<staticText>
+				<reportElement x="26" y="4" width="371" height="20" uuid="0816acc0-da05-4281-8fb0-385c07a6d5be"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Critério]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="397" y="4" width="59" height="20" uuid="f20c1193-4539-4f8e-8a2b-3cd8513a6f08"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Peso]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="8" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement x="26" y="0" width="371" height="20" uuid="a2446c5f-271c-4839-89af-efe5fa259e09"/>
+				<textFieldExpression><![CDATA[$F{configuracaoavaliacaoprova_criterio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="397" y="0" width="59" height="20" uuid="33333803-161b-4e68-88dc-f41ddcd6b4e9"/>
+				<textFieldExpression><![CDATA[$F{configuracaoavaliacaoprova_peso}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="37" splitType="Stretch">
+			<staticText>
+				<reportElement x="397" y="0" width="100" height="20" uuid="a51c5e57-2118-4f4b-8d2d-1a8be3a96932"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[__________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="338" y="0" width="59" height="20" uuid="28d7316a-786e-4d06-94a7-1aad9b9fd77b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

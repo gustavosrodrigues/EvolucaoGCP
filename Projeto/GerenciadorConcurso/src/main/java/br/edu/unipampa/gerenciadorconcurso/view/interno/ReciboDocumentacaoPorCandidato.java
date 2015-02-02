@@ -77,6 +77,11 @@ public class ReciboDocumentacaoPorCandidato extends javax.swing.JInternalFrame {
         txtAlertData.setToolTipText("Campo nome é obrigatorio.");
 
         campoData.setToolTipText("");
+        campoData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoDataActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -104,7 +109,7 @@ public class ReciboDocumentacaoPorCandidato extends javax.swing.JInternalFrame {
                     .addComponent(textNascimento)
                     .addComponent(txtAlertData)
                     .addComponent(campoData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addContainerGap(164, Short.MAX_VALUE))
         );
 
         txtAlertData.setVisible(false);
@@ -148,6 +153,10 @@ public class ReciboDocumentacaoPorCandidato extends javax.swing.JInternalFrame {
             campoMensagem.setText("Informe a data para gerar o relatório.");
         }
     }//GEN-LAST:event_btNovoActionPerformed
+
+    private void campoDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoDataActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoDataActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

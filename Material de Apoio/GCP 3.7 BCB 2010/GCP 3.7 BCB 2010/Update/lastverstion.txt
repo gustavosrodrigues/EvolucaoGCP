@@ -1,0 +1,13 @@
+; Arquivo de controle de atualizações do GCP
+
+[Principal]
+; Indica a versão release mais atualizada do GCP
+ultima_versao="3.7"
+; Número de arquivos para download
+nro_arquivos=3
+
+[Download]
+; Nomes dos arquivos para download
+arquivo1="GCPv3_6.exe"
+arquivo2="logo.fig"
+arquivo3="Manual de Utilização Rápida - GCP 3.6.pdf"

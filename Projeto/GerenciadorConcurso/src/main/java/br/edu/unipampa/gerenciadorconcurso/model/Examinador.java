@@ -41,12 +41,13 @@ public class Examinador implements Serializable {
     @Basic(optional = false)
     @Column(name = "categoria")
     private String categoria;
-    @JoinColumn(name = "pessoa", referencedColumnName = "codigo")
+    @JoinColumn(name = "pessoa", referencedColumnName = "codigo", insertable = true, updatable = true)
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
     private Pessoa pessoa;
     @JoinColumn(name = "concurso", referencedColumnName = "codigo")
     @ManyToOne(optional = false)
     private Concurso concurso;
+    private String local, data, observacoes;
 
     public Examinador() {
     }
@@ -59,7 +60,32 @@ public class Examinador implements Serializable {
         this.codigo = codigo;
         this.categoria = categoria;
     }
+    
+    /*
+     * 8.4 Criar Parecer Final da Banca Examinadora
+     */
+    public void criarParecerFinal(String parecerFinal){
+        String parecer = parecerFinal;
+    }    
+    
+    public void criarListaPresencaProvaDeDefesaMemorialTrajetoriaAcademica(String data, String local){
+        this.data = data;
+        this.local = local;
+    }
 
+    /*
+     * Criar lista de presença na prova de defesa do memorial de trajetória academica
+     */
+    public void criarListaPresencaDefesaMemorialTrajetoriaAcademica(String nomes){
+        String lista = nomes;
+    }
+    
+    public void criarAtaDeRealizacaoProvaEscrita(String data, String local, String observacoes){
+        this.data = data;
+        this.local = local;
+        this.observacoes = observacoes;
+    }
+    
     public int getCodigo() {
         return codigo;
     }

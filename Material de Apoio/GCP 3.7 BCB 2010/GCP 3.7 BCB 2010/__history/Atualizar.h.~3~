@@ -1,0 +1,36 @@
+//---------------------------------------------------------------------------
+
+#ifndef AtualizarH
+#define AtualizarH
+//---------------------------------------------------------------------------
+#include <Classes.hpp>
+#include <Controls.hpp>
+#include <StdCtrls.hpp>
+#include <Forms.hpp>
+#include "IdBaseComponent.hpp"
+#include "IdComponent.hpp"
+#include "IdHTTP.hpp"
+#include "IdTCPClient.hpp"
+#include "IdTCPConnection.hpp"
+#include <ComCtrls.hpp>
+//---------------------------------------------------------------------------
+class TFormAtualizar : public TForm
+{
+__published:	// IDE-managed Components
+	TIdHTTP *IdHTTP1;
+	TEdit *Edit1;
+	TButton *Button1;
+	TProgressBar *ProgressBar1;
+	void __fastcall Button1Click(TObject *Sender);
+	void __fastcall IdHTTP1WorkBegin(TObject *ASender, TWorkMode AWorkMode, __int64 AWorkCountMax);
+	void __fastcall IdHTTP1Work(TObject *ASender, TWorkMode AWorkMode, __int64 AWorkCount);
+
+
+private:	// User declarations
+public:		// User declarations
+	__fastcall TFormAtualizar(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TFormAtualizar *FormAtualizar;
+//---------------------------------------------------------------------------
+#endif
