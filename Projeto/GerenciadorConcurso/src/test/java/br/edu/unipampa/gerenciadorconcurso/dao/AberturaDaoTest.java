@@ -100,7 +100,7 @@ public class AberturaDaoTest {
         int codigo = 0;
         AberturaDao instance = new AberturaDao();
         DAO dao = new DAO();
-        Abertura expResult = (Abertura) dao.buscarObjeto(codigo, Abertura.class);;
+        Abertura expResult = (Abertura) dao.buscarObjeto(codigo, Abertura.class);
         Abertura result = instance.buscar(codigo);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
