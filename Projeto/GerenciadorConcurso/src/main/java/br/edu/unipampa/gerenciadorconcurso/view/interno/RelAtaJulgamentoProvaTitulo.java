@@ -91,6 +91,11 @@ public class RelAtaJulgamentoProvaTitulo extends javax.swing.JInternalFrame {
         textNascimento3.setText("Local");
 
         campoLocal.setToolTipText("");
+        campoLocal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoLocalActionPerformed(evt);
+            }
+        });
 
         txtAlertLocal.setBackground(new java.awt.Color(102, 0, 0));
         txtAlertLocal.setText("!!!!");
@@ -148,7 +153,7 @@ public class RelAtaJulgamentoProvaTitulo extends javax.swing.JInternalFrame {
                     .addComponent(textNascimento3)
                     .addComponent(txtAlertLocal)
                     .addComponent(campoLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addContainerGap(120, Short.MAX_VALUE))
         );
 
         txtAlertData.setVisible(false);
@@ -189,6 +194,10 @@ public class RelAtaJulgamentoProvaTitulo extends javax.swing.JInternalFrame {
 
         }
     }//GEN-LAST:event_btGerarActionPerformed
+
+    private void campoLocalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoLocalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoLocalActionPerformed
 
     //<editor-fold defaultstate="collapsed" desc="variaveis">
     // Variables declaration - do not modify//GEN-BEGIN:variables
